@@ -1,5 +1,4 @@
 # YouTube Realtime
-===========
 
 This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in realtime. The count used on this experiment is taken directly from the API and hence is garaunteed to be accurate.
 
@@ -12,14 +11,12 @@ You can directly bookmark the relevent page to directly jump to a specific user.
 Feel free to submit issues/pull request if you'd like to contribute. No javascript or theming libraries were used (except Odometer for smooth digit animations) and I prefer not to, please keep this in mind while submitting a pull request.
 
 # Todo
-===========
 
 1. Mobile View
 2. Embeds
 3. *Anything else?*
 
 # License
-===========
 
 YouTube Realtime Copyright (C) 2015 Akshat Mittal
 
