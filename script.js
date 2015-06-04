@@ -1,4 +1,4 @@
-var coolGuys = ['PewDiePie','Smosh','MarguesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','MileyCyrusVEVO']; // Sorry for the last one.
+var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','MileyCyrusVEVO']; // Sorry for the last one.
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 
 var getText = function (url, callback) {
