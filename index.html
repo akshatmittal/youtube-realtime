@@ -24,6 +24,14 @@
 	<meta property="fb:admins" content="100000581280466" />
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1473140929606808";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="cover">
 		<h1>YouTube Realtime</h1>
 		<h2>Subscriber Count</h2>
@@ -47,7 +55,10 @@
 		<small>The live count is updated every second, while count from youtube is updated every minute.</small>
 	</div>
 	<div id="main">
-		This is an open-source project under the GPL v3 License by Akshat Mittal.
+		This is an <a href="https://github.com/akshatmittal/youtube-realtime">open-source project</a> under the GPL v3 License by <a href="http://akshatmittal.github.io/">Akshat Mittal</a>.
+		<br><br>
+		<div class="fb-like" data-href="http://akshatmittal.github.io/youtube-realtime/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button_count" data-show-faces="false"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat%20htp%3A%2F%2Fakhatmittal.github.io%2Fyoutube-realtime%2F" data-size="medium">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</div>
 </body>
 </html>
