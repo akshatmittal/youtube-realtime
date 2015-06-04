@@ -68,3 +68,8 @@ h2.count_view {
 .count_view {
 	line-height: 16px;
 }
+a {
+	text-decoration: none;
+	color: #1e88e5;
+	border-bottom: 1px dotted;
+}
