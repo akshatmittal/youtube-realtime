@@ -6,7 +6,7 @@ The design follows Material Guidelines by Google, although could be mildly displ
 
 You can directly bookmark the relevent page to directly jump to a specific user.
 
-![YouTube Realtime Screenshot](http://i.imgur.com/KGIrDJu.jpg)
+![YouTube Realtime Screenshot](http://i.imgur.com/B317Q5e.png)
 
 Feel free to submit issues/pull request if you'd like to contribute. No javascript or theming libraries were used (except Odometer for smooth digit animations) and I prefer not to, please keep this in mind while submitting a pull request.
 
