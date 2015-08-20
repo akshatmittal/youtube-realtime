@@ -53,8 +53,18 @@ update.yt = function() {
 	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2Fuser%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22about-stats%22%5D%2F%2Fb'&format=json";
 	getText(url, function(e) {
 		e = JSON.parse(e);
-		var count_subs = e.query.results.b[0].split(decodeURIComponent("%C2%A0")).join("");
-		var count_view = e.query.results.b[1].split(decodeURIComponent("%C2%A0")).join("");
+		var count_subs = e.query.results.b[0];
+		var count_view = e.query.results.b[1];
+		if(count_subs.indexOf("%C2%A0") > -1) {
+			count_subs.split(decodeURIComponent("%C2%A0")).join("");
+			count_view.split(decodeURIComponent("%C2%A0")).join("");
+		} else if(count_subs.indexOf(".") > -1) {
+			count_subs.split(decodeURIComponent(".")).join("");
+			count_view.split(decodeURIComponent(".")).join("");
+		} else if(count_subs.indexOf(",") > -1) {
+			count_subs.split(decodeURIComponent(",")).join("");
+			count_view.split(decodeURIComponent(",")).join("");
+		}
 		if(!update.isYt) {
 			new Odometer({
 				el: document.querySelector(".count_yt"),
