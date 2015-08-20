@@ -55,15 +55,15 @@ update.yt = function() {
 		e = JSON.parse(e);
 		var count_subs = e.query.results.b[0];
 		var count_view = e.query.results.b[1];
-		if(count_subs.indexOf("%C2%A0") > -1) {
-			count_subs.split(decodeURIComponent("%C2%A0")).join("");
-			count_view.split(decodeURIComponent("%C2%A0")).join("");
-		} else if(count_subs.indexOf(".") > -1) {
-			count_subs.split(decodeURIComponent(".")).join("");
-			count_view.split(decodeURIComponent(".")).join("");
-		} else if(count_subs.indexOf(",") > -1) {
-			count_subs.split(decodeURIComponent(",")).join("");
-			count_view.split(decodeURIComponent(",")).join("");
+		if(count_subs.indexOf(decodeURIComponent("%C2%A0")) > -1) {
+			count_subs = count_subs.split(decodeURIComponent("%C2%A0")).join("");
+			count_view = count_view.split(decodeURIComponent("%C2%A0")).join("");
+		} else if(count_subs.indexOf(decodeURIComponent(".")) > -1) {
+			count_subs = count_subs.split(decodeURIComponent(".")).join("");
+			count_view = count_view.split(decodeURIComponent(".")).join("");
+		} else if(count_subs.indexOf(decodeURIComponent(",")) > -1) {
+			count_subs = count_subs.split(decodeURIComponent(",")).join("");
+			count_view = count_view.split(decodeURIComponent(",")).join("");
 		}
 		if(!update.isYt) {
 			new Odometer({
