@@ -44,7 +44,7 @@ update.live = function() {
 			update.isLive = 1;
 		} else {
 			document.querySelector(".count_live").innerText = sub_count;
-		}	
+		}
 	})
 
 }
@@ -95,6 +95,9 @@ update.reset = function(a) {
 	if(!a) return;
 	update.isNameSet = 0;
 	update.all();
+	ga('send', 'pageview', {
+  	'page': location.pathname + location.search + location.hash
+	});
 }
 function newUsername() {
 	var te = prompt("New username?", username);
@@ -129,7 +132,7 @@ window.onload = function() {
 		setInterval(update.yt, 60*1000);
 	}
 	document.querySelector("#username").onclick = newUsername;
-	
+
 	// Social!
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -144,5 +147,7 @@ window.onload = function() {
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-50190232-6', 'auto');
-	ga('send', 'pageview');
+	ga('send', 'pageview', {
+  	'page': location.pathname + location.search + location.hash
+	});
 }
