@@ -105,7 +105,7 @@ function newUsername() {
 		return;
 	if(te)
 		update.reset(te.trim());
-	this.innerText = "wait a sec..";
+	this.innerText = "..wait..";
 	history.pushState(null, null, "#!/" + username);
 }
 window.onpopstate = function() {
