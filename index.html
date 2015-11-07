@@ -35,24 +35,31 @@
 		<div class="notice">Since you did not land on this page via a selected YouTuber, I've selected a random one for you.<br></div>
 		<span id="username">Loading..</span>
 		<br>
-		<i><small>click to change username</small></i>
+		<i><small>&#9650; click to change username &#9650;</small></i>
 		<br><br>
 		Current realtime subscriber count:<br>
 		<h2 class="count_live">..wait..</h2><br>
-		..but YouTube shows:<br>
+		..while YouTube shows:<br>
 		<h2 class="count_yt">..wait..</h2><br>
 		with <b><span class="count_view">..wait..</span></b> total video views:
 		<br><br>
 		<div class="explain">This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in realtime. The count on this page is taken directly from the API and hence is guaranteed to be accurate.
 		<br><br>
-		You can see for yourself how inaccurate the count on YouTube is, never trust it! You can use this tool to link to any YouTube channel this way: <code>http://akshatmittal.github.io/youtube-realtime/#!/&lt;username&gt;</code> (easier: <code>youtuberealtime.ga/&lt;username&gt;</code>) or share the current URL for this YouTuber!<br><br>Btw, you can just bookmark the URL if you ever want to check the live count again!</div>
+		After clicking <a href="javascript:newUsername();" style="border-bottom:none">change username</a> above, you need to enter the username if you have a <span>/user/</span> link, or enter the channel ID if you have a <span>/channel/</span> type URL. Eg: If your channel link is <code>http://www.youtube.com/user/<b>SkyDoesMinecraft</b></code>, you just need to enter <i>SkyDoesMinecraft</i>. If you channel link is <code>http://www.youtube.com/channel/<b>UCKlhpmbHGxBE6uw9B_uLeqQ</b></code>, you just need to enter <i>UCKlhpmbHGxBE6uw9B_uLeqQ</i> when prompted after clicking the current username.
+		<br><br>
+		You can see for yourself how inaccurate the count on YouTube is, never trust it! You can use this tool to link to any YouTube channel using either one of the following URL schemes:
+		<ul>
+			<li><code>http://akshatmittal.github.io/youtube-realtime/#!/<b>&lt;username or channel ID&gt;</b></code></li>
+			<li><code>youtuberealtime.ga/<b>&lt;username or channel ID&gt;</b></code></li>
+		</ul>
+		Or you can just copy the current URL to share the count for this YouTuber! You can also bookmark this page if you ever want to check the live count again!</div>
 		<br>
 		<small>The live count is updated every second, while count from YouTube is updated every minute.</small>
 	</div>
 	<div id="main">
-		<div class="fb-like" data-href="http://akshatmittal.github.io/youtube-realtime/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button_count" data-show-faces="false"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat!" data-count="none" data-size="medium">Tweet</a>
+		<div class="fb-like" data-href="https://akshatmittal.github.io/youtube-realtime/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button" data-show-faces="false"></div> <div class="g-plusone" data-size="medium" data-annotation="none"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat!" data-count="none" data-size="medium">Tweet</a>
 		<br><br>
-		<small>This is an <a href="https://github.com/akshatmittal/youtube-realtime">open-source project</a> under the GPL v3 License by <a href="http://akshatmittal.github.io/">Akshat Mittal</a>.</small>
+		<small>&copy; <a href="http://akshatmittal.com/">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime">open-source project</a> under the GPL v3 License.</small>
 	</div>
 </body>
 </html>

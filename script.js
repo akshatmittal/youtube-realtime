@@ -1,4 +1,4 @@
-var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','MileyCyrusVEVO']; // Sorry for the last one.
+var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','Smosh', 'Machinima', 'SkyDoesMinecraft'];
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 
 var getText = function (url, callback) {
@@ -16,7 +16,8 @@ update.isNameSet = 0;
 update.name = function() {
 	if(this.isNameSet)
 		return;
-	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2Fuser%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22qualified-channel-title-text%22%5D%2F%2Fa'&format=json"
+	var channelType = (username.length>=24 && username.substr(0, 2).toUpperCase() == "UC")?"channel":"user";
+	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2F"+channelType+"%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22qualified-channel-title-text%22%5D%2F%2Fa'&format=json"
 	getText(url, function(e){
 		e = JSON.parse(e);
 		var name = e.query.results.a.content;
@@ -30,7 +31,8 @@ update.name = function() {
 update.isLive = 0;
 update.live = function() {
 	// Please don't use this API key in your projects.
-	var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="+username+"&fields=items/statistics/subscriberCount&key=AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8";
+	var reqType = (username.length>=24 && username.substr(0, 2).toUpperCase() == "UC")?"id":"forUsername";
+	var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&"+reqType+"="+username+"&fields=items/statistics/subscriberCount&key=AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8";
 	getText(url, function(e) {
 		e = JSON.parse(e);
 		var sub_count = e.items[0].statistics.subscriberCount;
@@ -50,11 +52,18 @@ update.live = function() {
 }
 update.isYt = 0;
 update.yt = function() {
-	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2Fuser%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22about-stats%22%5D%2F%2Fb'&format=json";
+	var channelType = (username.length>=24 && username.substr(0, 2).toUpperCase() == "UC")?"channel":"user";
+	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2F"+channelType+"%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22about-stats%22%5D%2F%2Fb'&format=json";
 	getText(url, function(e) {
 		e = JSON.parse(e);
-		var count_subs = e.query.results.b[0];
-		var count_view = e.query.results.b[1];
+		var bT = e.query.results.b;
+		if(typeof(bT) == "object") {
+			var count_subs = bT[0];
+			var count_view = bT[1];
+		} else {
+			var count_subs = bT;
+			var count_view = 0;
+		}
 		if(count_subs.indexOf(decodeURIComponent("%C2%A0")) > -1) {
 			count_subs = count_subs.split(decodeURIComponent("%C2%A0")).join("");
 			count_view = count_view.split(decodeURIComponent("%C2%A0")).join("");
@@ -100,7 +109,7 @@ update.reset = function(a) {
 	});
 }
 function newUsername() {
-	var te = prompt("New username?", username);
+	var te = prompt("Enter new Username/Channel ID:", username);
 	if(te.trim() == username || te.trim() == "")
 		return;
 	if(te)
@@ -112,7 +121,7 @@ window.onpopstate = function() {
 	var te = location.hash.split("!/")[1];
 	if(te)
 		username = te.trim();
-	document.querySelector('#username').innerText = "wait a sec..";
+	document.querySelector('#username').innerText = "..wait..";
 	update.reset(username);
 }
 window.onload = function() {
@@ -142,6 +151,7 @@ window.onload = function() {
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://apis.google.com/js/platform.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","google-gjs");
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
