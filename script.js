@@ -1,7 +1,7 @@
 var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','Smosh', 'Machinima', 'SkyDoesMinecraft'];
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 
-var getText = function (url, callback) {
+var getText = function(url, callback) {
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function () {
 		if(request.readyState == 4 && request.status == 200) {
@@ -11,6 +11,14 @@ var getText = function (url, callback) {
 	request.open('GET', url);
 	request.send();
 }
+var changeText = function(elem, changeVal) {
+    if ('textContent' in elem) {
+        elem.textContent = changeVal;
+    } else {
+        elem.innerText = changeVal;
+    }
+}
+
 var update = {};
 update.isNameSet = 0;
 update.name = function() {
@@ -23,7 +31,7 @@ update.name = function() {
 		var name = e.query.results.a.content;
 		var u = document.querySelector("#username");
 		document.title = name + "'s YouTube Subscriber Count";
-		u.innerText = name;
+		changeText(u, name);
 		u.setAttribute("title", username);
 		update.isNameSet = 1;
 	});
@@ -45,7 +53,7 @@ update.live = function() {
 			});
 			update.isLive = 1;
 		} else {
-			document.querySelector(".count_live").innerText = sub_count;
+			changeText(document.querySelector(".count_live"), sub_count);
 		}
 	})
 
@@ -89,8 +97,8 @@ update.yt = function() {
 			});
 			update.isYt = 1;
 		} else {
-			document.querySelector(".count_yt").innerText = count_subs;
-			document.querySelector(".count_view").innerText = count_view;
+			changeText(document.querySelector(".count_yt"), count_subs);
+			changeText(document.querySelector(".count_view"), count_view);
 		}
 	});
 }
@@ -114,14 +122,14 @@ function newUsername() {
 		return;
 	if(te)
 		update.reset(te.trim());
-	this.innerText = "..wait..";
+	changeText(this, "..wait..");
 	history.pushState(null, null, "#!/" + username);
 }
 window.onpopstate = function() {
 	var te = location.hash.split("!/")[1];
 	if(te)
 		username = te.trim();
-	document.querySelector('#username').innerText = "..wait..";
+	changeText(document.querySelector('#username'), "..wait..");
 	update.reset(username);
 }
 window.onload = function() {
@@ -136,10 +144,8 @@ window.onload = function() {
 		}, 3000);
 	}
 	update.all();
-	if(location.hostname != "localhost") {
-		setInterval(update.live, 1*1000);
-		setInterval(update.yt, 60*1000);
-	}
+	setInterval(update.live, 1*1000);
+	setInterval(update.yt, 60*1000);
 	document.querySelector("#username").onclick = newUsername;
 
 	// Social!
