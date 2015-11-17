@@ -1,29 +1,31 @@
 <html>
 <head>
 	<title>Realtime YouTube Subscriber Count by Akshat Mittal</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> -->
-	<link rel="shortcut icon" type="image/png" href="icon.png"/>
-	<link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="odometer-theme.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="fragment" content="!">
+	<!-- <meta name="viewport" content="width=800px, initial-scale=1x, user-scalable=yes" /> -->
+	<link rel="shortcut icon" type="image/png" href="icon.png" />
+	<link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="odometer-theme.css" />
 	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="odometer.min.js"></script>
 	<!-- Social -->
-	<link rel="canonical" href="https://akshatmittal.github.io/youtube-realtime/" >
+	<link rel="canonical" href="https://akshatmittal.com/youtube-realtime/" >
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@itsreallyakshat">
-	<meta name="twitter:title" content="YouTube Realtime">
-	<meta name="twitter:description" content="Realtime subscriber count from YouTube">
+	<meta name="twitter:title" content="YouTube Realtime Subscriber Count">
+	<meta name="twitter:description" content="YouTube Realtime is the easiest way to view the realtime subscriber count for any YouTuber on the planet! Simply enter the channel name, or ID and you are good to go!">
 	<meta name="twitter:creator" content="@itsreallyakshat">
-	<meta name="twitter:image" content="http://akshatmittal.github.io/youtube-realtime/icon.png">
-	<meta property="og:title" content="YouTube Realtime" />
+	<meta name="twitter:image" content="https://akshatmittal.com/youtube-realtime/icon.png">
+	<meta property="og:title" content="YouTube Realtime Subscriber Count" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://akshatmittal.github.io/youtube-realtime/" />
-	<meta property="og:image" content="https://akshatmittal.github.io/youtube-realtime/icon.png" />
-	<meta property="og:description" content="Realtime subscriber count from YouTube" />
+	<meta property="og:url" content="https://akshatmittal.com/youtube-realtime/" />
+	<meta property="og:image" content="https://akshatmittal.com/youtube-realtime/icon.png" />
+	<meta property="og:description" content="YouTube Realtime is the easiest way to view the realtime subscriber count for any YouTuber on the planet! Simply enter the channel name, or ID and you are good to go!" />
 	<meta property="og:site_name" content="Akshat Mittal" />
 	<meta property="fb:admins" content="100000581280466" />
-	<meta property="article:author" content="http://www.facebook.com/itsreallyakshat"/>
+	<meta property="article:author" content="https://www.facebook.com/itsreallyakshat"/>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -32,34 +34,114 @@
 		<h2>Subscriber Count</h2>
 	</div>
 	<div id="main" class="top">
-		<div class="notice">Since you did not land on this page via a selected YouTuber, I've selected a random one for you.<br></div>
+		<div class="notice" id="deviceOrientation">You are recommended to switch your device to landscape orientation.<br></div>
 		<span id="username">Loading..</span>
 		<br>
-		<i><small>&#9650; click to change username &#9650;</small></i>
+		<i><small>&#9650; click to change user &#9650;</small></i>
 		<br><br>
-		Current realtime subscriber count:<br>
+		Current realtime subscriber count from YouTube:<br>
 		<h2 class="count_live">..wait..</h2><br>
-		..while YouTube shows:<br>
+		YouTube is still stuck at:
+		<br>
 		<h2 class="count_yt">..wait..</h2><br>
-		with <b><span class="count_view">..wait..</span></b> total video views:
-		<br><br>
-		<div class="explain">This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in realtime. The count on this page is taken directly from the API and hence is guaranteed to be accurate.
-		<br><br>
-		After clicking <a href="javascript:newUsername();" style="border-bottom:none">change username</a> above, you need to enter the username if you have a <span>/user/</span> link, or enter the channel ID if you have a <span>/channel/</span> type URL. Eg: If your channel link is <code>http://www.youtube.com/user/<b>SkyDoesMinecraft</b></code>, you just need to enter <i>SkyDoesMinecraft</i>. If you channel link is <code>http://www.youtube.com/channel/<b>UCKlhpmbHGxBE6uw9B_uLeqQ</b></code>, you just need to enter <i>UCKlhpmbHGxBE6uw9B_uLeqQ</i> when prompted after clicking the current username.
-		<br><br>
-		You can see for yourself how inaccurate the count on YouTube is, never trust it! You can use this tool to link to any YouTube channel using either one of the following URL schemes:
-		<ul>
-			<li><code>http://akshatmittal.github.io/youtube-realtime/#!/<b>&lt;username or channel ID&gt;</b></code></li>
-			<li><code>youtuberealtime.ga/<b>&lt;username or channel ID&gt;</b></code></li>
-		</ul>
-		Or you can just copy the current URL to share the count for this YouTuber! You can also bookmark this page if you ever want to check the live count again!</div>
+		subscribers with <h2 class="count_view normalize">..wait..</h2> total video views.<br>
+		<span class="milestones" id="milestoneBox">
+			<br>You are just <h2 class="milestone_away">..wait..</h2>	subscribers away from <h2 class="milestone_target">..wait..</h2>!
+		</span>
 		<br>
 		<small>The live count is updated every second, while count from YouTube is updated every minute.</small>
+		<br>
+		<section class="ac-container">
+			<div>
+				<input id="ac-1" name="accordion-1" type="radio" class="accordion"/>
+				<label for="ac-1">Settings</label>
+				<article class="ac-settings">
+					<div class="inner">
+						<div class="dark-theme setting">
+							<span>Dark Theme:</span>
+							<div class="onoffswitch">
+								<input type="checkbox" name="darkTheme" class="onoffswitch-checkbox" id="darkTheme" onchange="toggleDark()" />
+								<label class="onoffswitch-label" for="darkTheme">On</label>
+							</div>
+							<br><br>
+							<p>
+								Dark Theme eases the colors for continuous viewing in dark environments, but it's probably not the most beautiful thing you'll see today.
+							</p>
+						</div>
+						<div class="milestone setting">
+							<span>Milestones:</span>
+							<div class="onoffswitch">
+								<input type="checkbox" name="milestone" class="onoffswitch-checkbox" id="milestone" onchange="toggleMilestones()" />
+								<label class="onoffswitch-label" for="milestone">On</label>
+							</div>
+							<br><br>
+							<p>
+								Milestones automatically calculate the next milestone and tells you the required number of subscribers to hit that.
+							</p>
+						</div>
+					</div>
+				</article>
+			</div>
+			<div>
+				<input id="ac-2" name="accordion-1" type="radio" class="accordion" checked/>
+				<label for="ac-2">Help &amp; Instructions</label>
+				<article class="ac-help">
+					<div class="inner">
+						<p>This is a simple experiment which shows the current live subscriber count on YouTube for a channel or user. The count displayed on YouTube is often incorrect because it doesn't update in realtime. The count on this page is taken directly from the Google's Infrastructure and hence is as accurate as possible.</p>
+						<p>After clicking <a href="javascript:newUsername();" style="border-bottom:none">change username</a> above, you can enter the new channel name in any format. You can also input search terms for a channel, this will try to automatically correct spellings in most cases. This is as good as YouTube Search itself, because it uses the same engine to search for channels.
+						<br><br>
+						You can literally enter anything that YouTube supports. Examples:<br>
+						<ul>
+							<li>Channel Username (Example: <b>PewDiePie</b>)</li>
+							<li>Channel ID (Example: <b>UCKlhpmbHGxBE6uw9B_uLeqQ</b>)</li>
+							<li>Channel Name (Example: <b>Fine Brothers Entertainment</b>)</li>
+							<li>YouTube URL (Example: <b>youtube.com/mkbhd</b>)</li>
+							<li>Search Terms (Example: <b>One Direction</b>)</li>
+							<li>Self Discovery Channels (Example: <b>#Music</b>)</li>
+						</ul>
+					</p>
+					</div>
+				</article>
+			</div>
+			<div>
+				<input id="ac-3" name="accordion-1" type="radio"  class="accordion"/>
+				<label for="ac-3">Share!</label>
+				<article class="ac-share">
+					<div class="inner">
+						<p>
+							You can share the live subscriber counts for any channel on YouTube by sharing the following URL. You can also bookmark (Ctrl/Cmd + D) the current URL to come back anytime!<br><br>
+							<input type="text" name="url" value="..wait.." id="shareURL" onclick="this.select()" readonly></input>
+							<br><br>
+							<button type="button" id="shareBtn" class="facebook" onclick="update.share('fb');">Share on Facebook!</button><br>
+							<button type="button" id="shareBtn" class="twitter" onclick="update.share('twtr');">Share on Twitter!</button>
+						</p>
+					</div>
+				</article>
+			</div>
+			<div>
+				<input id="ac-4" name="accordion-1" type="radio"  class="accordion"/>
+				<label for="ac-4">Everything Else</label>
+				<article class="ac-else">
+					<div class="inner">
+						<p>
+							You can find more information about the project on <a href="https://github.com/akshatmittal/youtube-realtime/blob/gh-pages/README.md" target="_blank">GitHub</a> including license and contributors. You can get in touch with me over <a href="https://twitter.com/itsreallyakshat" target="_blank">Twitter</a> or <a href="mailto:ytlive@akshatmittal.com" target="_blank">email</a>, if you prefer. Do let me know if you have any feedback or ideas for this project!
+						</p>
+						<p>
+							I've been seeing a lot of copies of this project on the internet, please consider adding an attribution if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone, that'll save you from a lot of hassle. Thanks!
+						</p>
+						<!--
+							You can use the following HTML code for attribution:
+							<span>&copy; <a href="http://akshatmittal.com" target="_blank">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime" target="_blank">open-source project</a> originally appearing on <a href="https://akshatmittal.com/youtube-realtime/">GitHub</a>.</span>
+						 -->
+					</div>
+				</article>
+			</div>
+		</section>
 	</div>
 	<div id="main">
-		<div class="fb-like" data-href="https://akshatmittal.github.io/youtube-realtime/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button" data-show-faces="false"></div> <div class="g-plusone" data-size="medium" data-annotation="none"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat!" data-count="none" data-size="medium">Tweet</a>
+		<div class="fb-like" data-href="https://akshatmittal.com/youtube-realtime/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button" data-show-faces="false"></div> <div class="g-plusone" data-size="medium" data-annotation="none"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat!" data-count="none" data-size="medium">Tweet</a>
 		<br><br>
-		<small>&copy; <a href="http://akshatmittal.com/">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime">open-source project</a> under the GPL v3 License.</small>
+		<small>&copy; <a href="https://akshatmittal.com/" target="_blank">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime" target="_blank">open-source project</a> under the GPL v3 License.</small>
 	</div>
 </body>
 </html>

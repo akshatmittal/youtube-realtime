@@ -1,7 +1,17 @@
+html {
+	-webkit-transition: all 0.5s ease;
+		 -moz-transition: all 0.5s ease;
+		  -ms-transition: all 0.5s ease;
+		 	 -o-transition: all 0.5s ease;
+				  transition: all 0.5s ease;
+}
 body,h1,h2 {
 	padding: 0;
 	margin: 0;
 	font-family: Roboto, sans-serif;
+}
+button:focus, input:focus {
+  outline: none
 }
 #cover {
 	background: #1e88e5;
@@ -21,10 +31,10 @@ body,h1,h2 {
 	min-width: 300px;
 	max-width: 900px;
 	margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 0 20px -4px #000;
-    margin-bottom: 30px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px -4px #000;
+  margin-bottom: 30px;
 }
 #main.top {
 	margin-top: -120px;
@@ -34,7 +44,7 @@ h1 {
 	font-size: 44px;
 }
 h2 {
-	font-size: 36px;
+	font-size: 1.6em;
 }
 h2.count_live {
 	font-size: 8em;
@@ -42,8 +52,10 @@ h2.count_live {
 h2.count_yt {
 	font-size: 3em;
 }
-h2.count_view {
-	font-weight: bold;
+h2.normalize {
+	display: inline-block;
+	font-size: 1em;
+	line-height: 1em;
 }
 .explain {
 	text-align: justify;
@@ -57,19 +69,240 @@ h2.count_view {
 	opacity: 1;
 	color: green;
 	font-size: 14px;
-	-webkit-transition: visibility 1s linear, opacity 1s linear;
-	-moz-transition: visibility 1s linear, opacity 1s linear;
-	-o-transition: visibility 1s linear, opacity 1s linear;
-}
-.notice-hidden {
-	opacity: 0; 
-	visibility: hidden;
 }
 .count_view {
-	line-height: 16px;
+	line-height: 1em;
+	letter-spacing: 1px;
 }
 a {
 	text-decoration: none;
 	color: #1e88e5;
 	border-bottom: 1px dotted;
+}
+
+/*
+** Dark Theme
+*/
+
+html.dark {
+	color: white;
+}
+html.dark body {
+	background-color: #222;
+}
+html.dark #cover {
+	background-color: #0F4677;
+}
+html.dark #main {
+	background-color: #000;
+}
+html.dark .ac-container input:checked + label:not(.onoffswitch-label),
+html.dark .ac-container input:checked + label:not(.onoffswitch-label):hover{
+	background: #0F4677;
+}
+html.dark .ac-container label:not(.onoffswitch-label) {
+	color: #EEE;
+	background: #222;
+}
+html.dark input#shareURL {
+	background-color: #222;
+  color: #F5F5F5;
+}
+
+/*
+** Accordion - Thanks to Codrops
+*/
+.ac-container {
+	margin: 10px auto 30px auto;
+	text-align: left;
+	border: 1px solid #111;
+}
+.ac-container label:not(.onoffswitch-label) {
+	padding: 4px 12px;
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 30px;
+	cursor: pointer;
+	color: #222;
+	line-height: 32px;
+	font-size: 18px;
+	border: 1px solid #111;
+	background: #ffffff;
+}
+.ac-container label:not(.onoffswitch-label):hover{
+	background: #fff;
+}
+.ac-container input:checked + label:not(.onoffswitch-label), .ac-container input:checked + label:not(.onoffswitch-label):hover{
+	background: #1e88e5;
+	color: white;
+}
+.ac-container label:not(.onoffswitch-label):after, .ac-container input:not(.onoffswitch-label):checked + label:not(.onoffswitch-label):after{
+	content: '▲';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 13px;
+	top: 7px;
+}
+.ac-container input:not(.onoffswitch-label):checked + label:not(.onoffswitch-label):after{
+	content: '▼'
+}
+.ac-container input.accordion{
+	display: none;
+}
+.ac-container article{
+	overflow: hidden;
+	height: 0px;
+	position: relative;
+	z-index: 10;
+	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+		 -moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+		  -ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+			 -o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+					transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+}
+.ac-container article div.inner{
+	padding: 20px;
+}
+.ac-container input:checked ~ article{
+	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+		 -moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+		  -ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+			 -o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+			 		transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	border: 1px solid #111;
+}
+.ac-container input:checked ~ article.ac-settings{
+	height: 240px;
+}
+.ac-container input:checked ~ article.ac-help{
+	height: 380px;
+}
+.ac-container input:checked ~ article.ac-share{
+	height: 280px;
+}
+.ac-container input:checked ~ article.ac-else{
+	height: 180px;
+}
+
+
+/*
+** The Switch - Thanks to Proto
+*/
+.onoffswitch {
+    position: relative;
+		width: 80px;
+    -webkit-user-select:none;
+			 -moz-user-select:none;
+			 	-ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block;
+		overflow: hidden;
+		cursor: pointer;
+    height: 36px;
+		padding: 0;
+		line-height: 36px;
+    border: 2px solid #CCCCCC;
+		border-radius: 36px;
+    background-color: #FFFFFF;
+		-webkit-transition: background-color 0.3s ease-in;
+			 -moz-transition: background-color 0.3s ease-in;
+			  -ms-transition: background-color 0.3s ease-in;
+				 -o-transition: background-color 0.3s ease-in;
+				 		transition: background-color 0.3s ease-in;
+		padding-left: 10px;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block;
+		width: 36px;
+		margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+		top: 0;
+		bottom: 0;
+    right: 42px;
+    border: 2px solid #CCCCCC; border-radius: 36px;
+		-webkit-transition: all 0.3s ease-in 0s;
+			 -moz-transition: all 0.3s ease-in 0s;
+			  -ms-transition: all 0.3s ease-in 0s;
+				 -o-transition: all 0.3s ease-in 0s;
+				 		transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+}
+
+
+.setting span {
+	line-height: 40px;
+	font-size: 22px;
+	float: left;
+	margin-right: 10px;
+}
+.setting > div {
+	float: left;
+}
+
+/*
+** Sharing is caring!
+*/
+input#shareURL {
+  padding: 10px;
+	width: 100%;
+  border: none;
+  border-bottom: solid 1px #c9c9c9;
+	-webkit-transition: all 0.3s ease-in 0s;
+		 -moz-transition: all 0.3s ease-in 0s;
+			-ms-transition: all 0.3s ease-in 0s;
+			 -o-transition: all 0.3s ease-in 0s;
+					transition: all 0.3s ease-in 0s;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+button#shareBtn {
+  color: #fff;
+	width: 100%;
+	padding: 10px;
+  border: none;
+}
+button#shareBtn:hover {
+	box-shadow: 0 0 2px #000 inset;
+}
+button#shareBtn:active {
+	box-shadow: 0 0 6px #000 inset;
+}
+button#shareBtn.facebook {
+  background-color: #3b5998;
+}
+button#shareBtn.twitter {
+  background-color: #4099ff;
+}
+
+/*
+** Milestones
+*/
+span.milestones {
+	max-height: 0;
+	overflow: hidden;
+	display: block;
+	transition: max-height 1s ease;
+}
+span#milestoneBox * {
+  vertical-align: middle;
+}
+span#milestoneBox h2 {
+	display: inline-block;
 }
