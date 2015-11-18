@@ -1,6 +1,6 @@
 var baseURL = "https://akshatmittal.com/youtube-realtime/";
 if(window.top !== window.self) window.top.location.replace(window.self.location.href);
-if(location.hostname != "akshatmittal.com" && location.hostname != "localhost") location.replace(baseURL + location.hash);
+if(location.hostname.indexOf("akshatmittal.com") == -1 && location.hostname != "localhost") location.replace(baseURL + location.hash);
 if(location.protocol != "https:" && location.hostname != "localhost") location.protocol = "https:";
 
 var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','Smosh', 'Machinima', 'SkyDoesMinecraft'];
