@@ -1,12 +1,15 @@
 var baseURL = "https://akshatmittal.com/youtube-realtime/";
-if(window.top !== window.self) window.top.location.replace(window.self.location.href);
-if(location.hostname.indexOf("akshatmittal.com") == -1 && location.hostname != "localhost") location.replace(baseURL + location.hash);
-if(location.protocol != "https:" && location.hostname != "localhost") location.protocol = "https:";
+if(window.location.hostname != "localhost") {
+	if (window.location.protocol != "https:") window.location.replace("https:" + window.location.href.substring(window.location.protocol.length));
+	if(location.hostname.indexOf("akshatmittal.com") == -1) window.location.replace(baseURL + location.hash);
+	if(window.top !== window.self) window.top.location.replace(window.self.location.href);
+}
 
 var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','Smosh', 'Machinima', 'SkyDoesMinecraft'];
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 var rawInput = username;
 var keyIndex = 0;
+var darkTheme, immersive, milestone;
 
 var getText = function(url, callback) {
 	var request = new XMLHttpRequest();
@@ -18,22 +21,6 @@ var getText = function(url, callback) {
 	request.open('GET', url);
 	request.send();
 }
-var toggleDark = function() {
-	var html = document.body.parentElement;
-	if(html.className == "dark") {
-		html.className = "";
-	} else {
-		html.className = "dark";
-	}
-}
-var toggleMilestones = function() {
-	var el = document.getElementById('milestoneBox');
-	if(el.style.maxHeight == "5em") {
-		el.style.maxHeight = "0";
-	} else {
-		el.style.maxHeight = "5em";
-	}
-}
 var changeText = function(elem, changeVal) {
     if ('textContent' in elem) {
         elem.textContent = changeVal;
@@ -41,6 +28,77 @@ var changeText = function(elem, changeVal) {
         elem.innerText = changeVal;
     }
 }
+var hasClass = function(elem, className) {
+    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+}
+var addClass = function(elem, className) {
+    if (!hasClass(elem, className)) {
+        elem.className += ' ' + className;
+    }
+}
+var removeClass = function(elem, className) {
+    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+    if (hasClass(elem, className)) {
+        while (newClass.indexOf(' ' + className + ' ') >= 0) {
+            newClass = newClass.replace(' ' + className + ' ', ' ');
+        }
+        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+    }
+}
+
+var toggleDark = function() {
+	var html = document.body.parentElement;
+	if(hasClass(html, 'dark')) {
+		removeClass(html, 'dark');
+		darkTheme.checked = false;
+	} else {
+		addClass(html, 'dark');
+		darkTheme.checked = true;
+	}
+	localStorage.setItem("darkTheme", darkTheme.checked);
+	updateImmersiveExpand();
+}
+var toggleMilestones = function() {
+	var el = document.getElementById('milestoneBox');
+	if(el.style.maxHeight == "5em") {
+		el.style.maxHeight = "0";
+		milestone.checked = false;
+	} else {
+		el.style.maxHeight = "5em";
+		milestone.checked = true;
+	}
+	localStorage.setItem("milestone", milestone.checked);
+}
+var toggleImmersive = function() {
+	var html = document.body.parentElement;
+	if(hasClass(html, 'immersive')) {
+		removeClass(html, 'immersive');
+		immersive.checked = false;
+	} else {
+		addClass(html, 'immersive');
+		immersive.checked = true;
+	}
+	localStorage.setItem("immersive", immersive.checked);
+	updateImmersiveExpand();
+}
+var readStorage = function() {
+	if(localStorage.getItem("darkTheme") == 'true') toggleDark();
+	if(localStorage.getItem("milestone") == 'true') toggleMilestones();
+	if(localStorage.getItem("immersive") == 'true') toggleImmersive();
+}
+var updateImmersiveExpand = function() {
+	var el = document.getElementById('immersive-img');
+	var m = "expand";
+	var n = "light";
+	if(immersive.checked) {
+		m = "collapse";
+	}
+	if(darkTheme.checked) {
+		n = "dark";
+	}
+	el.src = "res/" + m + "-" + n + ".png";
+}
+
 var orientationCheck = function() {
 	if(window.innerWidth < window.innerHeight) { // Device is in Potrait mode
 		document.getElementById('deviceOrientation').style.visibility = "visible";
@@ -185,7 +243,7 @@ update.share = function(a) {
 	}
 }
 update.getKey = function() {
-	var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e9FBPoOCE1mbLvVUzUM"];
+	var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e9FBPoOCE1mbLvVUzUM", "AIzaSyDeLLOyrp1yCZCOmVXg3u8Jxtasre2NxFA"];
 	keyIndex = (keyIndex + 1)%(APIkeys.length);
 	return APIkeys[keyIndex];
 }
@@ -237,6 +295,12 @@ window.onload = function() {
 	update.all();
 	setInterval(update.live, 1*1000);
 	setInterval(update.yt, 60*1000);
+
+	darkTheme = document.getElementById('darkTheme');
+	milestone = document.getElementById('milestone');
+	immersive = document.getElementById('immersive');
+	readStorage();
+
 	document.querySelector("#username").onclick = newUsername;
 	window.onresize = orientationCheck;
 	orientationCheck();

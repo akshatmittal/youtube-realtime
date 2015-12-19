@@ -13,14 +13,20 @@ Feel free to submit issues/pull request if you'd like to contribute. No javascri
 I've been seeing a lot of copies of this project on the internet, please consider adding an attribution link if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone website. Thanks!
 
 # Screenshots
-![YouTube Realtime Screenshot](res/Example2.png)
-*YouTube Realtime showing a self discovery channel*
+![YouTube Realtime Screenshot](res/Example1.png)
+*YouTube Realtime showing YouTube Spotlight*
 
 ![YouTube Realtime Screenshot](res/ExampleDark.png)
 *YouTube Realtime with Dark Theme enabled*
 
 ![YouTube Realtime Screenshot](res/ExampleMilestone.png)
 *YouTube Realtime with Milestones enabled*
+
+![YouTube Realtime Screenshot](res/ExampleImmersive.png)
+*YouTube Realtime with Immersive Mode enabled*
+
+![YouTube Realtime Screenshot](res/ExampleImmersiveDark.png)
+*YouTube Realtime with Immersive Mode and Dark Theme enabled*
 
 # Features
 
@@ -32,7 +38,8 @@ I've been seeing a lot of copies of this project on the internet, please conside
 * Easy Sharing built in
 * Dark Theme
 * Milestones
-* Simple custom URls
+* Immersive Mode (beta)
+* Simple custom URLs
 
 # Try it yourself!
 

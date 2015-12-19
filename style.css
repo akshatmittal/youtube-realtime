@@ -1,10 +1,3 @@
-html {
-	-webkit-transition: all 0.5s ease;
-		 -moz-transition: all 0.5s ease;
-		  -ms-transition: all 0.5s ease;
-		 	 -o-transition: all 0.5s ease;
-				  transition: all 0.5s ease;
-}
 body,h1,h2 {
 	padding: 0;
 	margin: 0;
@@ -38,6 +31,7 @@ button:focus, input:focus {
 }
 #main.top {
 	margin-top: -120px;
+	transition: all 0.25s ease;
 }
 h1 {
 	padding-top: 20px;
@@ -94,11 +88,14 @@ html.dark #cover {
 	background-color: #0F4677;
 }
 html.dark #main {
-	background-color: #000;
+	background-color: #111;
 }
 html.dark .ac-container input:checked + label:not(.onoffswitch-label),
 html.dark .ac-container input:checked + label:not(.onoffswitch-label):hover{
 	background: #0F4677;
+}
+html.dark .ac-container article div.inner, html.dark .ac-container {
+	border-color: #333;
 }
 html.dark .ac-container label:not(.onoffswitch-label) {
 	color: #EEE;
@@ -110,10 +107,46 @@ html.dark input#shareURL {
 }
 
 /*
+** Immersive Mode
+*/
+html.immersive body{
+	overflow: hidden;
+}
+html.immersive div#main {
+  max-width: 100%;
+}
+html.immersive.dark div#main {
+	background-color: #222;
+}
+html.immersive div#main.top{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	padding: 20px;
+	margin: 0px -40px;
+	border-radius: 0px;
+}
+html.immersive .count_live {
+  font-size: 13em;
+}
+.im-img {
+	position: relative;
+}
+.im-img img {
+	width: 48px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/*
 ** Accordion - Thanks to Codrops
 */
 .ac-container {
-	margin: 10px auto 30px auto;
+	margin: 10px auto;
 	text-align: left;
 	border: 1px solid #111;
 }
@@ -174,7 +207,7 @@ html.dark input#shareURL {
 	border: 1px solid #111;
 }
 .ac-container input:checked ~ article.ac-settings{
-	height: 240px;
+	height: 380px;
 }
 .ac-container input:checked ~ article.ac-help{
 	height: 380px;
@@ -244,7 +277,6 @@ html.dark input#shareURL {
     right: 0px;
 }
 
-
 .setting span {
 	line-height: 40px;
 	font-size: 22px;
@@ -253,6 +285,14 @@ html.dark input#shareURL {
 }
 .setting > div {
 	float: left;
+}
+.isbeta {
+	margin: 5px;
+	background: #ECECEC;
+	padding: 7px;
+	line-height: 18px !important;
+	border-radius: 10px;
+	font-size: 12px !important;
 }
 
 /*

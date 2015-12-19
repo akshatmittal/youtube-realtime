@@ -3,7 +3,7 @@
 	<title>Realtime YouTube Subscriber Count by Akshat Mittal</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta name="fragment" content="!">
-	<!-- <meta name="viewport" content="width=800px, initial-scale=1x, user-scalable=yes" /> -->
+	<!-- <meta name="viewport" content="minimal-ui, width=800px, initial-scale=1x, user-scalable=yes" /> -->
 	<link rel="shortcut icon" type="image/png" href="icon.png" />
 	<link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" href="style.css" />
@@ -34,6 +34,9 @@
 		<h2>Subscriber Count</h2>
 	</div>
 	<div id="main" class="top">
+		<div class="im-img" onclick="toggleImmersive()">
+			<img src="res/expand-light.png" alt="Immpersive Mode" id="immersive-img" />
+		</div>
 		<div class="notice" id="deviceOrientation">You are recommended to switch your device to landscape orientation.<br></div>
 		<span id="username">Loading..</span>
 		<br>
@@ -51,12 +54,26 @@
 		<br>
 		<small>The live count is updated every second, while count from YouTube is updated every minute.</small>
 		<br>
+	</div>
+	<div class="" id="main">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- YouTube Realtime -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-3188055178160882"
+		     data-ad-slot="4767099859"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- This ad above funds the project for use and development. -->
 		<section class="ac-container">
 			<div>
 				<input id="ac-1" name="accordion-1" type="radio" class="accordion"/>
 				<label for="ac-1">Settings</label>
 				<article class="ac-settings">
 					<div class="inner">
+						These settings are saved in your browser and are retained even if you navigate away from this page and come back later.<br><br>
 						<div class="dark-theme setting">
 							<span>Dark Theme:</span>
 							<div class="onoffswitch">
@@ -77,6 +94,18 @@
 							<br><br>
 							<p>
 								Milestones automatically calculate the next milestone and tells you the required number of subscribers to hit that.
+							</p>
+						</div>
+						<div class="immersive setting">
+							<span>Immersive Mode:</span>
+							<div class="onoffswitch">
+								<input type="checkbox" name="immersive" class="onoffswitch-checkbox" id="immersive" onchange="toggleImmersive()" />
+								<label class="onoffswitch-label" for="immersive">On</label>
+							</div>
+							<span class='isbeta'>beta</span>
+							<br><br>
+							<p>
+								Immersive Mode lets you concentrate right on the counter when you are all set with everything else! Dark Theme recommended in dark environments.
 							</p>
 						</div>
 					</div>
@@ -129,10 +158,6 @@
 						<p>
 							I've been seeing a lot of copies of this project on the internet, please consider adding an attribution if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone, that'll save you from a lot of hassle. Thanks!
 						</p>
-						<!--
-							You can use the following HTML code for attribution:
-							<span>&copy; <a href="http://akshatmittal.com" target="_blank">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime" target="_blank">open-source project</a> originally appearing on <a href="https://akshatmittal.com/youtube-realtime/">GitHub</a>.</span>
-						 -->
 					</div>
 				</article>
 			</div>
@@ -141,7 +166,7 @@
 	<div id="main">
 		<div class="fb-like" data-href="https://akshatmittal.com/youtube-realtime/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div> <div class="fb-follow" data-href="https://www.facebook.com/itsreallyakshat" data-colorscheme="light" data-layout="button" data-show-faces="false"></div> <div class="g-plusone" data-size="medium" data-annotation="none"></div> <a href="https://twitter.com/itsreallyakshat" class="twitter-follow-button" data-show-count="false" data-size="medium">Follow @itsreallyakshat</a> <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=YouTube%20Realtime%20Subscriber%20Count%20by%20%40itsreallyakshat!" data-count="none" data-size="medium">Tweet</a>
 		<br><br>
-		<small>&copy; <a href="https://akshatmittal.com/" target="_blank">Akshat Mittal</a>. This is an <a href="https://github.com/akshatmittal/youtube-realtime" target="_blank">open-source project</a> under the GPL v3 License.</small>
+		<small>&copy; <a href="https://akshatmittal.com/" target="_blank">Akshat Mittal</a>. Reproduction without permission is strictly forbidden.</small>
 	</div>
 </body>
 </html>
