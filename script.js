@@ -5,7 +5,7 @@ if(window.location.hostname != "localhost") {
 	if(window.top !== window.self) window.top.location.replace(window.self.location.href);
 }
 
-var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','EminemVEVO','BuzzFeedVideo','Smosh', 'Machinima', 'SkyDoesMinecraft'];
+var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','TheFineBros','OneDirectionVEVO', 'Machinima', 'SkyDoesMinecraft'];
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 var rawInput = username;
 var keyIndex = 0;
@@ -70,12 +70,15 @@ var toggleMilestones = function() {
 	localStorage.setItem("milestone", milestone.checked);
 }
 var toggleImmersive = function() {
+	var el = document.getElementById('immersivexBox');
 	var html = document.body.parentElement;
 	if(hasClass(html, 'immersive')) {
 		removeClass(html, 'immersive');
+		el.style.maxHeight = "0";
 		immersive.checked = false;
 	} else {
 		addClass(html, 'immersive');
+		el.style.maxHeight = "1em";
 		immersive.checked = true;
 	}
 	localStorage.setItem("immersive", immersive.checked);
@@ -124,7 +127,7 @@ update.queryName = function() {
 	})
 }
 update.currentMilestone = function(subs) {
-	var targets = [10, 25, 50, 1E2, 5E2, 1E3, 2.5E3, 5E3, 1E4, 2.5E4, 5E4, 1E5, 2.5E5, 5E5, 1E6, 2E6, 3E6, 5E6, 10E6, 15E6, 20E6, 25E6, 30E6, 40E6, 50E6, 70E6, 1E8, 1.5E8, 2E8, 3E8];
+	var targets = [10, 25, 50, 1E2, 5E2, 1E3, 2.5E3, 5E3, 1E4, 2.5E4, 5E4, 1E5, 2.5E5, 5E5, 1E6, 2E6, 3E6, 4E6, 5E6, 6E6, 7E6, 10E6, 15E6, 20E6, 25E6, 30E6, 40E6, 50E6, 70E6, 1E8, 1.5E8, 2E8, 3E8];
 	var target = 0;
 	for(var i = 0;i<targets.length;i++) {
 		if(subs <= targets[i]) {
@@ -149,7 +152,6 @@ update.live = function() {
 				format: '(,ddd)',
 				theme: 'minimal'
 			});
-			//changeText(document.querySelector(".milestone_target"), m[0].toLocaleString("en-US"));
 			new Odometer({
 				el: document.querySelector(".milestone_target"),
 				value: m[0],
@@ -268,6 +270,7 @@ update.reset = function(a) {
 }
 function newUsername(a, b) {
 	var te = prompt(((typeof(b) == "string")?b:"") + "Enter new user:", (typeof(a) == "string")?a:username);
+	if(te == null) return;
 	if(te.trim() == username || te.trim() == "")
 		return;
 	if(te)
