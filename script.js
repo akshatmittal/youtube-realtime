@@ -6,16 +6,33 @@ if(window.location.hostname != "localhost") {
 }
 
 var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','TheFineBros','OneDirectionVEVO', 'Machinima', 'SkyDoesMinecraft'];
+var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e9FBPoOCE1mbLvVUzUM", "AIzaSyDeLLOyrp1yCZCOmVXg3u8Jxtasre2NxFA", "AIzaSyDFXBcpYskzYNTOZEgq133xXP5GUH4Ct3k", "AIzaSyBRnIik08vLUsSyJs_M_A7eMRgxaBMRpdU", "AIzaSyD_HMEbLyCOVPB53JBFRS5--58sAwhY2Ic", "AIzaSyA50UgQA00oM7ztJp97nWC7XM9nggeGP8g", "AIzaSyAwOwvwAGbUF2xTmsJY7Loyrg8qE-0syQE", "AIzaSyDxkDsPPEgePGoyZct62M0MdYDBRzuudKY", "AIzaSyA1v68XzPdA9rfrsPUFhgZ500_uWdf2A8I", "AIzaSyCb9zxTIuGGEBIJHLfj8lOb4k4U0jWstGg", "AIzaSyBgiHBx5C-rkWzY0w2c7SWUC-RHyRpLv7E", "AIzaSyDi5W8BNEZRYCkiuV-rSLWzlfDOIwEitjw", "AIzaSyAfdtlCGsypBhW1Fzs3zMmYcUDgkNBTDV8", "AIzaSyBraMJy98X7r9-jPRznAaT1g9cdAAFQyFE", "AIzaSyCg_tlHelOnRsDjfdv-3Kntb3GXaYEXzk4", "AIzaSyAI0sPgCpm_KjEL7u5hI3m0pin0mBZbnLs", "AIzaSyDqipNMKLaN_ZVbZ-_f40YFp_vUTmhqMxU", "AIzaSyCzF4_POQGk2U_0TiaGF0ZqDMHIsqGA7es", "AIzaSyCgCBendo5K3kPNEL9tO_TI4G8WAdp_hnM", "AIzaSyAhXueAQP-HfZdLtoY9Tlxqt9zzc7yTrTg", "AIzaSyBUnyRp5Ny6HKeRUx8nGGAuL6r8BlUsqIU", "AIzaSyBQI0zBPcDO3cZ8eC87SlxKaW7hNRa4C4M", "AIzaSyDTMVk7NSV8Q99zMhoIDboFcxdnaWPPOJw", "AIzaSyD6Uemb2sRhUROLLVDVs7e3NaOt-OQL9qg", "AIzaSyBVRPMx0qg7LfN_Npyw2dnB0xp_-94_0RQ", "AIzaSyC2iAZe084ALcwvBRN6hEZoxPJL0qBZA74", "AIzaSyDX5oy6l5rHCyphGqHFvgn9jAFg3xtXHE0", "AIzaSyAmkhGStJ5IZU-iy6ZitzFhjnv4nTQUH5E", "AIzaSyC5s4T8io7GZyHEngZBLQZeUeLjxNLGsV0", "AIzaSyBNCnqvTheMz1VHFP_r1MdAny-5P3LUPcs", "AIzaSyBIWb6M2iUewOO08FQftyvq48N8MluKKOo", "AIzaSyCnDPYzmv3gMqx4WYh4J6e5t5NzVoGH2gk"];
 var username = coolGuys[Math.floor(Math.random()*coolGuys.length)];
 var rawInput = username;
 var keyIndex = 0;
 var darkTheme, immersive, milestone;
 
+Array.prototype.shuffle = function() {
+  var i = this.length, j, temp;
+  if ( i == 0 ) return this;
+  while ( --i ) {
+     j = Math.floor( Math.random() * ( i + 1 ) );
+     temp = this[i];
+     this[i] = this[j];
+     this[j] = temp;
+  }
+  return this;
+}
+APIkeys.shuffle();
+
 var getText = function(url, callback) {
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function () {
-		if(request.readyState == 4 && request.status == 200) {
-			callback(request.responseText);
+		if(request.readyState == 4) {
+			if(request.status == 200) callback(request.responseText);
+			else {
+				callback("nex");
+			}
 		}
 	};
 	request.open('GET', url);
@@ -117,6 +134,10 @@ update.name = function(name) {
 }
 update.queryName = function() {
 	getText("https://www.googleapis.com/youtube/v3/search?part=snippet&q="+encodeURIComponent(rawInput)+"&type=channel&maxResults=1&key=" + update.getKey(), function(e){
+		if(e == "nex") {
+			update.queryName();
+			return;
+		}
 		e = JSON.parse(e);
 		if(e.pageInfo.totalResults < 1) {
 			newUsername("#Music", "Could not find any channel with that name. ");
@@ -142,6 +163,9 @@ update.live = function() {
 	var reqType = (username.length>=24 && username.substr(0, 2).toUpperCase() == "UC")?"id":"forUsername";
 	var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&"+reqType+"="+username+"&fields=items/statistics/subscriberCount&key=" + update.getKey();
 	getText(url, function(e) {
+		if(e == "nex") {
+			return; // pass it on
+		}
 		e = JSON.parse(e);
 		var sub_count = e.items[0].statistics.subscriberCount;
 		var m = update.currentMilestone(sub_count);
@@ -177,6 +201,9 @@ update.yt = function() {
 	var channelType = (username.length>=24 && username.substr(0, 2).toUpperCase() == "UC")?"channel":"user";
 	var url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20html%20where%20url%3D%22https%3A%2F%2Fwww.youtube.com%2F"+channelType+"%2F"+username+"%2Fabout%22%20%0AAND%20xpath%3D'%2F%2F*%5B%40class%3D%22about-stats%22%5D%2F%2Fb'&format=json";
 	getText(url, function(e) {
+		if(e == "nex") {
+			return; // pass it on
+		}
 		e = JSON.parse(e);
 		var bT = e.query.results.b;
 		if(typeof(bT) == "object") {
@@ -219,6 +246,10 @@ update.yt = function() {
 update.parseInput = function(a) {
 	rawInput = a;
 	getText("https://www.googleapis.com/youtube/v3/search?part=snippet&q="+encodeURIComponent(a)+"&type=channel&maxResults=1&key=" + update.getKey(), function(e){
+		if(e == "nex") {
+			update.parseInput(a);
+			return;
+		}
 		e = JSON.parse(e);
 		if(e.pageInfo.totalResults < 1) {
 			newUsername("#Music", "Could not find any channel with that name. ");
@@ -245,7 +276,6 @@ update.share = function(a) {
 	}
 }
 update.getKey = function() {
-	var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e9FBPoOCE1mbLvVUzUM", "AIzaSyDeLLOyrp1yCZCOmVXg3u8Jxtasre2NxFA"];
 	keyIndex = (keyIndex + 1)%(APIkeys.length);
 	return APIkeys[keyIndex];
 }
