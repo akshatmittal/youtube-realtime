@@ -264,7 +264,7 @@ update.parseInput = function(a) {
 update.share = function(a) {
 	var sharableLink = encodeURIComponent(document.getElementById('shareURL').value);
 	var facebook = "https://www.facebook.com/dialog/feed?app_id=1473140929606808&display=page&caption=Realtime%20Subscriber%20Count&link=" + sharableLink + "&redirect_uri=" + encodeURIComponent(baseURL + "close.html");
-	var twitter = "https://twitter.com/intent/tweet?original_referer=" + sharableLink + "&ref_src=twsrc%5Etfw&text="+encodeURIComponent(document.title)+"&tw_p=tweetbutton&via=itsreallyakshat&url=" + sharableLink;
+	var twitter = "https://twitter.com/intent/tweet?original_referer=" + sharableLink + "&ref_src=twsrc%5Etfw&text="+encodeURIComponent(document.title.slice(0, -7) + "@YouTube")+"&tw_p=tweetbutton&via=iakshatmittal&url=" + sharableLink;
 	switch (a) {
 		case 'twtr':
 			window.open(twitter);
