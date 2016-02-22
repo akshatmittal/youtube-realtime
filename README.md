@@ -6,26 +6,26 @@ The design follows Material Guidelines by Google, although could be mildly displ
 
 You can directly bookmark the relevant page to directly jump to a specific user. Sharing features are built right into the web app.
 
-![YouTube Realtime Screenshot](res/Example1.png)
+![YouTube Realtime Screenshot](example/Example1.png)
 
 Feel free to submit issues/pull request if you'd like to contribute. No javascript or theming libraries were used (except Odometer for smooth digit animations) and I prefer not to, please keep this in mind while submitting a pull request.
 
 I've been seeing a lot of copies of this project on the internet, please consider adding an attribution link if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone website. Thanks!
 
 # Screenshots
-![YouTube Realtime Screenshot](res/Example1.png)
+![YouTube Realtime Screenshot](example/Example1.png)
 *YouTube Realtime showing YouTube Spotlight*
 
-![YouTube Realtime Screenshot](res/ExampleDark.png)
+![YouTube Realtime Screenshot](example/ExampleDark.png)
 *YouTube Realtime with Dark Theme enabled*
 
-![YouTube Realtime Screenshot](res/ExampleMilestone.png)
+![YouTube Realtime Screenshot](example/ExampleMilestone.png)
 *YouTube Realtime with Milestones enabled*
 
-![YouTube Realtime Screenshot](res/ExampleImmersive.png)
+![YouTube Realtime Screenshot](example/ExampleImmersive.png)
 *YouTube Realtime with Immersive Mode enabled*
 
-![YouTube Realtime Screenshot](res/ExampleImmersiveDark.png)
+![YouTube Realtime Screenshot](example/ExampleImmersiveDark.png)
 *YouTube Realtime with Immersive Mode and Dark Theme enabled*
 
 # Features
