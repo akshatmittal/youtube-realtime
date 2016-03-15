@@ -1,0 +1,1 @@
+var isEmbed = 1;

@@ -8,24 +8,24 @@ You can directly bookmark the relevant page to directly jump to a specific user.
 
 ![YouTube Realtime Screenshot](res/Example1.png)
 
-Feel free to submit issues/pull request if you'd like to contribute. No javascript or theming libraries were used (except Odometer for smooth digit animations) and I prefer not to, please keep this in mind while submitting a pull request.
+Feel free to submit issues/pull request if you'd like to contribute. No Javascript or theming libraries were used (except Odometer for smooth digit animations) and I prefer not to, please keep this in mind while submitting a pull request.
 
 I've been seeing a lot of copies of this project on the internet, please consider adding an attribution link if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone website. Thanks!
 
 # Screenshots
-![YouTube Realtime Screenshot](res/Example1.png)
+![YouTube Realtime Screenshot](res/Example1.png)<br/>
 *YouTube Realtime showing YouTube Spotlight*
 
-![YouTube Realtime Screenshot](res/ExampleDark.png)
+![YouTube Realtime Screenshot](res/ExampleDark.png)<br/>
 *YouTube Realtime with Dark Theme enabled*
 
-![YouTube Realtime Screenshot](res/ExampleMilestone.png)
+![YouTube Realtime Screenshot](res/ExampleMilestone.png)<br/>
 *YouTube Realtime with Milestones enabled*
 
-![YouTube Realtime Screenshot](res/ExampleImmersive.png)
+![YouTube Realtime Screenshot](res/ExampleImmersive.png)<br/>
 *YouTube Realtime with Immersive Mode enabled*
 
-![YouTube Realtime Screenshot](res/ExampleImmersiveDark.png)
+![YouTube Realtime Screenshot](res/ExampleImmersiveDark.png)<br/>
 *YouTube Realtime with Immersive Mode and Dark Theme enabled*
 
 # Features
@@ -36,10 +36,18 @@ I've been seeing a lot of copies of this project on the internet, please conside
 * Shows data on YouTube directly on page
 * Shows total video views of the user
 * Easy Sharing built in
+* Embeds
 * Dark Theme
 * Milestones
 * Immersive Mode (beta)
 * Simple custom URLs
+
+# Embeds
+
+Embedding the counter on your website is a cool way to display the realtime count of your channel on your own website. The feature is built right into it, and is available on the website itself. You just need to copy the embed code and paste it as HTML code on your own website.
+
+![YouTube Realtime Embed - Google](res/Embed.png)<br/>
+*YouTube Realtime Embed*
 
 # Try it yourself!
 
@@ -51,7 +59,7 @@ I've been seeing a lot of copies of this project on the internet, please conside
 
 # License
 
-YouTube Realtime Copyright (C) 2015 [Akshat Mittal](https://akshatmittal.com/)
+YouTube Realtime Copyright (C) 2016 [Akshat Mittal](https://akshatmittal.com/)
 
 You are allowed to use, modify and redistribute the project as long as original credits are kept and changes are documented. You are not allowed to redistribute the project without attribution and credits or prior permission.
 

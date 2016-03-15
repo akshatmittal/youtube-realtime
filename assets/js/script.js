@@ -1,8 +1,10 @@
 var baseURL = "https://akshatmittal.com/youtube-realtime/";
+if(typeof isEmbed == 'undefined') isEmbed = 0;
 if(window.location.hostname != "localhost") {
 	if (window.location.protocol != "https:") window.location.replace("https:" + window.location.href.substring(window.location.protocol.length));
 	if(location.hostname.indexOf("akshatmittal.com") == -1) window.location.replace(baseURL + location.hash);
-	if(window.top !== window.self) window.top.location.replace(window.self.location.href);
+	if((window.top !== window.self) && isEmbed == 0) window.top.location.replace(window.self.location.href);
+	if((window.top == window.self) && isEmbed) window.top.location.replace(baseURL + location.hash);
 }
 
 var coolGuys = ['PewDiePie','Smosh','MarquesBrownlee','YouTube','TaylorSwiftVEVO','TheFineBros','OneDirectionVEVO', 'Machinima', 'SkyDoesMinecraft'];
@@ -116,10 +118,11 @@ var updateImmersiveExpand = function() {
 	if(darkTheme.checked) {
 		n = "dark";
 	}
-	el.src = "res/" + m + "-" + n + ".png";
+	el.src = "assets/images/" + m + "-" + n + ".png";
 }
 
 var orientationCheck = function() {
+	if(isEmbed) return;
 	if(window.innerWidth < window.innerHeight) { // Device is in Potrait mode
 		document.getElementById('deviceOrientation').style.visibility = "visible";
 	} else {
@@ -144,6 +147,9 @@ update.queryName = function() {
 			return;
 		}
 		var n = e.items[0].snippet.title;
+		if(isEmbed) {
+			document.getElementById("embedImage").src = e.items[0].snippet.thumbnails.default.url;
+		}
 		update.name(n);
 	})
 }
@@ -263,7 +269,7 @@ update.parseInput = function(a) {
 }
 update.share = function(a) {
 	var sharableLink = encodeURIComponent(document.getElementById('shareURL').value);
-	var facebook = "https://www.facebook.com/dialog/feed?app_id=1473140929606808&display=page&caption=Realtime%20Subscriber%20Count&link=" + sharableLink + "&redirect_uri=" + encodeURIComponent(baseURL + "close.html");
+	var facebook = "https://www.facebook.com/dialog/feed?app_id=1473140929606808&display=page&caption=Realtime%20Subscriber%20Count&link=" + sharableLink + "&redirect_uri=" + encodeURIComponent(baseURL + "assets/close.html");
 	var twitter = "https://twitter.com/intent/tweet?original_referer=" + sharableLink + "&ref_src=twsrc%5Etfw&text="+encodeURIComponent(document.title.slice(0, -7) + "@YouTube")+"&tw_p=tweetbutton&via=iakshatmittal&url=" + sharableLink;
 	switch (a) {
 		case 'twtr':
@@ -281,6 +287,7 @@ update.getKey = function() {
 }
 update.all = function() {
 	document.getElementById('shareURL').value = baseURL + "#!/" + username;
+	document.getElementById('embedCode').value = '<iframe height="80px" width="300px" frameborder="0" src="' + baseURL + "embed/#!/" + username+'" style="border: 0; width:300px; height:80px; background-color: #FFF;"></iframe>';
 	update.queryName();
 	update.live();
 	update.yt();
@@ -334,20 +341,22 @@ window.onload = function() {
 	immersive = document.getElementById('immersive');
 	readStorage();
 
-	document.querySelector("#username").onclick = newUsername;
+	if(!isEmbed) document.querySelector("#username").onclick = newUsername;
 	window.onresize = orientationCheck;
 	orientationCheck();
 
 	// Social!
-	(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1473140929606808";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://apis.google.com/js/platform.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","google-gjs");
+	if(!isEmbed) {
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1473140929606808";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://apis.google.com/js/platform.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","google-gjs");
+	}
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

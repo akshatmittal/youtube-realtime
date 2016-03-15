@@ -57,6 +57,7 @@ h2.normalize {
 #username {
 	border-bottom: 2px dotted;
 	font-size: 1.1em;
+	cursor: pointer;
 }
 .notice {
 	visibility: hidden;
@@ -235,6 +236,9 @@ span#immersivexBox h2 {
 .ac-container input:checked ~ article.ac-share{
 	height: 280px;
 }
+.ac-container input:checked ~ article.ac-embed{
+	height: 380px;
+}
 .ac-container input:checked ~ article.ac-else{
 	height: 200px;
 }
@@ -365,4 +369,61 @@ span#milestoneBox * {
 }
 span#milestoneBox h2 {
 	display: inline-block;
+}
+
+/*
+** Embeds
+*/
+html.embed body {
+	overflow: hidden;
+}
+#embedCode {
+	padding: 5px;
+	width: 100%;
+  border: none;
+	outline: none;
+  border-bottom: solid 1px #c9c9c9;
+	-webkit-transition: all 0.3s ease-in 0s;
+		 -moz-transition: all 0.3s ease-in 0s;
+			-ms-transition: all 0.3s ease-in 0s;
+			 -o-transition: all 0.3s ease-in 0s;
+					transition: all 0.3s ease-in 0s;
+	text-align: center;
+	font-size: 1em;
+	resize: none;
+}
+#embed {
+	width: 100%;
+	height: 100%;
+}
+.embedImage {
+	position: relative;
+	float: left;
+}
+.emSec {
+	padding: 3px 10px;
+	width: 200px;
+}
+.embedName {
+	height: 20px;
+	position: relative;
+	float: left;
+}
+.embedName #username {
+	font-size: 16px;
+}
+.embedCounter {
+	height: 48px;
+	position: relative;
+	float: left;
+}
+.embedCounter .count_live{
+	font-size: 38px;
+}
+.embedHide {
+	display: none;
+}
+.embedImg img {
+	display: block;
+	margin: 0 auto;
 }
