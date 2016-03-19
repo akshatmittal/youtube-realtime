@@ -261,7 +261,7 @@ update.parseInput = function(a) {
 			newUsername("#Music", "Could not find any channel with that name. ");
 			return;
 		}
-		var u = (e.items[0].snippet.channelTitle != undefined && e.items[0].snippet.channelTitle.trim() != "")?e.items[0].snippet.channelTitle:e.items[0].snippet.channelId;
+		var u = e.items[0].snippet.channelId;
 		var n = e.items[0].snippet.title;
 		update.reset(u);
 		update.name(n);
