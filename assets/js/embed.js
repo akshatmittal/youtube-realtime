@@ -1,1 +1,0 @@
-var isEmbed = 1;
