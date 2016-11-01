@@ -133,7 +133,7 @@ update.share = function(a) {
   var sharableLink = encodeURIComponent(document.getElementById('shareURL').value);
   var facebook = "https://www.facebook.com/dialog/feed?app_id=1473140929606808&display=page&caption=Realtime%20Subscriber%20Count&link=" + sharableLink + "&redirect_uri=" + encodeURIComponent(baseURL + "assets/close.html");
   var twitter = "https://twitter.com/intent/tweet?original_referer=" + sharableLink + "&ref_src=twsrc%5Etfw&text=" + encodeURIComponent(document.title.slice(0, -7) + "@YouTube") + "&tw_p=tweetbutton&via=iakshatmittal&url=" + sharableLink;
-  var youtube = "https://www.youtube.com/channel/" + username;
+  var youtube = "https://www.youtube.com/" + ((username.length >= 24 && username.substr(0, 2).toUpperCase() == "UC") ? "channel" : "user") + "/" + username;
   switch (a) {
     case 'twtr':
       window.open(twitter);
@@ -210,6 +210,8 @@ window.onload = function() {
       window.open(baseURL + "#!/" + username);
     }
   }
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
   (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function() {

@@ -150,8 +150,10 @@ a.link {
   font-weight: 400;
 }
 .yr-icon {
-  font-size: 85%;
-  vertical-align: bottom;
+  vertical-align: middle;
+}
+.odometer {
+  vertical-align: middle;
 }
 .splash-extra {
   margin-top: 16px;
@@ -182,6 +184,7 @@ a.link {
   padding: 18px 10px;
   margin: 0.5em 1em;
   color: white;
+  vertical-align: middle;
 }
 .sharing-button.facebook {
   background: #303f9f !important;
