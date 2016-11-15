@@ -13,6 +13,7 @@ var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e
 var username = coolGuys[Math.floor(Math.random() * coolGuys.length)];
 var rawInput = username;
 var keyIndex = 0;
+var darkTheme;
 
 Array.prototype.shuffle = function() {
   var i = this.length,
@@ -47,6 +48,39 @@ var changeText = function(elem, changeVal) {
   } else {
     elem.innerText = changeVal;
   }
+}
+var hasClass = function(elem, className) {
+    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+}
+var addClass = function(elem, className) {
+    if (!hasClass(elem, className)) {
+        elem.className += ' ' + className;
+    }
+}
+var removeClass = function(elem, className) {
+    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+    if (hasClass(elem, className)) {
+        while (newClass.indexOf(' ' + className + ' ') >= 0) {
+            newClass = newClass.replace(' ' + className + ' ', ' ');
+        }
+        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+    }
+}
+var readStorage = function() {
+	if(localStorage.getItem("darkTheme") == 'true') toggleDark();
+	if(localStorage.getItem("milestone") == 'true') toggleMilestones();
+	if(localStorage.getItem("immersive") == 'true') toggleImmersive();
+}
+var toggleDark = function() {
+	var html = document.body.parentElement;
+	if(hasClass(html, 'dark')) {
+		removeClass(html, 'dark');
+		darkTheme.checked = false;
+	} else {
+		addClass(html, 'dark');
+		darkTheme.checked = true;
+	}
+	localStorage.setItem("darkTheme", darkTheme.checked);
 }
 
 var update = {};
@@ -187,7 +221,7 @@ window.onpopstate = function() {
   if (te) {
     username = te.trim();
     rawInput = username;
-    changeText(document.querySelector('#username'), "..wait..");
+    changeText(document.querySelector('#name'), "..wait..");
     update.queryName();
   }
 }
@@ -204,6 +238,8 @@ window.onload = function() {
 
   if (!isEmbed) document.querySelector("#name").onclick = newUsername;
 
+  darkTheme = document.getElementById('darkTheme');
+	readStorage();
   // Social!
   if (isEmbed) {
     document.body.onclick = function() {

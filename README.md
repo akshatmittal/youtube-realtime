@@ -20,6 +20,7 @@ I've been seeing a lot of copies of this project on the internet, please conside
 
 * Realtime Subscriber Count
 * Aesthetically pleasing design and colors
+* Dark Theme for low lit environments
 * Easy channel selection
 * Displays the video count of the user
 * Shows total video views of the user
