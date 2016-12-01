@@ -241,11 +241,6 @@ window.onload = function() {
   darkTheme = document.getElementById('darkTheme');
 	readStorage();
   // Social!
-  if (isEmbed) {
-    document.body.onclick = function() {
-      window.open(baseURL + "#!/" + username);
-    }
-  }
   (adsbygoogle = window.adsbygoogle || []).push({});
   (adsbygoogle = window.adsbygoogle || []).push({});
   (function(i, s, o, g, r, a, m) {
