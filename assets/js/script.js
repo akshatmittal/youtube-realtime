@@ -1,4 +1,7 @@
 var baseURL = "https://akshatmittal.com/youtube-realtime/";
+var oldcount = 0;
+var oldvidcount =0;
+var audioOnOff = 0;
 if (typeof isEmbed == 'undefined') isEmbed = 0;
 if (window.location.hostname != "localhost" && 1) {
   if (window.location.protocol != "https:") window.location.replace("https:" + window.location.href.substring(window.location.protocol.length));
@@ -118,6 +121,36 @@ update.live = function() {
     var subscriberCount = e.items[0].statistics.subscriberCount;
     var videoCount = e.items[0].statistics.videoCount;
     var viewCount = e.items[0].statistics.viewCount;
+	
+	if (oldcount === 0){//if just loaded set count to current sub value
+		oldcount  = subscriberCount;
+	}
+	if (oldvidcount === 0){//if just loaded set count to current video value
+		oldvidcount = videoCount;
+	}
+	if (oldcount < subscriberCount){//play sound if new subscriber
+		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/bell.mp3');
+		if (audioOnOff === 1){//is audio switched on?
+			audio.play();	
+		}
+	}
+	if (oldcount > subscriberCount){//play sound if lost subscriber
+		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/wrong.wav');
+		if (audioOnOff === 1){//is audio switched on?
+			audio.play();	
+		}	
+	}
+	
+	if (oldvidcount < videoCount){ //play sound if a new video added
+		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/newvid.wav');
+		if (audioOnOff === 1){//is audio switched on?
+			audio.play();	
+		}
+	}
+		
+	oldcount  = subscriberCount; //set old counter to new value
+	oldvidcount =videoCount;//set old counter to new value
+	
     if (!update.isLive) {
       new Odometer({
         el: document.querySelector(".count_live"),
@@ -207,6 +240,8 @@ update.reset = function(a) {
 }
 
 function newUsername(a, b) {
+  oldcount = 0; //reset counts for new user (prevents sound due to changing user)
+  oldvidcount =0;//reset counts for new user (prevents sound due to changing user)
   var te = prompt(((typeof(b) == "string") ? b : "") + "Enter new user:", (typeof(a) == "string") ? a : username);
   if (te == null) return;
   if (te.trim() == username || te.trim() == "")
@@ -260,3 +295,16 @@ window.onload = function() {
     'title': document.title
   });
 }
+
+function audioToggle()
+{
+	if (audioOnOff === 1){
+		audioOnOff = 0;
+		document.getElementById('audioimg').src='assets/images/audio-off.png'
+	}else{
+		audioOnOff = 1;
+		document.getElementById('audioimg').src='assets/images/audio-on.png'
+	}
+  
+}
+	
