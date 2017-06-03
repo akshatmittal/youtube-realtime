@@ -28,6 +28,8 @@ I've been seeing a lot of copies of this project on the internet, please conside
 * Embeds
 * Immersive UI
 * Simple custom URLs
+* Audio prompts for new/lost subscribers
+* Audio prompt for new video
 
 # Embeds
 

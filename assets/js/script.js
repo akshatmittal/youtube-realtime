@@ -129,20 +129,20 @@ update.live = function() {
 		oldvidcount = videoCount;
 	}
 	if (oldcount < subscriberCount){//play sound if new subscriber
-		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/bell.mp3');
+		var audio = new Audio('assets/audio/bell.mp3');
 		if (audioOnOff === 1){//is audio switched on?
 			audio.play();	
 		}
 	}
 	if (oldcount > subscriberCount){//play sound if lost subscriber
-		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/wrong.wav');
+		var audio = new Audio('assets/audio/wrong.wav');
 		if (audioOnOff === 1){//is audio switched on?
 			audio.play();	
 		}	
 	}
 	
 	if (oldvidcount < videoCount){ //play sound if a new video added
-		var audio = new Audio('http://hypertora.com/livesubcounter/assets/audio/newvid.wav');
+		var audio = new Audio('assets/audio/newvid.wav');
 		if (audioOnOff === 1){//is audio switched on?
 			audio.play();	
 		}
