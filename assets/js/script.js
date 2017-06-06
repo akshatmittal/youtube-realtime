@@ -1,11 +1,9 @@
-var baseURL = "https://akshatmittal.com/youtube-realtime/";
-var oldcount = 0;
-var oldvidcount =0;
-var audioOnOff = 0;
+var baseURL = window.location.href; //gets base URL automatically from window
 if (typeof isEmbed == 'undefined') isEmbed = 0;
 if (window.location.hostname != "localhost" && 1) {
-  if (window.location.protocol != "https:") window.location.replace("https:" + window.location.href.substring(window.location.protocol.length));
-  if (location.hostname.indexOf("akshatmittal.com") == -1) window.location.replace(baseURL + location.hash);
+  //if (window.location.protocol != "http:") window.location.replace("http:" + window.location.href.substring(window.location.protocol.length)); //comment for https //uncomment for http
+  if (window.location.protocol != "https:") window.location.replace("https:" + window.location.href.substring(window.location.protocol.length)); //comment for http //uncomment for https
+  if (location.hostname.indexOf(window.location.hostname) == -1) window.location.replace(baseURL + location.hash); // get hostname from window
   if ((window.top !== window.self) && isEmbed == 0) window.top.location.replace(window.self.location.href);
   if ((window.top == window.self) && isEmbed) window.top.location.replace(baseURL + location.hash);
 }
@@ -15,8 +13,16 @@ var coolGuys = ['PewDiePie', 'iisuperwomanii', 'MarquesBrownlee', 'YouTube', 'Th
 var APIkeys = ["AIzaSyC0QYUSKEwHaRVz4NKpT1SLbkVMT1o5cM8", "AIzaSyBSyBp1KHjjXox6e9FBPoOCE1mbLvVUzUM", "AIzaSyDeLLOyrp1yCZCOmVXg3u8Jxtasre2NxFA", "AIzaSyDFXBcpYskzYNTOZEgq133xXP5GUH4Ct3k", "AIzaSyBRnIik08vLUsSyJs_M_A7eMRgxaBMRpdU", "AIzaSyD_HMEbLyCOVPB53JBFRS5--58sAwhY2Ic", "AIzaSyA50UgQA00oM7ztJp97nWC7XM9nggeGP8g", "AIzaSyAwOwvwAGbUF2xTmsJY7Loyrg8qE-0syQE", "AIzaSyDxkDsPPEgePGoyZct62M0MdYDBRzuudKY", "AIzaSyA1v68XzPdA9rfrsPUFhgZ500_uWdf2A8I", "AIzaSyCb9zxTIuGGEBIJHLfj8lOb4k4U0jWstGg", "AIzaSyBgiHBx5C-rkWzY0w2c7SWUC-RHyRpLv7E", "AIzaSyDi5W8BNEZRYCkiuV-rSLWzlfDOIwEitjw", "AIzaSyAfdtlCGsypBhW1Fzs3zMmYcUDgkNBTDV8", "AIzaSyBraMJy98X7r9-jPRznAaT1g9cdAAFQyFE", "AIzaSyCg_tlHelOnRsDjfdv-3Kntb3GXaYEXzk4", "AIzaSyAI0sPgCpm_KjEL7u5hI3m0pin0mBZbnLs", "AIzaSyDqipNMKLaN_ZVbZ-_f40YFp_vUTmhqMxU", "AIzaSyCzF4_POQGk2U_0TiaGF0ZqDMHIsqGA7es", "AIzaSyCgCBendo5K3kPNEL9tO_TI4G8WAdp_hnM", "AIzaSyAhXueAQP-HfZdLtoY9Tlxqt9zzc7yTrTg", "AIzaSyBUnyRp5Ny6HKeRUx8nGGAuL6r8BlUsqIU", "AIzaSyBQI0zBPcDO3cZ8eC87SlxKaW7hNRa4C4M", "AIzaSyDTMVk7NSV8Q99zMhoIDboFcxdnaWPPOJw", "AIzaSyD6Uemb2sRhUROLLVDVs7e3NaOt-OQL9qg", "AIzaSyBVRPMx0qg7LfN_Npyw2dnB0xp_-94_0RQ", "AIzaSyC2iAZe084ALcwvBRN6hEZoxPJL0qBZA74", "AIzaSyDX5oy6l5rHCyphGqHFvgn9jAFg3xtXHE0", "AIzaSyAmkhGStJ5IZU-iy6ZitzFhjnv4nTQUH5E", "AIzaSyC5s4T8io7GZyHEngZBLQZeUeLjxNLGsV0", "AIzaSyBNCnqvTheMz1VHFP_r1MdAny-5P3LUPcs", "AIzaSyBIWb6M2iUewOO08FQftyvq48N8MluKKOo", "AIzaSyCnDPYzmv3gMqx4WYh4J6e5t5NzVoGH2gk"];
 var username = coolGuys[Math.floor(Math.random() * coolGuys.length)];
 var rawInput = username;
+var saveName;
+var has_focus = true;
 var keyIndex = 0;
 var darkTheme;
+var audio;
+var title;
+
+var subscribers = 0;
+var noFocus = 0; //subsciber count while page not focused
+var videos =0;
 
 Array.prototype.shuffle = function() {
   var i = this.length,
@@ -71,6 +77,8 @@ var removeClass = function(elem, className) {
 }
 var readStorage = function() {
 	if(localStorage.getItem("darkTheme") == 'true') toggleDark();
+	if(localStorage.getItem("audio") == 'true') audio.checked=true;
+	if(localStorage.getItem("title") == 'true') title.checked=true;
 	if(localStorage.getItem("milestone") == 'true') toggleMilestones();
 	if(localStorage.getItem("immersive") == 'true') toggleImmersive();
 }
@@ -85,6 +93,15 @@ var toggleDark = function() {
 	}
 	localStorage.setItem("darkTheme", darkTheme.checked);
 }
+
+var toggleAudio = function(){
+	localStorage.setItem("audio", audio.checked);
+}
+
+var toggleTitle = function(){
+	localStorage.setItem("title", title.checked);
+}
+	
 
 var update = {};
 update.name = function(name) {
@@ -107,6 +124,7 @@ update.queryName = function() {
       document.getElementById("embedImage").src = e.items[0].snippet.thumbnails.default.url;
     }
     update.name(n);
+	saveName = n;
   })
 }
 update.isLive = 0;
@@ -122,34 +140,58 @@ update.live = function() {
     var videoCount = e.items[0].statistics.videoCount;
     var viewCount = e.items[0].statistics.viewCount;
 	
-	if (oldcount === 0){//if just loaded set count to current sub value
-		oldcount  = subscriberCount;
+	if (subscribers === 0){//if just loaded set count to current sub value
+		subscribers  = subscriberCount;
 	}
-	if (oldvidcount === 0){//if just loaded set count to current video value
-		oldvidcount = videoCount;
+	if (videos === 0){//if just loaded set count to current video value
+		videos = videoCount;
 	}
-	if (oldcount < subscriberCount){//play sound if new subscriber
-		var audio = new Audio('assets/audio/bell.mp3');
-		if (audioOnOff === 1){//is audio switched on?
-			audio.play();	
+	if (subscribers < subscriberCount){//play sound if new subscriber
+		var sound = new Audio('assets/audio/bell.mp3');
+		if (audio.checked === true){//is audio switched on?
+			sound.play();	
+		}
+		if (has_focus === false){
+			noFocus = noFocus + (subscriberCount - subscribers);
+		}else{
+			noFocus = 0;
 		}
 	}
-	if (oldcount > subscriberCount){//play sound if lost subscriber
-		var audio = new Audio('assets/audio/wrong.wav');
-		if (audioOnOff === 1){//is audio switched on?
-			audio.play();	
+	if (subscribers > subscriberCount){//play sound if lost subscriber
+		var sound = new Audio('assets/audio/wrong.wav');
+		if (audio.checked === true){//is audio switched on?
+			sound.play();	
 		}	
+		if (has_focus === false){
+			noFocus = noFocus - (subscribers - subscriberCount);
+		}else{
+			noFocus = 0;
+		}
 	}
 	
-	if (oldvidcount < videoCount){ //play sound if a new video added
-		var audio = new Audio('assets/audio/newvid.wav');
-		if (audioOnOff === 1){//is audio switched on?
-			audio.play();	
+	if (videos < videoCount){ //play sound if a new video added
+		var sound = new Audio('assets/audio/newvid.wav');
+		if (audio.checked === true){//is audio switched on?
+			sound.play();	
 		}
 	}
 		
-	oldcount  = subscriberCount; //set old counter to new value
-	oldvidcount =videoCount;//set old counter to new value
+	subscribers  = subscriberCount; //set old counter to new value
+	videos =videoCount;//set old counter to new value
+	
+	if (title.checked === true){ //if in title notification mode
+		if (has_focus === false){
+			if(noFocus>0){
+				document.title = "(+" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
+			}else if(noFocus<0){
+				document.title = "(-" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
+			}else{
+				document.title = "(" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
+			}
+		}else{
+			document.title = saveName + "'s Realtime Subscriber Count on YouTube";
+		}
+	}
 	
     if (!update.isLive) {
       new Odometer({
@@ -240,8 +282,8 @@ update.reset = function(a) {
 }
 
 function newUsername(a, b) {
-  oldcount = 0; //reset counts for new user (prevents sound due to changing user)
-  oldvidcount =0;//reset counts for new user (prevents sound due to changing user)
+  subscribers = 0; //reset counts for new user (prevents sound due to changing user)
+  videos =0;//reset counts for new user (prevents sound due to changing user)
   var te = prompt(((typeof(b) == "string") ? b : "") + "Enter new user:", (typeof(a) == "string") ? a : username);
   if (te == null) return;
   if (te.trim() == username || te.trim() == "")
@@ -274,6 +316,9 @@ window.onload = function() {
   if (!isEmbed) document.querySelector("#name").onclick = newUsername;
 
   darkTheme = document.getElementById('darkTheme');
+  audio = document.getElementById('audio');
+  title = document.getElementById('title');
+  
 	readStorage();
   // Social!
   (adsbygoogle = window.adsbygoogle || []).push({});
@@ -296,15 +341,15 @@ window.onload = function() {
   });
 }
 
-function audioToggle()
-{
-	if (audioOnOff === 1){
-		audioOnOff = 0;
-		document.getElementById('audioimg').src='assets/images/audio-off.png'
-	}else{
-		audioOnOff = 1;
-		document.getElementById('audioimg').src='assets/images/audio-on.png'
+window.onblur = function(){ 
+	if (title.checked === true){ 
+		has_focus=false;
+	}		
+}  
+window.onfocus = function(){  
+	if (title.checked === true){ 
+		has_focus=true;  
 	}
-  
 }
-	
+
+
