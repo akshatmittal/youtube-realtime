@@ -153,8 +153,6 @@ update.live = function() {
 		}
 		if (has_focus === false){
 			noFocus = noFocus + (subscriberCount - subscribers);
-		}else{
-			noFocus = 0;
 		}
 	}
 	if (subscribers > subscriberCount){//play sound if lost subscriber
@@ -164,8 +162,6 @@ update.live = function() {
 		}	
 		if (has_focus === false){
 			noFocus = noFocus - (subscribers - subscriberCount);
-		}else{
-			noFocus = 0;
 		}
 	}
 	
@@ -184,12 +180,13 @@ update.live = function() {
 			if(noFocus>0){
 				document.title = "(+" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
 			}else if(noFocus<0){
-				document.title = "(-" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
+				document.title = "(" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
 			}else{
 				document.title = "(" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
 			}
 		}else{
 			document.title = saveName + "'s Realtime Subscriber Count on YouTube";
+			noFocus = 0;
 		}
 	}
 	
