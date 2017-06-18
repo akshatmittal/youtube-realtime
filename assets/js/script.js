@@ -182,7 +182,7 @@ update.live = function() {
 			}else if(noFocus<0){
 				document.title = "(" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
 			}else{
-				document.title = "(" + noFocus + ") " + saveName + "'s Realtime Subscriber Count on YouTube";
+				document.title = saveName + "'s Realtime Subscriber Count on YouTube";
 			}
 		}else{
 			document.title = saveName + "'s Realtime Subscriber Count on YouTube";
