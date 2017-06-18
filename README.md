@@ -51,3 +51,7 @@ YouTube Realtime Copyright (C) 2016 [Akshat Mittal](https://akshatmittal.com/)
 You are allowed to use, modify and redistribute the project as long as original credits are kept and changes are documented. You are not allowed to redistribute the project without attribution and credits or prior permission.
 
 Please see LICENSE.md file in the same directory.
+
+# Disclaimer
+
+The project forks and code by default redirects back to this repo. You can view the instructions to modify the code [here](https://github.com/akshatmittal/youtube-realtime/issues/14#issuecomment-247537299).
