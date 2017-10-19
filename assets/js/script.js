@@ -78,19 +78,37 @@ YT.query = {
             return;
         }
         YT.live.stop();
-        $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + encodeURIComponent(e) + "&type=channel&maxResults=1&key=" + YT.keyManager.getKey(), function (e) {
-            YT.live.start();
-            if (e.pageInfo.totalResults < 1) {
-                alert("No results found!");
-                return;
-            }
-            var snippet = e.items[0].snippet;
-            YT.updateManager.updateChannelID(snippet.channelId);
-            YT.query.getCover(snippet.channelId);
-            YT.updateManager.updateName(snippet.channelTitle);
-            YT.updateManager.updateProfile(snippet.thumbnails.high.url ? snippet.thumbnails.high.url : snippet.thumbnails.default.url);
-            YT.urls.pushState(snippet.channelId);
-        });
+        if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
+            $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" + encodeURIComponent(e) + "&key=" + YT.keyManager.getKey(), function (e) {
+                YT.live.start();
+                if (e.pageInfo.totalResults < 1) {
+                    alert("No results found!");
+                    location.href = baseURL;
+                    return;
+                }
+                var gsnippet = e.items[0];
+                YT.updateManager.updateChannelID(gsnippet.id);
+                YT.query.getCover(gsnippet.id);
+                YT.updateManager.updateName(gsnippet.snippet.title);
+                YT.updateManager.updateProfile(gsnippet.snippet.thumbnails.high.url ? gsnippet.snippet.thumbnails.high.url : gsnippet.snippet.thumbnails.default.url);
+                YT.urls.pushState(gsnippet.id);
+            });
+        } else {
+            $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + encodeURIComponent(e) + "&type=channel&maxResults=1&key=" + YT.keyManager.getKey(), function (e) {
+                YT.live.start();
+                if (e.pageInfo.totalResults < 1) {
+                    alert("No results found!");
+                    location.href = baseURL;
+                    return;
+                }
+                var snippet = e.items[0].snippet;
+                YT.updateManager.updateChannelID(snippet.channelId);
+                YT.query.getCover(snippet.channelId);
+                YT.updateManager.updateName(snippet.channelTitle);
+                YT.updateManager.updateProfile(snippet.thumbnails.high.url ? snippet.thumbnails.high.url : snippet.thumbnails.default.url);
+                YT.urls.pushState(snippet.channelId);
+            });
+        }        
     },
     getCover: function (e) {
         $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=" + encodeURIComponent(e) + "&key=" + YT.keyManager.getKey(), function (e) {
@@ -107,10 +125,14 @@ YT.live = {
     channelID: "",
     update: function () {
         $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + this.channelID + "&key=" + YT.keyManager.getKey(), function (e) {
-            YT.updateManager.updateSubscribers(e.items[0].statistics.subscriberCount);
-            YT.updateManager.updateViews(e.items[0].statistics.viewCount);
-            YT.updateManager.updateVideos(e.items[0].statistics.videoCount);
-            YT.updateManager.updateComments(e.items[0].statistics.commentCount);
+            if(e.pageInfo.totalResults > 0) {
+                YT.updateManager.updateSubscribers(e.items[0].statistics.subscriberCount);
+                YT.updateManager.updateViews(e.items[0].statistics.viewCount);
+                YT.updateManager.updateVideos(e.items[0].statistics.videoCount);
+                YT.updateManager.updateComments(e.items[0].statistics.commentCount);
+            } else {
+                YT.query.newSearch(YT.live.channelID);
+            }
         });
     },
     timer: null,
@@ -159,7 +181,7 @@ YT.urls = {
         if (q) {
             YT.query.newSearch(location.hash.split("!/")[1]);
         } else {
-            var coolGuys = ['iisuperwomanii', 'MarquesBrownlee', 'nigahiga', 'TheEllenShow', 'caseyneistat'];
+            var coolGuys = ['UCHkj014U2CQ2Nv0UZeYpE_A', 'UCBJycsmduvYEL83R_U4JriQ', 'UCtinbF-Q-fVthA0qrFQTgXQ', 'UCp0hYYBW6IMayGgR-WeoCvQ', 'UCBJycsmduvYEL83R_U4JriQ'];
             YT.query.newSearch(coolGuys[Math.floor(Math.random() * coolGuys.length)]);
         }
     },
