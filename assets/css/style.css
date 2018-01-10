@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700");
-@import url(spinners.css);
 .preloader {
   width: 100%;
   height: 100%;
@@ -14,7 +12,9 @@
 }
 
 .nosel *:not(input):not(textarea):not(a) {
-  // :not(input, textarea) is not supported by all browsers
+  /*
+  ** :not(input, textarea, a) is not supported by all browsers
+  */
   user-select: none;
   cursor: default;
 }

@@ -47,7 +47,7 @@ Embedding the counter on your website is a cool way to display the real time cou
 
 # License
 
-YouTube Realtime Copyright (C) 2017 [Akshat Mittal](https://akshatmittal.com/)
+YouTube Realtime Copyright (C) 2018 [Akshat Mittal](https://akshatmittal.com/)
 
 You are allowed to use, modify and redistribute the project as long as original credits are kept and changes are documented. You are not allowed to redistribute the project without attribution and credits or prior permission.
 
