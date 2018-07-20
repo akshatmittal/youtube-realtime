@@ -820,6 +820,22 @@ sidebar navigation
   left: calc(50% - 3.5px);
 }
 
+.ads .desktop {
+  display: none;
+}
+.ads .mobile {
+  display: block;
+}
+
+@media (min-width: 1020px) {
+  .ads .desktop {
+    display: block;
+  }
+  .ads .mobile {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .display-1 {
     font-size: 4rem;
