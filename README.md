@@ -45,6 +45,10 @@ Embedding the counter on your website is a cool way to display the real time cou
 * [Marques Brownlee](https://akshatmittal.com/youtube-realtime/#!/MarquesBrownlee "Marques Brownlee's Realtime Subscriber Count on YouTube")
 * [YouTube Spotlight](https://akshatmittal.com/youtube-realtime/#!/UCBR8-60-B28hp2BmDPdntcQ "YouTube Spotlight's Realtime Subscriber Count on YouTube")
 
+# Support
+
+If you would like to support this project, please consider donating via [PayPal](https://paypal.me/AkshatMittal/25USD) or [Instamojo (India)](https://imjo.in/26KdPa) to keep this tool free!
+
 # License
 
 YouTube Realtime Copyright (C) 2018 [Akshat Mittal](https://akshatmittal.com/)
