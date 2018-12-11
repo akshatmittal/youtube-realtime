@@ -23,6 +23,9 @@
 .display-1 {
     font-size: 7rem !important;
 }
+.display-title {
+    text-align: center;
+}
 @media (max-width: 1260px) {
     .display-1 {
         font-size: 6rem !important;

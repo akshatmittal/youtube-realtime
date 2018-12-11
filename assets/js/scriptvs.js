@@ -32,7 +32,7 @@ YT.keyManager = {
 }
 YT.updateManager = {
     prepare: function (e) {
-        var odEl = ["#yt_subs_vs1", "#yt_subs_vs2"];
+        var odEl = ["#yt_subs_vs1", "#yt_subs_vs2", "#yt_diff"];
         odEl.forEach(function (e) {
             new Odometer({
                 el: document.querySelector(e),
@@ -60,6 +60,7 @@ YT.updateManager = {
     updateSubscribers: function (e, f) {
         $("#yt_subs_vs1").text(e);
         $("#yt_subs_vs2").text(f);
+        $("#yt_diff").text(Math.abs(parseInt(e) - parseInt(f)))
     }
 };
 YT.query = {
