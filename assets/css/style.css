@@ -331,9 +331,14 @@ html body .font-light {
   background-color: #55acee;
 }
 
+.btn-compare {
+  color: #ffffff;
+  background-color: #009efb;
+}
+
 .btn-youtube {
   color: #ffffff;
-  background-color: #bb0000;
+  background-color: #dd0000;
 }
 
 textarea {
@@ -369,10 +374,12 @@ textarea {
 .page-wrapper {
   background: #eef5f9;
   padding-bottom: 60px;
+  padding-top: 70px;
 }
 
 .topbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 50;
   -webkit-box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
@@ -425,7 +432,9 @@ textarea {
 .card {
   margin-bottom: 30px;
 }
-
+.card.no-shadow {
+  box-shadow: none !important;
+}
 .card .card-subtitle {
   font-weight: 300;
   margin-bottom: 15px;
@@ -892,4 +901,24 @@ sidebar navigation
   .footer {
     left: 0;
   }
+}
+
+.dark-bg {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 9999;
+  opacity: 0.45;
+  background: #000;
+  display: none;
+}
+.super-search {
+  z-index: 9999;
+  top: 10vh;
+  display: none;
+}
+.super-search .row {
+  position: absolute;
+  width: 100%;
 }

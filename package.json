@@ -1,0 +1,17 @@
+{
+  "name": "youtube-realtime",
+  "version": "1.0.0",
+  "description": "Live YouTube Subscriber Count",
+  "scripts": {
+    "start": "http-server --ssl --cert _internal\\ssl.cert --key _internal\\ssl.key"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshatmittal/youtube-realtime.git"
+  },
+  "author": "Akshat Mittal",
+  "bugs": {
+    "url": "https://github.com/akshatmittal/youtube-realtime/issues"
+  },
+  "homepage": "https://akshatmittal.com/youtube-realtime/"
+}

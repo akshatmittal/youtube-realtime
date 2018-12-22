@@ -2,7 +2,7 @@
 
 This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in real time. The count used on this experiment is taken directly from the API and hence is guaranteed to be accurate.
 
-The design follows Material Guidelines by Google, although could be slightly displaced for better experience. This page is super light and the follow up network requests are as minimal as possible.
+This page is super light and the follow up network requests are as minimal as possible.
 
 You can directly bookmark the relevant page to directly jump to a specific user. Sharing features are built right into the web app.
 
@@ -19,7 +19,7 @@ I've been seeing a lot of copies of this project on the internet, please conside
 # Features
 
 * Realtime Subscriber Count
-* Pin your favourite YouTubers for easy access
+* Easily compare subscriber counts for any two channels
 * Aesthetically pleasing design and colors
 * Easy channel selection
 * Displays the video count of the user
@@ -53,11 +53,9 @@ If you would like to support this project, please consider donating via [PayPal]
 
 YouTube Realtime Copyright (C) 2018 [Akshat Mittal](https://akshatmittal.com/)
 
-You are allowed to use, modify and redistribute the project as long as original credits are kept and changes are documented. You are not allowed to redistribute the project without attribution and credits or prior permission.
+You may freely modify the code for personal use. You are not allowed to redistribute the project without attribution and credits or prior permission. Commercial use without permission is prohibited.
 
 This project uses a part of code from WrapPixel.
-
-Please see LICENSE.md file in the same directory.
 
 # Disclaimer
 

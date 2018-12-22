@@ -43,284 +43,299 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <div id="main-wrapper">
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/youtube-realtime/">
-                        <b class="text-white">
-                            <i class="fa fa-youtube-play"></i>
-                        </b>
-                        <span class="text-white">
-                            YouTube Realtime
-                        </span>
-                    </a>
-                </div>
-            </nav>
-        </header>
-        <div class="page-wrapper">
-            <div class="container nosel">
-                <div class="row ads">
-                    <div class="col-12">
-                        <div class="desktop">
-                            <div class="card-block text-center p-0">
-                                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:15px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2304758004"></ins>
-                            </div>
+        <div class="preloader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                </svg>
+            </div>
+            <div class="dark-bg"></div>
+            <div id="main-wrapper">
+                <header class="topbar">
+                    <nav class="navbar top-navbar navbar-light">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="../">
+                                <b class="text-white">
+                                    <i class="fa fa-youtube-play"></i>
+                                </b>
+                                <span class="text-white">
+                                    YouTube Realtime
+                                </span>
+                            </a>
                         </div>
-                        <div class="mobile">
-                            <div class="card-block text-center p-0">
-                                <ins class="adsbygoogle" style="display:inline-block;width:468px;height:15px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2795712595"></ins>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-12">
-                        <h1 class="display-title">PewDiePie vs T-Series Live!</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-12 col-md-6">
-                        <div class="card m-b-0 m-t-20">
-                            <img class="card-img-top img-responsive" src="assets/images/banner.jpg" id="yt_cover_vs1" style="max-height:200px;">
-                            <div class="card-block little-profile p-b-0 text-center">
-                                <div class="pro-img">
-                                    <img src="assets/images/icon.png" alt="user" id="yt_profile_vs1">
-                                </div>
-                                <h3 class="display-6 m-b-15 m-t-10 text-center" id="yt_name_vs1">Akshat Mittal</h3>
-                            </div>
-                            <div class="card-block text-center p-t-0">
-                                <div class="card-body">
-                                    <div class="position-relative">
-                                        <div class="white">
-                                            <h1 class="display-1" id="yt_subs_vs1">00,000,000</h1>
-                                            <span>Subscribers</span>
+                    </nav>
+                </header>
+                <div class="page-wrapper">
+                    <div class="container super-search nosel">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div>
+                                            <h3 class="card-title text-center">Search</h3>
+                                        </div>
+                                        <form class="mx-2 my-auto d-inline w-100" id="yt_search_m">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control form-control" placeholder="Search" id="yt_searchvalue_m" autocomplete="off">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-success" type="button" id="yt_searchbutton_m">
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </form>
+                                        <div class="results" id="results">
+                                            
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-danger w-100" id="yt_comrest">
+                                                <i class="fa fa-times"></i> Close
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="card m-t-20">
-                            <img class="card-img-top img-responsive" src="assets/images/banner.jpg" id="yt_cover_vs2" style="max-height:200px;">
-                            <div class="card-block little-profile p-b-0 text-center">
-                                <div class="pro-img">
-                                    <img src="assets/images/icon.png" alt="user" id="yt_profile_vs2">
+                    <div class="container nosel">
+                        <div class="row ads">
+                            <div class="col-12">
+                                <div class="desktop">
+                                    <div class="card-block text-center p-0">
+                                        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:15px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2304758004"></ins>
+                                    </div>
                                 </div>
-                                <h3 class="display-6 m-b-15 m-t-10 text-center" id="yt_name_vs2">Akshat Mittal</h3>
+                                <div class="mobile">
+                                    <div class="card-block text-center p-0">
+                                        <ins class="adsbygoogle" style="display:inline-block;width:468px;height:15px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2795712595"></ins>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-block text-center p-t-0">
-                                <div class="card-body">
-                                    <div class="position-relative">
-                                        <div class="white">
-                                            <h1 class="display-1" id="yt_subs_vs2">00,000,000</h1>
-                                            <span>Subscribers</span>
+                        </div>
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-12 m-t-20">
+                                <h1 class="display-title"><span class="vs1_name" id="yt_brand_vs1">.</span> vs <span class="vs2_name" id="yt_brand_vs2">.</span> Live!</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-12 col-md-6">
+                                <div class="card m-b-0 m-t-20">
+                                    <img class="card-img-top img-responsive" src="../assets/images/banner.jpg" id="yt_cover_vs1" style="max-height:200px;">
+                                    <div class="card-block little-profile p-b-0 text-center">
+                                        <div class="pro-img">
+                                            <img src="../assets/images/icon.png" alt="user" id="yt_profile_vs1">
+                                        </div>
+                                        <h3 class="display-6 m-b-15 m-t-10 text-center vs1_name" id="yt_name_vs1">Akshat Mittal</h3>
+                                    </div>
+                                    <div class="card-block text-center p-t-0">
+                                        <div class="card-body">
+                                            <div class="position-relative">
+                                                <div class="white">
+                                                    <h1 class="display-1" id="yt_subs_vs1">00,000,000</h1>
+                                                    <span>Subscribers</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block text-center">
+                                    <div class="text-center p-t-0 row">
+                                        <div class="col-6">
+                                            <div class="card no-shadow btn-youtube mb-0 p-2 waves-effect" id="yt_shareyt_vs1">
+                                                <span class="font-light m-b-0"><i class="fa fa-youtube"></i> Subscribe</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card no-shadow btn-compare mb-0 p-2 waves-effect" id="yt_compare_vs1">
+                                                <span class="font-light m-b-0"><i class="fa fa-pencil"></i> Change</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="card m-b-0 m-t-20">
+                                    <img class="card-img-top img-responsive" src="../assets/images/banner.jpg" id="yt_cover_vs2" style="max-height:200px;">
+                                    <div class="card-block little-profile p-b-0 text-center">
+                                        <div class="pro-img">
+                                            <img src="../assets/images/icon.png" alt="user" id="yt_profile_vs2">
+                                        </div>
+                                        <h3 class="display-6 m-b-15 m-t-10 text-center vs2_name" id="yt_name_vs2">Akshat Mittal</h3>
+                                    </div>
+                                    <div class="card-block text-center p-t-0">
+                                        <div class="card-body">
+                                            <div class="position-relative">
+                                                <div class="white">
+                                                    <h1 class="display-1" id="yt_subs_vs2">00,000,000</h1>
+                                                    <span>Subscribers</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block text-center">
+                                    <div class="text-center p-t-0 row">
+                                        <div class="col-6">
+                                            <div class="card no-shadow btn-youtube mb-0 p-2 waves-effect" id="yt_shareyt_vs2">
+                                                <span class="font-light m-b-0"><i class="fa fa-youtube"></i> Subscribe</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card no-shadow btn-compare mb-0 p-2 waves-effect" id="yt_compare_vs2">
+                                                <span class="font-light m-b-0"><i class="fa fa-pencil"></i> Change</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="card selcl waves-effect">
+                                    <div class="card-block" id="yt_sharevs1">
+                                        <div class="d-flex flex-row">
+                                            <div class="round round-lg align-self-center btn-twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="m-l-10 align-self-center">
+                                                <h3 class="m-b-0 font-light">I support <span class="vs1_name">.</span>!</h3>
+                                                <h5 class="text-muted m-b-0">Share on Twitter!</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="card">
+                                    <div class="card-block" style="text-align:center">
+                                        <div class="card-body">
+                                            <div class="position-relative">
+                                                <div class="mt-2 ml-2 white">
+                                                    <h1 class="display-5" id="yt_diff">00,000,000,000</h1>
+                                                    <span>Subscriber Difference</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="card selcl waves-effect">
+                                    <div class="card-block" id="yt_sharevs2">
+                                        <div class="d-flex flex-row">
+                                            <div class="round round-lg align-self-center btn-twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="m-l-10 align-self-center">
+                                                <h3 class="m-b-0 font-light">I support <span class="vs2_name">.</span>!</h3>
+                                                <h5 class="text-muted m-b-0">Share on Twitter!</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ads">
+                            <div class="col-12">
+                                <div class="desktop">
+                                    <div class="card-block text-center p-0">
+                                        <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="3825298200"></ins>
+                                    </div>
+                                </div>
+                                <div class="mobile">
+                                    <div class="card-block text-center p-0">
+                                        <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2652242365"></ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div>
+                                            <div id="disqus_thread"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="about">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div>
+                                            <div>
+                                                <h3 class="card-title">About</h3>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>YouTube Realtime shows the live subscriber count of any user on YouTube as accurately
+                                                as possible. YouTube often doesn't update the subscriber count on the website in
+                                                real time and hence it's hard to keep a track on when you'll hit a new milestone.
+                                                This tool eases the pressure and allows you see the subscribers change live!
+                                            </p>
+                                            <p>
+                                                The subscriber count, view count, video count and comment count are all taken directly from Google's infrastructure via
+                                                the Analytics API. The counts are updated every second and are guaranteed to be accurate.
+                                            </p>
+                                            <p>You can enter the channel name in any format. You can also input search terms for a channel,
+                                                this will also try to automatically correct spellings in most cases. This is as good
+                                                as YouTube Search itself since it uses the same engine to search.
+                                            </p>
+                                            <p>
+                                                You can literally enter anything that YouTube supports. Examples:
+                                            </p>
+                                            <ul>
+                                                <li>Channel Username (Example:
+                                                    <b>MKBHD</b>)</li>
+                                                <li>Channel ID (Example:
+                                                    <b>UCK8sQmJBp8GCxrOtXWBpyEA</b>)</li>
+                                                <li>Channel Name (Example:
+                                                    <b>Fine Brothers Entertainment</b>)</li>
+                                                <li>YouTube URL (Example:
+                                                    <b>youtube.com/mkbhd</b>)</li>
+                                                <li>Search Terms (Example:
+                                                    <b>Justin Bieber</b>)</li>
+                                                <li>Self Discovery Channels (Example:
+                                                    <b>#Music</b>)</li>
+                                            </ul>
+                                            <p>
+                                                If you like this tool, please consider donating to support the development and to offset the cost of running this awesome website for free. You can donate using <a href="https://paypal.me/AkshatMittal/25USD" target="_blank" rel="noopener">PayPal</a> or <a href="https://imjo.in/26KdPa" target="_blank" rel="noopener">Instamojo (India)</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="form-horizontal form-material">
+                                            <p>
+                                                Thank you for using YouTube Realtime. You can find more information about the project on
+                                                <a href="https://github.com/akshatmittal/youtube-realtime/blob/gh-pages/README.md" target="_blank">GitHub</a> including license and contributors. You can get in touch with me on
+                                                <a href="https://www.facebook.com/itsreallyakshat" target="_blank">Facebook</a>,
+                                                <a href="https://twitter.com/iakshatmittal" target="_blank">Twitter</a> or
+                                                <a href="mailto:ytlive@akshatmittal.com" target="_blank">email</a>, if you prefer. Do let me know if you have any feedback or ideas for this
+                                                project!
+                                            </p>
+                                            <p class="mb-0">
+                                                YouTube is a registered trademark of Google.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="card selcl waves-effect">
-                            <div class="card-block" id="yt_sharevs1">
-                                <div class="d-flex flex-row">
-                                    <div class="round round-lg align-self-center btn-twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </div>
-                                    <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0 font-light">I support <span id="yt_brand_vs1">wait</span>!</h3>
-                                        <h5 class="text-muted m-b-0">Share on Twitter!</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="card">
-                            <div class="card-block" style="text-align:center">
-                                <div class="card-body">
-                                    <div class="position-relative">
-                                        <div class="mt-2 ml-2 white">
-                                            <h1 class="display-5" id="yt_diff">00,000,000,000</h1>
-                                            <span>Subscriber Difference</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="card selcl waves-effect">
-                            <div class="card-block" id="yt_sharevs2">
-                                <div class="d-flex flex-row">
-                                    <div class="round round-lg align-self-center btn-twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </div>
-                                    <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0 font-light">I support <span id="yt_brand_vs2">wait</span>!</h3>
-                                        <h5 class="text-muted m-b-0">Share on Twitter!</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                </div>
-                
-                <div class="row ads">
-                    <div class="col-12">
-                        <div class="desktop">
-                            <div class="card-block text-center p-0">
-                                <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="3825298200"></ins>
-                            </div>
-                        </div>
-                        <div class="mobile">
-                            <div class="card-block text-center p-0">
-                                <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3188055178160882" data-ad-slot="2652242365"></ins>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="about">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div>
-                                    <div>
-                                        <h2 class="card-title">PewDiePie vs T-Series</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>
-                                        PewDiePie vs T-Series is one of the most heated battles right now, and you can watch it live right here.
-                                    </p>
-                                    <p>
-                                        PewDiePie (aka Felix) is a Swedish YouTuber, comedian and video game commentator, formerly best known for his Let's Play commentaries and now mostly known for his comedic formatted shows. T-Series is India's largest Music Label & Movie Studio, believes in bringing world close together through its music.
-                                    </p>
-                                    <p>
-                                        Please consider donating to support the development and to offset the cost of running this awesome website for free. You can donate using <a href="https://paypal.me/AkshatMittal/25USD" target="_blank" rel="noopener">PayPal</a> or <a href="https://imjo.in/26KdPa" target="_blank" rel="noopener">Instamojo (India)</a>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="about">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div>
-                                    <div>
-                                        <h3 class="card-title">Who do you think will win? Let us know!</h3>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div id="disqus_thread"></div>
-                                    <script>
-                                    var disqus_config = function () {
-                                        this.page.url = "https://akshatmittal.com/youtube-realtime/pewdiepie-vs-tseries/";  // Replace PAGE_URL with your page's canonical URL variable
-                                        this.page.identifier = "UC-lHJZR3Gqxm24_Vd_AJ5Yw$$UCq-Fj5jknLsUf-MWSy4_brA"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                                    };
-                                    (function() {
-                                    var d = document, s = d.createElement('script');
-                                    s.src = 'https://akshatmittal.disqus.com/embed.js';
-                                    s.setAttribute('data-timestamp', +new Date());
-                                    (d.head || d.body).appendChild(s);
-                                    })();
-                                    </script>
-                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="about">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div>
-                                    <div>
-                                        <h3 class="card-title">About</h3>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>YouTube Realtime shows the live subscriber count of any user on YouTube as accurately
-                                        as possible. YouTube often doesn't update the subscriber count on the website in
-                                        real time and hence it's hard to keep a track on when you'll hit a new milestone.
-                                        This tool eases the pressure and allows you see the subscribers change live!
-                                    </p>
-                                    <p>
-                                        The subscriber count, view count, video count and comment count are all taken directory from Google's infrastructure via
-                                        the Analytics API. The counts are updated every second and are guaranteed to be accurate.
-                                    </p>
-                                    <p>You can enter the channel name in any format. You can also input search terms for a channel,
-                                        this will also try to automatically correct spellings in most cases. This is as good
-                                        as YouTube Search itself since it uses the same engine to search.
-                                    </p>
-                                    <p>
-                                        You can literally enter anything that YouTube supports. Examples:
-                                    </p>
-                                    <ul>
-                                        <li>Channel Username (Example:
-                                            <b>MKBHD</b>)</li>
-                                        <li>Channel ID (Example:
-                                            <b>UCK8sQmJBp8GCxrOtXWBpyEA</b>)</li>
-                                        <li>Channel Name (Example:
-                                            <b>Fine Brothers Entertainment</b>)</li>
-                                        <li>YouTube URL (Example:
-                                            <b>youtube.com/mkbhd</b>)</li>
-                                        <li>Search Terms (Example:
-                                            <b>Justin Bieber</b>)</li>
-                                        <li>Self Discovery Channels (Example:
-                                            <b>#Music</b>)</li>
-                                    </ul>
-                                    <p>
-                                        If you like this tool, please consider donating to support the development and to offset the cost of running this awesome website for free. You can donate using <a href="https://paypal.me/AkshatMittal/25USD" target="_blank" rel="noopener">PayPal</a> or <a href="https://imjo.in/26KdPa" target="_blank" rel="noopener">Instamojo (India)</a>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div class="form-horizontal form-material">
-                                    <p>
-                                        Thank you for using YouTube Realtime. You can find more information about the project on
-                                        <a href="https://github.com/akshatmittal/youtube-realtime/blob/gh-pages/README.md" target="_blank">GitHub</a> including license and contributors. You can get in touch with me on
-                                        <a href="https://www.facebook.com/itsreallyakshat" target="_blank">Facebook</a>,
-                                        <a href="https://twitter.com/iakshatmittal" target="_blank">Twitter</a> or
-                                        <a href="mailto:ytlive@akshatmittal.com" target="_blank">email</a>, if you prefer. Do let me know if you have any feedback or ideas for this
-                                        project!
-                                    </p>
-                                    <p class="mb-0">
-                                        YouTube is a registered trademark of Google.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <footer class="footer">&copy; 2018
+                        <a href="https://akshatmittal.com">Akshat Mittal</a>
+                    </footer>
                 </div>
             </div>
-            <footer class="footer">&copy; 2018
-                <a href="https://akshatmittal.com">Akshat Mittal</a>
-            </footer>
-        </div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
         crossorigin="anonymous"></script>
     <script>
@@ -330,12 +345,36 @@
     <script src="../assets/js/waves.js"></script>
     <script src="../assets/plugins/odometer/odometer.min.js"></script>
     <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="../assets/js/custom-ui.js"></script>
+    <!-- <script src="../assets/js/custom-ui.js"></script> -->
     <script>
-    var vs1 = "UC-lHJZR3Gqxm24_Vd_AJ5Yw";
-    var vs2 = "UCq-Fj5jknLsUf-MWSy4_brA";
+    $(function () {
+        $(".preloader").fadeOut();
+    });
     </script>
-    <script src="../assets/js/scriptvs.js"></script>
+
+    <script src="../assets/js/base.js"></script>
+    <script src="../assets/js/keyManager.js"></script>
+    <script src="../assets/js/updateManager.vs.js"></script>
+    <script src="../assets/js/query.vs.js"></script>
+    <script src="../assets/js/multisearch.vs.js"></script>
+    <script src="../assets/js/live.vs.js"></script>
+    <script src="../assets/js/sharing.vs.js"></script>
+    <!-- <script src="../assets/js/urlManager.vs.js"></script> -->
+    <script src="//akshatmittal.disqus.com/embed.js"></script>
+    <script src="../assets/js/init.js"></script>
+    <script>
+    var isCustomPage = 1;
+    setTimeout(function() {
+        DISQUS.reset({
+            reload: true,
+            config: function () {
+                this.page.url = "https://akshatmittal.com/youtube-realtime/pewdiepie-vs-tseries/";
+                this.page.identifier = "UC-lHJZR3Gqxm24_Vd_AJ5Yw$$UCq-Fj5jknLsUf-MWSy4_brA";
+            }
+        });
+    }, 500)
+    YT.live.setVS("UC-lHJZR3Gqxm24_Vd_AJ5Yw", "UCq-Fj5jknLsUf-MWSy4_brA");
+    </script>
 </body>
 
 </html>
