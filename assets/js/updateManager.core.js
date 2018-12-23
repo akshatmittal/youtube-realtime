@@ -1,6 +1,9 @@
 YT.updateManager = {
     prepare: function (e) {
         var odEl = ["#yt_subs"];
+        if (!isEmbed) {
+            odEl = odEl.concat(["#yt_views", "#yt_videos"]);
+        }
         odEl.forEach(function (e) {
             new Odometer({
                 el: document.querySelector(e),
@@ -21,6 +24,12 @@ YT.updateManager = {
     },
     updateSubscribers: function (e) {
         $("#yt_subs").text(e);
+    },
+    updateViews: function (e) {
+        $("#yt_views").text(e);
+    },
+    updateVideos: function (e) {
+        $("#yt_videos").text(e);
     },
     updateChannelID: function (e) {
         YT.live.channelID = e;
