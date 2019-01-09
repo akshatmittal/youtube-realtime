@@ -15,7 +15,7 @@ YT.live = {
     start: function () {
         this.timer = setInterval(function (e) {
             YT.live.update();
-        }, 1000);
+        }, (isEmbed) ? 5000 : 1500);
     },
     stop: function () {
         clearInterval(this.timer);
