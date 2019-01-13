@@ -6,6 +6,7 @@ YT.pins = {
             $pn.html("");
             $pn.append($('<li class="nav-small-cap">FEATURED USERS</li>'));
             e.forEach(function (f) {
+                if (new Date().getTime() > f.expires) return;
                 $li = $("<li>");
                 $a = $("<a>", {
                     class: "waves-effect waves-dark",
