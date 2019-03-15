@@ -321,6 +321,9 @@ html body .font-light {
   color: #ffffff;
   background-color: #55acee;
 }
+.btn-instagram {
+    background-color: #e4405f;
+}
 
 .btn-compare {
   color: #ffffff;
@@ -348,7 +351,7 @@ textarea {
 }
 
 .form-group {
-  margin-bottom: 25px;
+  margin-bottom: 1.25rem;
 }
 
 .card-no-border .card {
@@ -421,7 +424,7 @@ textarea {
 }
 
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 1.25rem;
 }
 .card.no-shadow {
   box-shadow: none !important;
