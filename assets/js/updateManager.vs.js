@@ -25,6 +25,11 @@ YT.updateManager = {
     updateSubscribers: function (e, f) {
         $("#yt_subs_vs1").text(e);
         $("#yt_subs_vs2").text(f);
-        $("#yt_diff").text(Math.abs(parseInt(e) - parseInt(f)))
+        $("#yt_diff").text(Math.abs(parseInt(e) - parseInt(f)));
+        if (parseInt(e) - parseInt(f) > 0) {
+            $(document.body).addClass("leading-left").removeClass("leading-right");
+        } else {
+            $(document.body).addClass("leading-right").removeClass("leading-left");
+        }
     }
 };

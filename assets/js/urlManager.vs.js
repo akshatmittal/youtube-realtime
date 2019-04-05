@@ -20,7 +20,7 @@ YT.urls = {
             f = c;
         }
         history.pushState(null, null, "#!/" + e + "$$" + f);
-        setTimeout(function() {
+        setTimeout(function () {
             DISQUS.reset({
                 reload: true,
                 config: function () {

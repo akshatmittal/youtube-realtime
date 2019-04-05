@@ -5,7 +5,7 @@ YT.multisearch = {
             $er.html("");
             e.items.forEach(function (f) {
                 var snippet = f.snippet;
-                if(snippet.channelId == YT.live.channelID) return;
+                if (snippet.channelId == YT.live.channelID) return;
                 $er.append(YT.multisearch.giveHtml(snippet.channelTitle, snippet.thumbnails.default.url, snippet.channelId));
             })
         });

@@ -8,7 +8,7 @@ YT.sharing = {
     twitter: function () {
         window.open("https://twitter.com/intent/tweet?original_referer=" + YT.sharing.getEncodedURL() + "&ref_src=twsrc%5Etfw&text=" + YT.sharing.getText() + "&tw_p=tweetbutton&via=iakshatmittal&url=" + YT.sharing.getEncodedURL());
     },
-    compare: function() {
+    compare: function () {
         $(".super-search,.dark-bg").fadeIn();
         $("#yt_searchvalue_m").focus();
     },

@@ -5,7 +5,7 @@ YT.multisearch = {
             $er.html("");
             e.items.forEach(function (f) {
                 var snippet = f.snippet;
-                if(snippet.channelId == YT.live.vs1 || snippet.channelId == YT.live.vs2) return;
+                if (snippet.channelId == YT.live.vs1 || snippet.channelId == YT.live.vs2) return;
                 $er.append(YT.multisearch.giveHtml(snippet.channelTitle, snippet.thumbnails.default.url, snippet.channelId));
             })
         });
@@ -42,8 +42,8 @@ YT.multisearch = {
         YT.multisearch.getResults($("#yt_searchvalue_m").val());
     },
     changeChannel: function (e) {
-        if(YT.sharing.changing == null) return;
-        if(YT.sharing.changing == "vs1") {
+        if (YT.sharing.changing == null) return;
+        if (YT.sharing.changing == "vs1") {
             YT.urls.pushState(e, YT.live.vs2)
         } else {
             YT.urls.pushState(YT.live.vs1, e)
