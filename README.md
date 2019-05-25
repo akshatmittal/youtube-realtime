@@ -37,6 +37,8 @@ Embedding the counter on your website is a cool way to display the real time cou
 ![YouTube Realtime Embed](res/embeds.png)<br/>
 *YouTube Realtime Embed*
 
+Note: This feature has been discontinued, it can still be found in previous commits.
+
 # Try it yourself!
 
 * [Sky Does Minecraft](https://akshatmittal.com/youtube-realtime/#!/SkyDoesMinecraft "Sky Does Minecraft's Realtime Subscriber Count on YouTube")
@@ -51,7 +53,7 @@ If you would like to support this project, please consider donating via [PayPal]
 
 # License
 
-YouTube Realtime Copyright (C) 2018 [Akshat Mittal](https://akshatmittal.com/)
+YouTube Realtime Copyright (C) 2019 [Akshat Mittal](https://akshatmittal.com/)
 
 You may freely modify the code for personal use. You are not allowed to redistribute the project without attribution and credits or prior permission. Commercial use without permission is prohibited.
 
