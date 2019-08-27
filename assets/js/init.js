@@ -1,6 +1,7 @@
 $(window).bind("popstate", YT.urls ? YT.urls.onchange : false);
 $(function () {
     YT.updateManager.prepare();
+    YT.keyManager.shuffleKeys();
     YT.sharing.bind();
     YT.multisearch.bind();
     YT.query.bind();
