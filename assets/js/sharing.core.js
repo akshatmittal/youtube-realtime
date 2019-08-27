@@ -2,8 +2,8 @@ YT.sharing = {
     youtube: function () {
         window.open("https://www.youtube.com/channel/" + YT.live.channelID);
     },
-    facebook: function () {
-        window.open("https://www.facebook.com/dialog/feed?app_id=1473140929606808&display=page&caption=" + YT.sharing.getText() + "&link=" + YT.sharing.getEncodedURL() + "&redirect_uri=" + encodeURIComponent(baseURL + "assets/close.html"));
+    archive: function () {
+        window.open("https://akshatmittal.com/youtube-archive/#!/" + YT.live.channelID);
     },
     twitter: function () {
         window.open("https://twitter.com/intent/tweet?original_referer=" + YT.sharing.getEncodedURL() + "&ref_src=twsrc%5Etfw&text=" + YT.sharing.getText() + "&tw_p=tweetbutton&via=iakshatmittal&url=" + YT.sharing.getEncodedURL());
@@ -21,7 +21,8 @@ YT.sharing = {
     bind: function () {
         $("#yt_shareyt").on("click", this.youtube);
         $("#yt_sharetw").on("click", this.twitter);
-        $("#yt_sharefb").on("click", this.facebook);
+        $("#yt_sharear").on("click", this.archive);
+        $("#yt_sharear2").on("click", this.archive);
         $("#yt_compare").on("click", this.compare);
     }
 };
