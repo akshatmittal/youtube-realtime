@@ -6,7 +6,6 @@ YT.query = {
         YT.live.stop();
         if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
             $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" + encodeURIComponent(e) + "&key=" + YT.keyManager.getKey(), function (e) {
-                YT.live.start();
                 if (e.pageInfo.totalResults < 1) {
                     alert("No results found!");
                     location.href = baseURL;
@@ -18,10 +17,10 @@ YT.query = {
                 YT.updateManager.updateName(gsnippet.snippet.title);
                 YT.updateManager.updateProfile(gsnippet.snippet.thumbnails.high.url ? gsnippet.snippet.thumbnails.high.url : gsnippet.snippet.thumbnails.default.url);
                 YT.urls.pushState(gsnippet.id);
+                YT.live.start();
             });
         } else {
             $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + encodeURIComponent(e) + "&type=channel&maxResults=1&key=" + YT.keyManager.getKey(), function (e) {
-                YT.live.start();
                 if (e.pageInfo.totalResults < 1) {
                     alert("No results found!");
                     location.href = baseURL;
@@ -33,6 +32,7 @@ YT.query = {
                 YT.updateManager.updateName(snippet.channelTitle);
                 YT.updateManager.updateProfile(snippet.thumbnails.high.url ? snippet.thumbnails.high.url : snippet.thumbnails.default.url);
                 YT.urls.pushState(snippet.channelId);
+                YT.live.start();
             });
         }
     },
