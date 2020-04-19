@@ -5,41 +5,30 @@ YT.query = {
         }
         YT.live.stop();
         if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
-            $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" + encodeURIComponent(e) + "&key=" + YT.keyManager.getKey(), function (e) {
-                if (e.pageInfo.totalResults < 1) {
+            $.getJSON("https://counts.live/api/youtube/" + encodeURIComponent(e) + "/data", function (e) {
+                console.log(e);
+                if (!e.success) {
                     alert("No results found!");
                     location.href = baseURL;
                     return;
                 }
-                var gsnippet = e.items[0];
-                YT.updateManager.updateChannelID(gsnippet.id);
-                YT.query.getCover(gsnippet.id);
-                YT.updateManager.updateName(gsnippet.snippet.title);
-                YT.updateManager.updateProfile(gsnippet.snippet.thumbnails.high.url ? gsnippet.snippet.thumbnails.high.url : gsnippet.snippet.thumbnails.default.url);
-                YT.urls.pushState(gsnippet.id);
+                YT.updateManager.updateChannelID(e.data.id);
+                YT.updateManager.updateCover(e.data.backdrop);
+                YT.updateManager.updateName(e.data.name);
+                YT.updateManager.updateProfile(e.data.picture);
+                YT.urls.pushState(e.data.id);
                 YT.live.start();
             });
         } else {
-            $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + encodeURIComponent(e) + "&type=channel&maxResults=1&key=" + YT.keyManager.getKey(), function (e) {
-                if (e.pageInfo.totalResults < 1) {
+            $.getJSON("https://counts.live/api/youtube/" + encodeURIComponent(e) + "/search", function (e) {
+                if (!e.success) {
                     alert("No results found!");
                     location.href = baseURL;
                     return;
                 }
-                var snippet = e.items[0].snippet;
-                YT.updateManager.updateChannelID(snippet.channelId);
-                YT.query.getCover(snippet.channelId);
-                YT.updateManager.updateName(snippet.channelTitle);
-                YT.updateManager.updateProfile(snippet.thumbnails.high.url ? snippet.thumbnails.high.url : snippet.thumbnails.default.url);
-                YT.urls.pushState(snippet.channelId);
-                YT.live.start();
+                YT.query.newSearch(e.data[0].id);
             });
         }
-    },
-    getCover: function (e) {
-        $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=" + encodeURIComponent(e) + "&key=" + YT.keyManager.getKey(), function (e) {
-            YT.updateManager.updateCover(e.items[0].brandingSettings.image.bannerImageUrl);
-        });
     },
     search: function (e) {
         e.preventDefault();

@@ -1,12 +1,11 @@
 YT.multisearch = {
     getResults: function (e) {
-        $.getJSON("https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + encodeURIComponent(e) + "&type=channel&maxResults=5&key=" + YT.keyManager.getKey(), function (e) {
+        $.getJSON("https://counts.live/api/youtube/" + encodeURIComponent(e) + "/search", function (e) {
             $er = $("#results");
             $er.html("");
-            e.items.forEach(function (f) {
-                var snippet = f.snippet;
-                if (snippet.channelId == YT.live.channelID) return;
-                $er.append(YT.multisearch.giveHtml(snippet.channelTitle, snippet.thumbnails.default.url, snippet.channelId));
+            e.data.forEach(function (f) {
+                if (f.id == YT.live.channelID) return;
+                $er.append(YT.multisearch.giveHtml(f.name, f.picture, f.id));
             })
         });
     },

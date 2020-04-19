@@ -889,10 +889,11 @@ sidebar navigation
     display: none;
 }
 
-.leading-right .w-right{
+.leading-right .w-right {
     display: block;
 }
-.leading-left .w-left{
+
+.leading-left .w-left {
     display: block;
 }
 
@@ -996,4 +997,8 @@ sidebar navigation
     .vs-leader {
         position: relative;
     }
+}
+
+iframe[src*="ads"] {
+    display: none;
 }

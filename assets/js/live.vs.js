@@ -2,12 +2,10 @@ YT.live = {
     vs1: "",
     vs2: "",
     update: function () {
-        $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + encodeURIComponent(YT.live.vs1 + "," + YT.live.vs2) + "&key=" + YT.keyManager.getKey(), function (e) {
-            if (e.items[0].id == YT.live.vs1) {
-                YT.updateManager.updateSubscribers(e.items[0].statistics.subscriberCount, e.items[1].statistics.subscriberCount);
-            } else {
-                YT.updateManager.updateSubscribers(e.items[1].statistics.subscriberCount, e.items[0].statistics.subscriberCount);
-            }
+        $.getJSON("https://counts.live/api/youtube/" + YT.live.vs1 + "/live", function (f) {
+            $.getJSON("https://counts.live/api/youtube/" + YT.live.vs2 + "/live", function (g) {
+                YT.updateManager.updateSubscribers(f.data.subscribers, g.data.subscribers);
+            });
         });
     },
     timer: null,
