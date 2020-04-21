@@ -999,6 +999,6 @@ sidebar navigation
     }
 }
 
-iframe[src*="ads"] {
+#disqus_thread iframe[src*="ads"] {
     display: none;
 }
