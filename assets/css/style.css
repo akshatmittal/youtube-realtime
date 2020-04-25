@@ -314,7 +314,7 @@ html body .font-light {
 
 .btn-archive {
     color: #ffffff;
-    background-color: #de2862;
+    background-color: #e95512;
 }
 
 .btn-twitter {
@@ -520,7 +520,7 @@ sidebar navigation
 
 .sidebar-nav {
     background: #fff;
-    padding: 15px;
+    padding: 0 12px;
 }
 
 .sidebar-nav ul {

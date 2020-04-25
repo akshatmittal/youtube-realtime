@@ -42,7 +42,7 @@ YT.multisearch = {
     },
     launchCompare: function (e) {
         if (e == YT.live.channelID) return;
-        window.open("./compare/#!/" + YT.live.channelID + "$$" + e);
+        window.open("https://counts.live/compare/youtube/" + YT.live.channelID + "/youtube/" + e);
         this.resetCompare();
     },
     bind: function () {

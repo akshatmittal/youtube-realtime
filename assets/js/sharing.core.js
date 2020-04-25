@@ -3,7 +3,7 @@ YT.sharing = {
         window.open("https://www.youtube.com/channel/" + YT.live.channelID);
     },
     archive: function () {
-        window.open("https://akshatmittal.com/youtube-archive/#!/" + YT.live.channelID);
+        window.open("https://counts.live/youtube/" + YT.live.channelID);
     },
     twitter: function () {
         window.open("https://twitter.com/intent/tweet?original_referer=" + YT.sharing.getEncodedURL() + "&ref_src=twsrc%5Etfw&text=" + YT.sharing.getText() + "&tw_p=tweetbutton&via=iakshatmittal&url=" + YT.sharing.getEncodedURL());
