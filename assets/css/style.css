@@ -852,13 +852,6 @@ sidebar navigation
     left: calc(50% - 3.5px);
 }
 
-.ads .desktop {
-    display: none;
-}
-
-.ads .mobile {
-    display: block;
-}
 
 .dark-bg {
     width: 100%;
@@ -903,16 +896,6 @@ sidebar navigation
 
 .w-right {
     left: 0;
-}
-
-@media (min-width: 1020px) {
-    .ads .desktop {
-        display: block;
-    }
-
-    .ads .mobile {
-        display: none;
-    }
 }
 
 @media (max-width: 767px) {
@@ -999,6 +982,26 @@ sidebar navigation
     }
 }
 
+/* ADS */
+
 #disqus_thread iframe[src*="ads"] {
     display: none;
+}
+
+.ads .desktop {
+    display: none;
+}
+
+.ads .mobile {
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .ads .desktop {
+        display: block;
+    }
+
+    .ads .mobile {
+        display: none;
+    }
 }

@@ -1,3 +1,5 @@
 *.psd
 .htaccess
 _internal
+# Local Netlify folder
+.netlify

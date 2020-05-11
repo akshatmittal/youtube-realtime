@@ -49,7 +49,7 @@ Note: This feature has been discontinued, it can still be found in previous comm
 
 # Support
 
-If you would like to support this project, please consider donating via [PayPal](https://paypal.me/AkshatMittal/25USD) or [Instamojo (India)](https://imjo.in/26KdPa) to keep this tool free!
+If you would like to support this project, please consider supporting me on [BuyMeACoffee](https://www.buymeacoffee.com/akshatmittal)!
 
 # License
 
