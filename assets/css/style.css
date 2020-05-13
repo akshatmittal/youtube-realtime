@@ -980,6 +980,11 @@ sidebar navigation
     display: none;
 }
 
+.ads {
+    text-align: center;
+}
+
+/* 
 .ads .desktop {
     display: none;
 }
@@ -996,4 +1001,4 @@ sidebar navigation
     .ads .mobile {
         display: none;
     }
-}
+} */

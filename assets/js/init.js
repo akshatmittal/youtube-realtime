@@ -10,7 +10,6 @@ $(function () {
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
-    (adsbygoogle = window.adsbygoogle || []).push({});
 });
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
