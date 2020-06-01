@@ -1,6 +1,6 @@
 YT.multisearch = {
     getResults: function (e) {
-        $.getJSON("https://counts.live/api/youtube/" + encodeURIComponent(e) + "/search", function (e) {
+        $.getJSON("https://counts.live/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/search", function (e) {
             $er = $("#results");
             $er.html("");
             e.data.forEach(function (f) {
@@ -42,7 +42,7 @@ YT.multisearch = {
     },
     launchCompare: function (e) {
         if (e == YT.live.channelID) return;
-        window.open("https://counts.live/compare/youtube/" + YT.live.channelID + "/youtube/" + e);
+        window.open("https://counts.live/compare/youtube-subscriber-count/" + YT.live.channelID + "/youtube-subscriber-count/" + e);
         this.resetCompare();
     },
     bind: function () {

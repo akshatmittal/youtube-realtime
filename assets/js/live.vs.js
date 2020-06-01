@@ -2,8 +2,8 @@ YT.live = {
     vs1: "",
     vs2: "",
     update: function () {
-        $.getJSON("https://counts.live/api/youtube/" + YT.live.vs1 + "/live", function (f) {
-            $.getJSON("https://counts.live/api/youtube/" + YT.live.vs2 + "/live", function (g) {
+        $.getJSON("https://counts.live/api/youtube-subscriber-count/" + YT.live.vs1 + "/live", function (f) {
+            $.getJSON("https://counts.live/api/youtube-subscriber-count/" + YT.live.vs2 + "/live", function (g) {
                 YT.updateManager.updateSubscribers(f.data.subscribers, g.data.subscribers);
             });
         });
