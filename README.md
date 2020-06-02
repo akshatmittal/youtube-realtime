@@ -32,12 +32,11 @@ I've been seeing a lot of copies of this project on the internet, please conside
 
 # Embeds
 
-Embedding the counter on your website is a cool way to display the real time count of your channel on your own website. The feature is built right into it, and is available on the website itself. You just need to copy the embed code and paste it as HTML code on your own website.
+Embedding the counter on your website is a cool way to display the real time count of your channel on your own website. The feature is built right into it, and is available on the website itself. You just need to copy the embed code and paste it as HTML code on your own website. ([Info here.](https://counts.live/embeds))
 
-![YouTube Realtime Embed](res/embeds.png)<br/>
+![YouTube Realtime Embed Small](https://static.counts.live/images/examples/embeds/small.png)<br/>
+![YouTube Realtime Embed Large](https://static.counts.live/images/examples/embeds/large.png)<br/>
 *YouTube Realtime Embed*
-
-Note: This feature has been discontinued, it can still be found in previous commits.
 
 # Try it yourself!
 
