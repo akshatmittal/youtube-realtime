@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!" />
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no">
-    <link rel="icon" type="image/png" href="assets/images/icon.png">
-    <title>Live YouTube Subscriber Count — YouTube Realtime</title>
+    <link rel="icon" type="image/png" href="../assets/images/icon.png">
+    <title>Live YouTube View Count — YouTube Realtime</title>
 
-    <link rel="canonical" href="https://akshatmittal.com/youtube-realtime/" />
+    <link rel="canonical" href="https://akshatmittal.com/youtube-realtime/live-view-count/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@iakshatmittal" />
-    <meta name="twitter:title" content="Live YouTube Subscriber Count — YouTube Realtime" />
+    <meta name="twitter:title" content="Live YouTube View Count — YouTube Realtime" />
     <meta name="twitter:description"
-        content="YouTube Realtime is the easiest way to view the live subscriber count for any YouTuber on the planet! Simply enter the channel name, or ID and you are good to go!" />
+        content="YouTube Realtime is the easiest way to see the live view count for any YouTube Video on the planet! Simply enter the video name, url, or ID and you are good to go!" />
     <meta name="twitter:creator" content="@iakshatmittal" />
     <meta name="twitter:image" content="https://akshatmittal.com/youtube-realtime/assets/images/sharing.png?v=1" />
-    <meta property="og:title" content="Live YouTube Subscriber Count — YouTube Realtime" />
+    <meta property="og:title" content="Live YouTube View Count — YouTube Realtime" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://akshatmittal.com/youtube-realtime/" />
+    <meta property="og:url" content="https://akshatmittal.com/youtube-realtime/live-view-count/" />
     <meta property="og:image" content="https://akshatmittal.com/youtube-realtime/assets/images/sharing.png?v=1" />
     <meta property="og:description"
-        content="YouTube Realtime is the easiest way to view the live subscriber count for any YouTuber on the planet! Simply enter the channel name, or ID and you are good to go!" />
+        content="YouTube Realtime is the easiest way to see the live view count for any YouTube Video on the planet! Simply enter the video name, url, or ID and you are good to go!" />
     <meta property="og:site_name" content="Akshat Mittal" />
     <meta property="fb:admins" content="100000581280466" />
     <meta property="fb:app_id" content="1473140929606808" />
@@ -33,10 +33,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet">
-    <link href="assets/css/odometer-theme-custom.css" rel="stylesheet">
-    <link href="assets/css/spinners.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/colors/light.css" id="theme" rel="stylesheet">
+    <link href="../assets/css/odometer-theme-custom.css" rel="stylesheet">
+    <link href="../assets/css/spinners.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/colors/light.css" id="theme" rel="stylesheet">
     <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="akshatmittal"
         data-description="Support me in building YouTube Realtime!" data-message="Like what you see? Buy me a coffee!"
         data-color="#FF813F" data-position="right" data-x_margin="18" data-y_margin="18"></script>
@@ -78,7 +78,7 @@
                     </ul>
                     <form class="mx-2 my-auto d-inline w-100" id="yt_search">
                         <div class="input-group">
-                            <input type="text" class="form-control form-control" placeholder="Search"
+                            <input type="text" class="form-control form-control" placeholder="Enter video URL or name.."
                                 id="yt_searchvalue" autocomplete="off">
                             <span class="input-group-btn">
                                 <button class="btn btn-success" type="button" id="yt_searchbutton">
@@ -101,27 +101,9 @@
                     <ul class="sidebarnav">
                         <li class="nav-small-cap">META</li>
                         <li>
-                            <a class="waves-effect waves-dark" href="./live-view-count/" target="_blank">
-                                <i class="fa fa-eye"></i>
-                                <span class="hide-menu">Live View Count</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="./pewdiepie-vs-cocomelon/" target="_blank">
+                            <a class="waves-effect waves-dark" href="../" target="_blank">
                                 <i class="fa fa-chart-bar"></i>
-                                <span class="hide-menu">PewDiePie vs Cocomelon</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="./pewdiepie-vs-tseries/" target="_blank">
-                                <i class="fa fa-chart-bar"></i>
-                                <span class="hide-menu">PewDiePie vs T-Series</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="./compare/" target="_blank">
-                                <i class="fa fa-chart-bar"></i>
-                                <span class="hide-menu">Compare Multiple</span>
+                                <span class="hide-menu">Subscriber Count</span>
                             </a>
                         </li>
                     </ul>
@@ -212,12 +194,15 @@
                 <div class="row">
                     <!-- Column -->
                     <div class="col-sm-12">
+                        <h3 class="m-t-20 m-b-0 text-center" style="font-size: 2em;">YouTube Live View Count</h3>
+                    </div>
+                    <div class="col-sm-12">
                         <div class="card m-b-0 m-t-20">
-                            <img class="card-img-top img-responsive" src="assets/images/banner.jpg" id="yt_cover"
-                                style="max-height:200px;">
-                            <div class="card-block little-profile p-b-0 text-center">
+                            <img class="card-img-top img-responsive" src="../assets/images/banner.jpg" id="yt_cover"
+                                style="max-height:0;">
+                            <div class="card-block little-profile p-b-0 text-center views">
                                 <div class="pro-img">
-                                    <img src="assets/images/icon.png" alt="user" id="yt_profile">
+                                    <img src="../assets/images/icon.png" alt="user" id="yt_profile">
                                 </div>
                                 <h3 class="display-6 m-b-15 m-t-10 text-center yt_name" id="yt_name">Akshat Mittal</h3>
                             </div>
@@ -225,8 +210,8 @@
                                 <div class="card-body">
                                     <div class="position-relative">
                                         <div class="white">
-                                            <h1 class="display-1" id="yt_subs">00,000,000</h1>
-                                            <span>Subscribers</span>
+                                            <h1 class="display-1 views" id="yt_views">00,000,000</h1>
+                                            <span>Views</span>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +225,7 @@
                             <div class="text-center p-t-0 row">
                                 <div class="col-6 col-md-3">
                                     <div class="card no-shadow btn-youtube mb-0 p-2 waves-effect" id="yt_shareyt">
-                                        <span class="font-light m-b-0"><i class="fab fa-youtube"></i> Visit</span>
+                                        <span class="font-light m-b-0"><i class="fab fa-youtube"></i> Watch</span>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
@@ -272,28 +257,42 @@
                 <div class="row">
                     <div class="col-sm-12" id="yt_sharear2">
                         <div class="row">
-                            <div class="col-12 col-lg-7">
+                            <div class="col-12 col-lg-4">
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="card-body">
                                             <div class="position-relative">
                                                 <div class="mt-2 ml-2 white">
-                                                    <h1 class="display-5" id="yt_views">00,000,000,000</h1>
-                                                    <span>Views</span>
+                                                    <h1 class="display-5" id="yt_likes">000,000</h1>
+                                                    <span>Likes</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-5">
+                            <div class="col-12 col-lg-4">
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="card-body">
                                             <div class="position-relative">
                                                 <div class="mt-2 ml-2 white">
-                                                    <h1 class="display-5" id="yt_videos">0,000</h1>
-                                                    <span>Videos</span>
+                                                    <h1 class="display-5" id="yt_dislikes">000,000</h1>
+                                                    <span>Dislikes</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="card-body">
+                                            <div class="position-relative">
+                                                <div class="mt-2 ml-2 white">
+                                                    <h1 class="display-5" id="yt_comments">000,000</h1>
+                                                    <span>Comments</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -354,28 +353,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div>
-                                    <h3 class="card-title text-center">Why do I see abbreviated subscriber counts?</h3>
-                                </div>
-                                <div>
-                                    <blockquote class="twitter-tweet tw-align-center">
-                                        <p lang="en" dir="ltr">According to <a
-                                                href="https://twitter.com/TeamYouTube?ref_src=twsrc%5Etfw">@TeamYouTube</a>,
-                                            the abbreviated subscriber counts will be rolling out to YouTube and YouTube
-                                            Data API starting September 10th, 2019.</p>&mdash; Akshat Mittal
-                                        (@iakshatmittal) <a
-                                            href="https://twitter.com/iakshatmittal/status/1170691927030685696?ref_src=twsrc%5Etfw">September
-                                            8, 2019</a>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row ads">
                     <div class="col-12">
                         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3188055178160882"
@@ -408,42 +385,26 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <p>YouTube Realtime shows the live subscriber count of any user on YouTube as
-                                        accurately
-                                        as possible. YouTube often doesn't update the subscriber count on the website in
+                                    <p>YouTube Realtime Live View Count shows the live view count of any video on
+                                        YouTube as
+                                        accurately as possible. YouTube often doesn't update the view count on the
+                                        website in
                                         real time and hence it's hard to keep a track on when you'll hit a new
                                         milestone.
-                                        This tool eases the pressure and allows you see the subscribers change live!
+                                        This tool eases the pressure and allows you see the view count change live!
                                     </p>
                                     <p>
-                                        The subscriber count, view count, video count and comment count are all taken
+                                        The view count, likes count, dislikes count and comment count are all taken
                                         directly from Google's infrastructure via
                                         the Analytics API. The counts are updated every second and are guaranteed to be
                                         accurate.
                                     </p>
-                                    <p>You can enter the channel name in any format. You can also input search terms for
-                                        a channel,
+                                    <p>You can enter the video in any format. You can also input search terms for
+                                        a video,
                                         this will also try to automatically correct spellings in most cases. This is as
                                         good
                                         as YouTube Search itself since it uses the same engine to search.
                                     </p>
-                                    <p>
-                                        You can literally enter anything that YouTube supports. Examples:
-                                    </p>
-                                    <ul>
-                                        <li>Channel Username (Example:
-                                            <b>MKBHD</b>)</li>
-                                        <li>Channel ID (Example:
-                                            <b>UCK8sQmJBp8GCxrOtXWBpyEA</b>)</li>
-                                        <li>Channel Name (Example:
-                                            <b>Fine Brothers Entertainment</b>)</li>
-                                        <li>YouTube URL (Example:
-                                            <b>youtube.com/mkbhd</b>)</li>
-                                        <li>Search Terms (Example:
-                                            <b>Justin Bieber</b>)</li>
-                                        <li>Self Discovery Channels (Example:
-                                            <b>#Music</b>)</li>
-                                    </ul>
                                     <p>
                                         If you like this tool, please consider supporting me on <a
                                             href="https://www.buymeacoffee.com/akshatmittal">BuyMeACoffee</a>!
@@ -463,13 +424,10 @@
                                     </div>
                                 </div>
                                 <div class="form-horizontal form-material">
-                                    <p>You can share the live subscriber counts for any channel on YouTube by sharing
+                                    <p>You can share the live view counts for any video on YouTube by sharing
                                         the following
-                                        URL. Sharing buttons for YouTube, Facebook and Twitter are also available right
-                                        below
-                                        the subscriber count. You can also bookmark (Ctrl/Cmd + D) the current URL to
-                                        come
-                                        back anytime!</p>
+                                        URL. You can also bookmark (Ctrl/Cmd + D) the current URL to
+                                        come back anytime!</p>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <input type="text" name="url" value="..wait.." id="yt_shareurl"
@@ -484,7 +442,7 @@
                                     </div>
                                 </div>
                                 <div class="form-horizontal form-material">
-                                    <p>You can also embed the live subscriber counts for any channel on your own website
+                                    <p>You can also embed the live view count for any video on your own website
                                         by copying the following embed code in your HTML. Embeds are available as a
                                         small or a large embed. <a href="https://counts.live/embeds" target="_blank"
                                             rel="noopener noreferrer">More details here.</a></p>
@@ -543,25 +501,24 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"
         integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
     <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
-    <script src="//platform.twitter.com/widgets.js" defer></script>
     <script>
         window.Tether = function () { } // I don't want Bootstrap to use Tether.
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.6/odometer.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js"></script>
-    <script src="assets/js/waves.js"></script>
-    <script src="assets/js/custom-ui.js"></script>
+    <script src="../assets/js/waves.js"></script>
+    <script src="../assets/js/custom-ui.js"></script>
 
-    <script src="assets/js/base.js"></script>
-    <script src="assets/js/featured.core.js"></script>
-    <script src="assets/js/updateManager.core.js"></script>
-    <script src="assets/js/query.core.js"></script>
-    <script src="assets/js/multisearch.core.js"></script>
-    <script src="assets/js/live.core.js"></script>
-    <script src="assets/js/sharing.core.js"></script>
-    <script src="assets/js/urlManager.core.js"></script>
-    <script src="assets/js/init.js"></script>
+    <script src="../assets/js/base.js"></script>
+    <script src="../assets/js/featured.core.js"></script>
+    <script src="../assets/js/updateManager.view.js"></script>
+    <script src="../assets/js/query.view.js"></script>
+    <script src="../assets/js/multisearch.view.js"></script>
+    <script src="../assets/js/live.view.js"></script>
+    <script src="../assets/js/sharing.view.js"></script>
+    <script src="../assets/js/urlManager.view.js"></script>
+    <script src="../assets/js/init.js"></script>
     <script src="//akshatmittal.disqus.com/embed.js" defer></script>
 </body>
 

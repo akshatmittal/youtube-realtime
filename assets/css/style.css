@@ -82,6 +82,10 @@ h6 {
     font-size: 8rem;
 }
 
+.display-1.views {
+    font-size: 6rem;
+}
+
 .display-5 {
     font-size: 2.8rem;
     font-weight: 300;
@@ -785,12 +789,23 @@ sidebar navigation
     margin-bottom: 20px;
 }
 
+.little-profile.views .pro-img {
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
 .little-profile .pro-img img {
     width: 128px;
     height: 128px;
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 100%;
+}
+
+.little-profile.views .pro-img img {
+    width: 320px;
+    height: 180px;
+    border-radius: 8px;
 }
 
 @media (min-width: 1024px) {
@@ -901,6 +916,10 @@ sidebar navigation
 @media (max-width: 767px) {
     .display-1 {
         font-size: 4rem;
+    }
+
+    .display-1.views {
+        font-size: 3rem;
     }
 
     .topbar {
