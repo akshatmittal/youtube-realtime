@@ -1,6 +1,5 @@
 YT.query = {
     newSearch: function (e) {
-        console.log(e);
         if (e.trim() == YT.live.channelID || e.trim() == "") {
             return;
         }

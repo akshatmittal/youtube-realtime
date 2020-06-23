@@ -6,7 +6,6 @@ YT.query = {
         YT.live.stop();
         if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
             $.getJSON("https://counts.live/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/data", function (e) {
-                console.log(e);
                 if (!e.success) {
                     alert("No results found!");
                     location.href = baseURL;
