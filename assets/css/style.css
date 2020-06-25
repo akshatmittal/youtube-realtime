@@ -1001,6 +1001,7 @@ sidebar navigation
 
 .ads {
     text-align: center;
+    overflow: hidden;
 }
 
 /* 
