@@ -4,8 +4,8 @@ YT.pins = {
         $.getJSON(this.url, function (e) {
             $pn = $("#pinned_nav");
             $pn.html("");
-            $pn.append($('<li class="nav-small-cap">FEATURED USERS</li>'));
-            var users = e.users.filter(e => e.service === "youtube-subscriber-count");
+            $pn.append($('<li class="nav-small-cap">FEATURED VIDEOS</li>'));
+            var users = e.users.filter(e => e.service === "youtube-view-count");
 
             $.when.apply(null, users.map(e => $.getJSON("https://counts.live/api/" + e.service + "/" + e.id + "/data"))).done(function () {
                 for (var x in arguments) {
@@ -27,7 +27,7 @@ YT.pins = {
                     $li.append($a);
                     $pn.append($li);
                 }
-                $pn.append($('<li><a class="waves-effect waves-dark" href="https://promote.counts.live" target="_blank"><i class="fa fa-link"></i><span class="hide-menu">Your Channel Here</span></a></li>'))
+                $pn.append($('<li><a class="waves-effect waves-dark" href="https://promote.counts.live" target="_blank"><i class="fa fa-link"></i><span class="hide-menu">Your Video Here</span></a></li>'))
             });
         })
     }
