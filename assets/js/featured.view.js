@@ -10,6 +10,9 @@ YT.pins = {
             $.when.apply(null, users.map(e => $.getJSON("https://counts.live/api/" + e.service + "/" + e.id + "/data"))).done(function () {
                 for (var x in arguments) {
                     var f = arguments[x];
+                    if (users.length > 1) {
+                        f = f[0];
+                    }
                     if (!f.success) continue;
                     $li = $("<li>");
                     $a = $("<a>", {
