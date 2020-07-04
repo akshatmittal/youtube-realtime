@@ -1,3 +1,13 @@
+function injectJs(e, id) {
+    var t = document.createElement("script");
+    t.type = "text/javascript";
+    t.async = !0;
+    t.src = e;
+    if (id) {
+        t.id = id;
+    }
+    (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(t);
+}
 $(window).bind("popstate", YT.urls ? YT.urls.onchange : false);
 $(function () {
     YT.updateManager.prepare();
@@ -10,6 +20,9 @@ $(function () {
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
+    injectJs("https://arc.io/widget.js#RXTxSEJU?CDN=False");
+    injectJs("https://platform.twitter.com/widgets.js");
+    injectJs("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
 });
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
