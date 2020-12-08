@@ -35,7 +35,7 @@ a:focus {
 }
 
 .img-responsive {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: inline-block;
 }
@@ -102,6 +102,7 @@ html body .p-t-0 {
 
 html body .p-b-0 {
     padding-bottom: 0px;
+    z-index: 2;
 }
 
 html body .m-l-10 {
@@ -364,6 +365,11 @@ textarea {
     border-radius: 4px;
     -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.card-no-border .card .card-img-top {
+    filter: blur(7px);
 }
 
 #main-wrapper {
@@ -1004,21 +1010,21 @@ sidebar navigation
     overflow: hidden;
 }
 
-/* 
-.ads .desktop {
+
+.tubebuddy-desktop {
     display: none;
 }
 
-.ads .mobile {
-    display: block;
+.tubebuddy-mobile {
+    display: inline-block;
 }
 
 @media (min-width: 1024px) {
-    .ads .desktop {
-        display: block;
+    .tubebuddy-desktop {
+        display: inline-block;
     }
 
-    .ads .mobile {
+    .tubebuddy-mobile {
         display: none;
     }
-} */
+}
