@@ -1009,22 +1009,3 @@ sidebar navigation
     text-align: center;
     overflow: hidden;
 }
-
-
-.tubebuddy-desktop {
-    display: none;
-}
-
-.tubebuddy-mobile {
-    display: inline-block;
-}
-
-@media (min-width: 1024px) {
-    .tubebuddy-desktop {
-        display: inline-block;
-    }
-
-    .tubebuddy-mobile {
-        display: none;
-    }
-}
