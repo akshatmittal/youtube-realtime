@@ -3,3 +3,4 @@
 _internal
 # Local Netlify folder
 .netlify
+node_modules

@@ -20,7 +20,6 @@ $(function () {
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
     (adsbygoogle = window.adsbygoogle || []).push({});
-    injectJs("https://arc.io/widget.js#RXTxSEJU?CDN=False");
     injectJs("https://platform.twitter.com/widgets.js");
     injectJs("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
 });
