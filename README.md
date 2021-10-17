@@ -64,4 +64,4 @@ The project forks and code by default redirects back to this repo. You can view 
 
 # Support
 
-This project is supported by [Create My Token](https://www.createmytoken.com/) which is a [free ERC20 token generator](https://www.createmytoken.com/create/erc20/) and [free BEP20 token generator](https://www.createmytoken.com/create/bep20/).
+This project is supported by [Metacrypt](https://www.metacrypt.org/) and [Create My Token](https://www.createmytoken.com/) which is a [free ERC20 token generator](https://www.createmytoken.com/token-builder/ethereum-erc20-generator/) and [free BEP20 token generator](https://www.createmytoken.com/token-builder/binance-smart-chain-bep20-generator/).
