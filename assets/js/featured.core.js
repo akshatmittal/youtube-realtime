@@ -7,7 +7,7 @@ YT.pins = {
             $pn.append($('<li class="nav-small-cap">FEATURED USERS</li>'));
             var users = e.users.filter(e => e.service === "youtube-subscriber-count");
 
-            $.when.apply(null, users.map(e => $.getJSON("https://counts.live/api/" + e.service + "/" + e.id + "/data"))).done(function () {
+            $.when.apply(null, users.map(e => $.getJSON("https://api.subscribercounter.nl/api/" + e.service + "/" + e.id + "/data"))).done(function () {
                 for (var x in arguments) {
                     var f = arguments[x];
                     if (users.length > 1) {
