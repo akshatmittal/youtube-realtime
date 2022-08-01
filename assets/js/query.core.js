@@ -5,7 +5,7 @@ YT.query = {
         }
         YT.live.stop();
         if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
-            $.getJSON("https://counts.live/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/data", function (e) {
+            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/data", function (e) {
                 if (!e.success) {
                     alert("No results found!");
                     location.href = baseURL;
@@ -19,7 +19,7 @@ YT.query = {
                 YT.live.start();
             });
         } else {
-            $.getJSON("https://counts.live/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/search", function (e) {
+            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/search", function (e) {
                 if (!e.success) {
                     alert("No results found!");
                     location.href = baseURL;
