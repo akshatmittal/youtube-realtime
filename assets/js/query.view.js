@@ -4,7 +4,7 @@ YT.query = {
             return;
         }
         YT.live.stop();
-        $.getJSON("https://counts.live/api/youtube-view-count/" + encodeURIComponent(e) + "/search", function (e) {
+        $.getJSON("https://api.subscribercounter.nl/api/youtube-view-count/" + encodeURIComponent(e) + "/search", function (e) {
             if (!e.success || !e.data || e.data.length === 0) {
                 alert("No results found!");
                 return;
