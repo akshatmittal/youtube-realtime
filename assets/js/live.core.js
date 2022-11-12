@@ -1,13 +1,13 @@
 YT.live = {
     channelID: "",
     update: function () {
-        $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + this.channelID + "/live", function (e) {
-            if (e.success) {
-                YT.updateManager.updateSubscribers(e.data.subscribers);
-                YT.updateManager.updateViews(e.data.views);
-                YT.updateManager.updateVideos(e.data.videos);
+        $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + this.channelID, function (e) {
+            if (e) {
+                YT.updateManager.updateSubscribers(e.counts[2].count);
+                YT.updateManager.updateViews(e.counts[4].count);
+                YT.updateManager.updateVideos(e.counts[5].count);
             } else {
-                YT.query.newSearch(YT.live.channelID);
+                YT.query.newSearch(this.channelID);
             }
         });
     },
