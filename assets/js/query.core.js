@@ -5,27 +5,27 @@ YT.query = {
         }
         YT.live.stop();
         if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
-            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/data", function (e) {
-                if (!e.success) {
+            $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(e), function (e) {
+                if (!e) {
                     alert("No results found!");
                     location.href = baseURL;
                     return;
                 }
-                YT.updateManager.updateChannelID(e.data.id);
-                YT.updateManager.updateCover(e.data.backdrop);
-                YT.updateManager.updateName(e.data.name);
-                YT.updateManager.updateProfile(e.data.picture);
-                YT.urls.pushState(e.data.id);
+                YT.updateManager.updateChannelID(encodeURIComponent(e));
+                YT.updateManager.updateCover(e.user[2].count);
+                YT.updateManager.updateName(e.user[0].count);
+                YT.updateManager.updateProfile(e.user[1].count);
+                YT.urls.pushState(encodeURIComponent(e));
                 YT.live.start();
             });
         } else {
-            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/search", function (e) {
-                if (!e.success) {
+            $.getJSON("https://mixerno.space/api/youtube-channel-counter/search/" + encodeURIComponent(e), function (e) {
+                if (!e) {
                     alert("No results found!");
                     location.href = baseURL;
                     return;
                 }
-                YT.query.newSearch(e.data[0].id);
+                YT.query.newSearch(e.list[0][2]);
             });
         }
     },
