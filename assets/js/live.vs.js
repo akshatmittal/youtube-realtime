@@ -2,9 +2,9 @@ YT.live = {
     vs1: "",
     vs2: "",
     update: function () {
-        $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + YT.live.vs1 + "/live", function (f) {
-            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + YT.live.vs2 + "/live", function (g) {
-                YT.updateManager.updateSubscribers(f.data.subscribers, g.data.subscribers);
+        $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + YT.live.vs1 + "/live", function (f) {
+            $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + YT.live.vs2 + "/live", function (g) {
+                YT.updateManager.updateSubscribers(f.counts[2].count, g.counts[2].count);
             });
         });
     },
