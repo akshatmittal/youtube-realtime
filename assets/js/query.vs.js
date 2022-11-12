@@ -1,10 +1,10 @@
 YT.query = {
     begin: function () {
-        $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(YT.live.vs1) + "/data", function (f) {
-            $.getJSON("https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(YT.live.vs2) + "/data", function (g) {
-                YT.updateManager.updateCover(f.data.backdrop, g.data.backdrop);
-                YT.updateManager.updateName(f.data.name, g.data.name);
-                YT.updateManager.updateProfile(f.data.picture, g.data.picture);
+        $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(YT.live.vs1), function (f) {
+            $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(YT.live.vs2), function (g) {
+                YT.updateManager.updateCover(f.user[2].count, g.user[2].count);
+                YT.updateManager.updateName(f.user[0].count, g.user[0].count);
+                YT.updateManager.updateProfile(f.user[1].count, g.user[1].count);
             });
         });
     },
