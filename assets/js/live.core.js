@@ -7,7 +7,7 @@ YT.live = {
                 YT.updateManager.updateViews(e.counts[4].count);
                 YT.updateManager.updateVideos(e.counts[5].count);
             } else {
-                YT.query.newSearch(this.channelID);
+                YT.query.newSearch(YT.live.channelID);
             }
         });
     },

@@ -8,7 +8,7 @@ YT.live = {
                 YT.updateManager.updateDislikes(e.counts[4].count);
                 YT.updateManager.updateComments(e.counts[5].count);
             } else {
-                YT.query.newSearch(YT.uploadedBY);
+                YT.query.newSearch(YT.live.channelID);
             }
         });
     },
