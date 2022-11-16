@@ -4,16 +4,16 @@ YT.query = {
             return;
         }
         YT.live.stop();
-        $.getJSON("https://api.subscribercounter.nl/api/youtube-view-count/" + encodeURIComponent(e) + "/search", function (e) {
-            if (!e.success || !e.data || e.data.length === 0) {
+        $.getJSON("https://mixerno.space/api/youtube-video-counter/search/" + encodeURIComponent(e), function (e) {
+            if (!e.list || e.list.length === 0) {
                 alert("No results found!");
                 return;
             }
-            YT.updateManager.updateChannelID(e.data[0].id);
-            YT.updateManager.updateCover(e.data[0].backdrop);
-            YT.updateManager.updateName(e.data[0].name);
-            YT.updateManager.updateProfile(e.data[0].picture);
-            YT.urls.pushState(e.data[0].id);
+            YT.updateManager.updateChannelID(e.list[0][2]);
+            YT.updateManager.updateCover(e.list[0][1]);
+            YT.updateManager.updateName(e.list[0][0]);
+            YT.updateManager.updateProfile(e.list[0][1]);
+            YT.urls.pushState(e.list[0][2]);
             YT.live.start();
         });
     },

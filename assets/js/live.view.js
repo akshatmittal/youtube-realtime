@@ -1,12 +1,12 @@
 YT.live = {
     channelID: "",
     update: function () {
-        $.getJSON("https://api.subscribercounter.nl/api/youtube-view-count/" + this.channelID + "/live", function (e) {
-            if (e.success) {
-                YT.updateManager.updateViews(e.data.views);
-                YT.updateManager.updateLikes(e.data.likes);
-                YT.updateManager.updateDislikes(e.data.dislikes);
-                YT.updateManager.updateComments(e.data.comments);
+        $.getJSON("https://mixerno.space/api/youtube-video-counter/user/" + this.channelID, function (e) {
+            if (e) {
+                YT.updateManager.updateViews(e.counts[2].count);
+                YT.updateManager.updateLikes(e.counts[3].count);
+                YT.updateManager.updateDislikes(e.counts[4].count);
+                YT.updateManager.updateComments(e.counts[5].count);
             } else {
                 YT.query.newSearch(YT.live.channelID);
             }
