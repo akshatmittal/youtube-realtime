@@ -5,7 +5,7 @@ YT.query = {
         }
         YT.live.stop();
         $.getJSON("https://mixerno.space/api/youtube-video-counter/search/" + encodeURIComponent(e), function (e) {
-            if (!e.list || e.data.length === 0) {
+            if (!e.list || e.list.length === 0) {
                 alert("No results found!");
                 return;
             }
