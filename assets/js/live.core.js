@@ -4,7 +4,7 @@ YT.live = {
         $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + this.channelID, function (e) {
             if (e) {
                 YT.updateManager.updateSubscribers(e.counts[2].count);
-                YT.updateManager.updateViews(e.counts[4].count);
+                YT.updateManager.updateViews(e.counts[3].count);
                 YT.updateManager.updateVideos(e.counts[5].count);
             } else {
                 YT.query.newSearch(YT.live.channelID);
