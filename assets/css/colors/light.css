@@ -13,7 +13,6 @@
   left: calc(50% - 3.5px);
 }
 
-
 /*******************
 /*Top bar
 *******************/
@@ -38,15 +37,14 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.topbar .navbar-light .navbar-nav .nav-item>a.nav-link {
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
-.topbar .navbar-light .navbar-nav .nav-item>a.nav-link:hover,
-.topbar .navbar-light .navbar-nav .nav-item>a.nav-link:focus {
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover,
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
   color: #ffffff !important;
 }
-
 
 /*******************
 /*General Elements
@@ -65,12 +63,12 @@ a.link:focus {
   background-color: #f62d51 !important;
 }
 
-.pagination>.active>a,
-.pagination>.active>span,
-.pagination>.active>a:hover,
-.pagination>.active>span:hover,
-.pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
   background-color: #f62d51;
   border-color: #f62d51;
 }
@@ -99,7 +97,6 @@ a.link:focus {
   color: #f62d51;
 }
 
-
 /*******************
 /*Buttons
 *******************/
@@ -124,7 +121,6 @@ a.link:focus {
 .btn-themecolor.disabled:focus {
   background: #028ee1;
 }
-
 
 /*******************
 /*sidebar navigation
@@ -151,32 +147,32 @@ a.link:focus {
   color: #99abb4;
 }
 
-.sidebar-nav>ul>li.active>a,
-.sidebar-nav>ul>li.active:hover>a {
+.sidebar-nav > ul > li.active > a,
+.sidebar-nav > ul > li.active:hover > a {
   color: #ffffff !important;
   background: #f62d51 !important;
 }
 
-.sidebar-nav>ul>li.active>a i,
-.sidebar-nav>ul>li.active:hover>a i {
+.sidebar-nav > ul > li.active > a i,
+.sidebar-nav > ul > li.active:hover > a i {
   color: #ffffff !important;
 }
 
-.sidebar-nav>ul>li.active>a:after,
-.sidebar-nav>ul>li.active:hover>a:after {
+.sidebar-nav > ul > li.active > a:after,
+.sidebar-nav > ul > li.active:hover > a:after {
   border-color: #ffffff;
 }
 
-.sidebar-nav>ul>li>a.active i,
-.sidebar-nav>ul>li>a:hover i {
+.sidebar-nav > ul > li > a.active i,
+.sidebar-nav > ul > li > a:hover i {
   color: #f62d51;
 }
 
-.sidebar-nav>ul>li>a i {
+.sidebar-nav > ul > li > a i {
   color: #99abb4;
 }
 
-.sidebar-nav>ul>li>a.active {
+.sidebar-nav > ul > li > a.active {
   font-weight: 400;
   background: #ffffff;
   color: #f62d51;

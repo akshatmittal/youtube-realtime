@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Live YouTube Subscriber Count",
   "scripts": {
-    "start": "http-server --ssl --cert _internal\\ssl.cert --key _internal\\ssl.key -a local.akshatmittal.com -p 8443"
+    "start": "http-server --ssl --cert _internal\\ssl.cert --key _internal\\ssl.key -a local.akshatmittal.com -p 8443",
+    "serve": "npx serve@latest"
   },
   "repository": {
     "type": "git",

@@ -46,10 +46,6 @@ _YouTube Realtime Embed_
 - [Marques Brownlee](https://akshatmittal.com/youtube-realtime/#!/MarquesBrownlee "Marques Brownlee's Realtime Subscriber Count on YouTube")
 - [YouTube Spotlight](https://akshatmittal.com/youtube-realtime/#!/UCBR8-60-B28hp2BmDPdntcQ "YouTube Spotlight's Realtime Subscriber Count on YouTube")
 
-# Support
-
-If you would like to support this project, please consider supporting me on [BuyMeACoffee](https://www.buymeacoffee.com/akshatmittal)!
-
 # License
 
 YouTube Realtime Copyright (C) 2019 [Akshat Mittal](https://akshatmittal.com/)
@@ -64,4 +60,4 @@ The project forks and code by default redirects back to this repo. You can view 
 
 # Support
 
-This project is supported by [Metacrypt](https://www.metacrypt.org/), [Metavisor](https://www.metavisor.app/) and [Create My Token](https://www.createmytoken.com/) which is a [free ERC20 token generator](https://www.createmytoken.com/token-builder/ethereum-erc20-generator/) and [free BEP20 token generator](https://www.createmytoken.com/token-builder/binance-smart-chain-bep20-generator/).
+This project is supported by [Metacrypt](https://www.metacrypt.org/) and [Create My Token](https://www.createmytoken.com/) which is a [free ERC20 token generator](https://www.createmytoken.com/token-generator/ethereum-erc20-generator/) and [free BEP20 token generator](https://www.createmytoken.com/token-generator/bnb-smart-chain-bep20-generator/).
