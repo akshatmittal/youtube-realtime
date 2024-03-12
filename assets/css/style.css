@@ -386,10 +386,6 @@ textarea {
   overflow: hidden;
 }
 
-.card-no-border .card .card-img-top {
-  filter: blur(7px);
-}
-
 #main-wrapper {
   width: 100%;
 }

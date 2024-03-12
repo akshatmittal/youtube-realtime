@@ -60,4 +60,4 @@ The project forks and code by default redirects back to this repo. You can view 
 
 # Support
 
-This project is supported by [Metacrypt](https://www.metacrypt.org/) and [Create My Token](https://www.createmytoken.com/) which is a [free ERC20 token generator](https://www.createmytoken.com/token-generator/ethereum-erc20-generator/) and [free BEP20 token generator](https://www.createmytoken.com/token-generator/bnb-smart-chain-bep20-generator/).
+This project is supported by [Metacrypt](https://www.metacrypt.org/) and [Create My Token](https://www.createmytoken.com/). They provide services such as the [free ERC20 token generator](https://www.createmytoken.com/token-generator/ethereum-erc20-generator/), [free BEP20 token generator](https://www.createmytoken.com/token-generator/bnb-smart-chain-bep20-generator/) and [free Solana SPL Token Creator](https://www.createmytoken.com/solana-token-creator/spl-token/).
