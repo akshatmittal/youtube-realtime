@@ -1,49 +1,44 @@
 YT.query = {
-  newSearch: function (e) {
-    const term = e.trim();
+  newSearch: function (raw) {
+    const term = raw.trim();
     if (term === YT.live.channelID || term === "") {
       return;
     }
     YT.live.stop();
 
-    if (term.substr(0, 2).toUpperCase() === "UC" && term.length >= 24) {
-      console.log(term);
+    if (/^\d+$/.test(term)) {
       $.getJSON(
         "https://mixerno.space/api/roblox-group-counter/user/" 
           + encodeURIComponent(term),
         function (f) {
-          if (!f) {
-            alert("No results found!");
+          if (!f || !f.user) {
+            alert("No group found with ID “" + term + "”");
             location.href = baseURL;
             return;
           }
-          YT.updateManager.updateChannelID(encodeURIComponent(term));
+          YT.updateManager.updateChannelID(term);
           YT.updateManager.updateCover(f.user[2].count);
           YT.updateManager.updateName(f.user[0].count);
           YT.updateManager.updateProfile(f.user[1].count);
-          YT.urls.pushState(encodeURIComponent(term));
+          YT.urls.pushState(term);
           YT.live.start();
         }
       );
     }
     else {
-      const proxiedUrl =
-        "https://corsproxy.io/?" +
-        encodeURIComponent(
-          "https://groups.roblox.com/v1/groups/search"
-            + "?keyword=" + encodeURIComponent(term)
-            + "&limit=10"
-        );
-
-      $.getJSON(proxiedUrl, function (resp) {
-        const list = resp && resp.data;
-        if (!list || !list.length) {
-          alert("No groups found matching “" + term + "”");
-          location.href = baseURL;
-          return;
+      $.getJSON(
+        "https://mixerno.space/api/roblox-group-counter/search/" 
+          + encodeURIComponent(term),
+        function (res) {
+          if (!res || !res.list || !res.list.length) {
+            alert("No groups found matching “" + term + "”");
+            location.href = baseURL;
+            return;
+          }
+          const foundId = res.list[0][0].toString();
+          YT.query.newSearch(foundId);
         }
-        YT.query.newSearch(list[0].id.toString());
-      });
+      );
     }
   },
 
