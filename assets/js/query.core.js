@@ -11,7 +11,6 @@ YT.query = {
           return location.href = baseURL;
         }
 
-        // tell your updateManager about the new group
         YT.updateManager.updateGroupID(term);
         YT.updateManager.updateName(info.name);
         YT.updateManager.updateMembers(info.memberCount);
