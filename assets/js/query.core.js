@@ -1,42 +1,42 @@
 YT.query = {
-  newSearch: function (e) {
-    if (e.trim() == YT.live.channelID || e.trim() == "") {
-      return;
-    }
+  newSearch(raw) {
+    const term = raw.trim();
+    if (!term) return;
     YT.live.stop();
-    if (e.trim().substr(0, 2).toUpperCase() == "UC" && e.trim().length >= 24) {
-      console.log(e);
-      $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(e), function (f) {
-        if (!e) {
-          alert("No results found!");
-          location.href = baseURL;
-          return;
+
+    if (/^\d+$/.test(term)) {
+      $.getJSON(`/api/groups/${term}`, info => {
+        if (!info || !info.name) {
+          alert("No group found with ID " + term);
+          return location.href = baseURL;
         }
-        YT.updateManager.updateChannelID(encodeURIComponent(e));
-        YT.updateManager.updateCover(f.user[2].count);
-        YT.updateManager.updateName(f.user[0].count);
-        YT.updateManager.updateProfile(f.user[1].count);
-        YT.urls.pushState(encodeURIComponent(e));
+
+        // tell your updateManager about the new group
+        YT.updateManager.updateGroupID(term);
+        YT.updateManager.updateName(info.name);
+        YT.updateManager.updateMembers(info.memberCount);
+        YT.updateManager.updateOwner(info.owner.username);
+
+        YT.urls.pushState(term);
         YT.live.start();
       });
-    } else {
-      $.getJSON("https://mixerno.space/api/youtube-channel-counter/search/" + encodeURIComponent(e), function (e) {
-        if (!e) {
-          alert("No results found!");
-          location.href = baseURL;
-          return;
-        }
-        YT.query.newSearch(e.list[0][2]);
-      });
+    }
+    else {
+      YT.groupSearch.getResults(term);
     }
   },
-  search: function (e) {
+
+  search(e) {
     e.preventDefault();
-    YT.query.newSearch($("#yt_searchvalue").val());
+    const val = $("#yt_searchvalue").val();
+    this.newSearch(val);
     $("#yt_searchvalue").val("");
   },
-  bind: function () {
-    $("#yt_search").on("submit", this.search);
-    $("#yt_searchbutton").on("click", this.search);
-  },
+
+  bind() {
+    $("#yt_search").on("submit", e => this.search(e));
+    $("#yt_searchbutton").on("click", e => this.search(e));
+  }
 };
+
+YT.query.bind();
