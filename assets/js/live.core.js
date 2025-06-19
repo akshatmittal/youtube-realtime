@@ -1,7 +1,7 @@
 YT.live = {
   channelID: "",
   update: function () {
-    $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + this.channelID, function (e) {
+    $.getJSON("https://mixerno.space/api/roblox-group-counter/user/" + this.channelID, function (e) {
       if (e) {
         YT.updateManager.updateSubscribers(e.counts[2].count);
         YT.updateManager.updateViews(e.counts[3].count);
