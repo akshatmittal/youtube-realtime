@@ -26,12 +26,15 @@ YT.query = {
       );
     }
     else {
+      const normalized = term
+        .toLowerCase()
+        .replace(/\s+/g, "");
       $.getJSON(
         "https://mixerno.space/api/roblox-group-counter/search/" 
-          + encodeURIComponent(term),
+          + encodeURIComponent(normalized),
         function (res) {
           if (!res || !res.list || !res.list.length) {
-            alert("No groups found matching “" + term + "”");
+            alert("No groups found matching “" + normalized + "”");
             location.href = baseURL;
             return;
           }
