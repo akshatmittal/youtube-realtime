@@ -32,7 +32,7 @@ YT.query = {
         encodeURIComponent(
           "https://groups.roblox.com/v1/groups/search"
             + "?keyword=" + encodeURIComponent(term)
-            + "&limit=1"
+            + "&limit=10"
         );
 
       $.getJSON(proxiedUrl, function (resp) {
