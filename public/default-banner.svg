@@ -1,0 +1,4 @@
+<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="200" fill="#cccccc"/>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="24" fill="#666666" text-anchor="middle">Channel Banner</text>
+</svg>
