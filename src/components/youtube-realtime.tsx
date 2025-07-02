@@ -253,6 +253,17 @@ export default function YouTubeRealtime() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-8">
+        {/* Demo Notice */}
+        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center">
+            <div className="text-blue-600 mr-2">ℹ️</div>
+            <div className="text-sm text-blue-800">
+              <strong>Demo Mode:</strong> This is a React/Next.js upgrade of the original app. 
+              API calls may use mock data if the external API is unavailable due to CORS restrictions.
+            </div>
+          </div>
+        </div>
+        
         {channelId && <ChannelDisplay channelId={channelId} />}
       </main>
 
