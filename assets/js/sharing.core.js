@@ -14,7 +14,7 @@ YT.sharing = {
         YT.sharing.getEncodedURL() +
         "&ref_src=twsrc%5Etfw&text=" +
         YT.sharing.getText() +
-        "&tw_p=tweetbutton&via=iakshatmittal&url=" +
+        "&tw_p=tweetbutton&via=ElecOrBlox&url=" +
         YT.sharing.getEncodedURL(),
     );
   },

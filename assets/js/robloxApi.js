@@ -1,6 +1,6 @@
 // Roblox Open Cloud API Service
 YT.robloxApi = {
-  baseUrl: "https://groups.roblox.com/v1",
+  baseUrl: "https://apis.roblox.com/cloud/v2",
   
   // Get group information by ID
   getGroupInfo: function(groupId) {
@@ -13,7 +13,7 @@ YT.robloxApi = {
     const url = `${this.baseUrl}/groups/${groupId}`;
     return $.getJSON(url).then(data => ({
       memberCount: data.memberCount,
-      name: data.name,
+      name: data.displayName,
       description: data.description,
       id: data.id
     }));
@@ -43,18 +43,18 @@ YT.robloxApi = {
       
       return {
         id: groupInfo.id,
-        name: groupInfo.name,
+        name: groupInfo.displayName,
         description: groupInfo.description,
         memberCount: groupInfo.memberCount,
         icon: icon || "assets/images/icon.png",
         // Map to expected structure for compatibility
         user: [
-          { count: groupInfo.name },          // name
+          { count: groupInfo.displayName },          // name
           { count: icon || "assets/images/icon.png" }, // profile image
           { count: "assets/images/banner.jpg" }        // cover image
         ],
         counts: [
-          { count: groupInfo.name },
+          { count: groupInfo.displayName },
           { count: icon || "assets/images/icon.png" },
           { count: groupInfo.memberCount },   // members (like subscribers)
           { count: 0 },                      // views (not available for groups)
