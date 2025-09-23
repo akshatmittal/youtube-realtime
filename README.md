@@ -9,11 +9,32 @@ You can directly bookmark the relevant page to directly jump to a specific group
 ## API Integration
 
 This application now uses the **official Roblox Open Cloud API** instead of third-party services:
-- Group information: `https://groups.roblox.com/v1/groups/{groupId}`
-- Group search: `https://groups.roblox.com/v1/groups/search`
+- Group information: `https://apis.roblox.com/cloud/v2/groups/{groupId}`
+- Group search: `https://apis.roblox.com/cloud/v2/groups/search`
 - Group icons: `https://thumbnails.roblox.com/v1/groups/icons`
 
 All API calls are made directly to Roblox's official endpoints, ensuring data accuracy and reliability.
+
+### API Key Configuration
+
+For requests to the Roblox Open Cloud API (`apis.roblox.com/cloud`), you can configure an API key to authenticate your requests:
+
+**Method 1: Set via JavaScript**
+```javascript
+YT.robloxApi.setApiKey('your-api-key-here');
+```
+
+**Method 2: Set as global variable**
+```javascript
+window.ROBLOX_API_KEY = 'your-api-key-here';
+```
+
+**Method 3: Use localStorage (persists across sessions)**
+```javascript
+localStorage.setItem('roblox_api_key', 'your-api-key-here');
+```
+
+The API key will automatically be sent as the `x-api-key` header for all Open Cloud API requests.
 
 ![Roblox Realtime Screenshot](res/Example1.png)<br/>
 _Roblox Realtime showing a popular group_
