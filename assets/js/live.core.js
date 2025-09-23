@@ -1,15 +1,20 @@
 YT.live = {
   channelID: "",
   update: function () {
-    $.getJSON("https://mixerno.space/api/roblox-group-counter/user/" + this.channelID, function (e) {
-      if (e) {
-        YT.updateManager.updateSubscribers(e.counts[2].count);
-        YT.updateManager.updateViews(e.counts[3].count);
-        YT.updateManager.updateVideos(e.counts[5].count);
-      } else {
+    YT.robloxApi.getGroupData(this.channelID)
+      .then(function (groupData) {
+        if (groupData) {
+          YT.updateManager.updateSubscribers(groupData.memberCount);
+          YT.updateManager.updateViews(0); // Groups don't have views
+          YT.updateManager.updateVideos(0); // Groups don't have videos
+        } else {
+          YT.query.newSearch(YT.live.channelID);
+        }
+      })
+      .catch(function (error) {
+        console.error("Error updating group data:", error);
         YT.query.newSearch(YT.live.channelID);
-      }
-    });
+      });
   },
   timer: null,
   start: function () {

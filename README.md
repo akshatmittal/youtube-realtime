@@ -1,30 +1,38 @@
-# YouTube Realtime
+# Roblox Realtime
 
-This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in real time. The count used on this experiment is taken directly from the API and hence is guaranteed to be accurate.
+This is a simple experiment which shows the current live member count on Roblox for a group. The count displayed on Roblox is often not updated in real time. The count used on this experiment is taken directly from the official Roblox APIs and hence is guaranteed to be accurate.
 
 This page is super light and the follow up network requests are as minimal as possible.
 
-You can directly bookmark the relevant page to directly jump to a specific user. Sharing features are built right into the web app.
+You can directly bookmark the relevant page to directly jump to a specific group. Sharing features are built right into the web app.
 
-![YouTube Realtime Screenshot](res/Example1.png)<br/>
-_YouTube Realtime showing YouTube Spotlight_
+## API Integration
+
+This application now uses the **official Roblox Open Cloud API** instead of third-party services:
+- Group information: `https://groups.roblox.com/v1/groups/{groupId}`
+- Group search: `https://groups.roblox.com/v1/groups/search`
+- Group icons: `https://thumbnails.roblox.com/v1/groups/icons`
+
+All API calls are made directly to Roblox's official endpoints, ensuring data accuracy and reliability.
+
+![Roblox Realtime Screenshot](res/Example1.png)<br/>
+_Roblox Realtime showing a popular group_
 
 Feel free to submit issues/pull request if you'd like to contribute.
 
-I've been seeing a lot of copies of this project on the internet, please consider adding an attribution link if you are planning to deploy this project on your website. If you are a YouTuber, consider using a direct link for your channel instead of creating a new clone website. Thanks!
+I've been seeing a lot of copies of this project on the internet, please consider adding an attribution link if you are planning to deploy this project on your website. If you are a group owner, consider using a direct link for your group instead of creating a new clone website. Thanks!
 
-![YouTube Realtime Screenshot](res/Example2.png)<br/>
-_YouTube Realtime showing Justin Bieber_
+![Roblox Realtime Screenshot](res/Example2.png)<br/>
+_Roblox Realtime showing another group_
 
 # Features
 
-- Realtime Subscriber Count
-- Easily compare subscriber counts for any two channels
+- Realtime Member Count
+- Easily compare member counts for any two groups
 - Aesthetically pleasing design and colors
-- Easy channel selection
-- Displays the video count of the user
-- Shows total video views of the user
-- Shows total comment count of the user
+- Easy group selection
+- Shows total group visits (when available)
+- Shows total games count (when available)
 - Easy Sharing built in
 - Embeds
 - Immersive UI
@@ -32,23 +40,23 @@ _YouTube Realtime showing Justin Bieber_
 
 # Embeds
 
-Embedding the counter on your website is a cool way to display the real time count of your channel on your own website. The feature is built right into it, and is available on the website itself. You just need to copy the embed code and paste it as HTML code on your own website. ([Info here.](https://counts.live/embeds))
+Embedding the counter on your website is a cool way to display the real time count of your group on your own website. The feature is built right into it, and is available on the website itself. You just need to copy the embed code and paste it as HTML code on your own website. ([Info here.](https://counts.live/embeds))
 
-![YouTube Realtime Embed Small](https://static.counts.live/images/examples/embeds/small.png)<br/>
-![YouTube Realtime Embed Large](https://static.counts.live/images/examples/embeds/large.png)<br/>
-_YouTube Realtime Embed_
+![Roblox Realtime Embed Small](https://static.counts.live/images/examples/embeds/small.png)<br/>
+![Roblox Realtime Embed Large](https://static.counts.live/images/examples/embeds/large.png)<br/>
+_Roblox Realtime Embed_
 
 # Try it yourself!
 
-- [Sky Does Minecraft](https://akshatmittal.com/youtube-realtime/#!/SkyDoesMinecraft "Sky Does Minecraft's Realtime Subscriber Count on YouTube")
-- [Justin Bieber](https://akshatmittal.com/youtube-realtime/#!/UCHkj014U2CQ2Nv0UZeYpE_A "Justin Bieber's Realtime Subscriber Count on YouTube")
-- [Smosh](https://akshatmittal.com/youtube-realtime/#!/Smosh "Smosh's Realtime Subscriber Count on YouTube")
-- [Marques Brownlee](https://akshatmittal.com/youtube-realtime/#!/MarquesBrownlee "Marques Brownlee's Realtime Subscriber Count on YouTube")
-- [YouTube Spotlight](https://akshatmittal.com/youtube-realtime/#!/UCBR8-60-B28hp2BmDPdntcQ "YouTube Spotlight's Realtime Subscriber Count on YouTube")
+- [Roblox](https://akshatmittal.com/youtube-realtime/#!/1200769 "Roblox's Realtime Member Count")
+- [Adopt Me!](https://akshatmittal.com/youtube-realtime/#!/733 "Adopt Me!'s Realtime Member Count")
+- [Brookhaven](https://akshatmittal.com/youtube-realtime/#!/4199740 "Brookhaven's Realtime Member Count")
+- [Phantom Forces](https://akshatmittal.com/youtube-realtime/#!/634617 "Phantom Forces's Realtime Member Count")
+- [Arsenal](https://akshatmittal.com/youtube-realtime/#!/2998087 "Arsenal's Realtime Member Count")
 
 # License
 
-YouTube Realtime Copyright (C) 2019 [Akshat Mittal](https://akshatmittal.com/)
+Roblox Realtime Copyright (C) 2020 [Akshat Mittal](https://akshatmittal.com/)
 
 You may freely modify the code for personal use. You are not allowed to redistribute the project without attribution and credits or prior permission. Commercial use without permission is prohibited.
 

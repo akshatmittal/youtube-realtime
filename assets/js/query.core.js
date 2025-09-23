@@ -7,41 +7,43 @@ YT.query = {
     YT.live.stop();
 
     if (/^\d+$/.test(term)) {
-      $.getJSON(
-        "https://mixerno.space/api/roblox-group-counter/user/" 
-          + encodeURIComponent(term),
-        function (f) {
-          if (!f || !f.user) {
-            alert("No group found with ID “" + term + "”");
+      YT.robloxApi.getGroupData(term)
+        .then(function (groupData) {
+          if (!groupData || !groupData.user) {
+            alert("No group found with ID "" + term + """);
             location.href = baseURL;
             return;
           }
           YT.updateManager.updateChannelID(term);
-          YT.updateManager.updateCover(f.user[2].count);
-          YT.updateManager.updateName(f.user[0].count);
-          YT.updateManager.updateProfile(f.user[1].count);
+          YT.updateManager.updateCover(groupData.user[2].count);
+          YT.updateManager.updateName(groupData.user[0].count);
+          YT.updateManager.updateProfile(groupData.user[1].count);
+          YT.updateManager.updateSubscribers(groupData.memberCount);
           YT.urls.pushState(term);
           YT.live.start();
-        }
-      );
+        })
+        .catch(function (error) {
+          console.error("Error fetching group data:", error);
+          alert("No group found with ID "" + term + """);
+          location.href = baseURL;
+        });
     }
     else {
-      const normalized = term
-        .toLowerCase()
-        .replace(/\s+/g, "");
-      $.getJSON(
-        "https://mixerno.space/api/roblox-group-counter/search/" 
-          + encodeURIComponent(normalized),
-        function (res) {
-          if (!res || !res.list || !res.list.length) {
-            alert("No groups found matching “" + normalized + "”");
+      YT.robloxApi.searchGroups(term)
+        .then(function (res) {
+          if (!res || !res.data || !res.data.length) {
+            alert("No groups found matching "" + term + """);
             location.href = baseURL;
             return;
           }
-          const foundId = res.list[0][0].toString();
+          const foundId = res.data[0].id.toString();
           YT.query.newSearch(foundId);
-        }
-      );
+        })
+        .catch(function (error) {
+          console.error("Error searching groups:", error);
+          alert("No groups found matching "" + term + """);
+          location.href = baseURL;
+        });
     }
   },
 
