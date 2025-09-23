@@ -1,36 +1,27 @@
 YT.groupSearch = {
+YT.groupSearch = {
   getResults(query) {
-    const proxiedSearchUrl = 
-      "https://corsproxy.io/?" 
-      + encodeURIComponent(
-          "https://groups.roblox.com/v1/groups/search"
-          + "?keyword=" + query
-          + "&limit=10"
-        );
-
-    $.getJSON(proxiedSearchUrl, data => {
-      $("#results").empty();
-      (data.data || []).forEach(g => this.fetchDetails(g.id));
-    });
+    YT.robloxApi.searchGroups(query)
+      .then(data => {
+        $("#results").empty();
+        (data.data || []).forEach(g => this.fetchDetails(g.id));
+      })
+      .catch(error => {
+        console.error("Error searching groups:", error);
+        $("#results").empty();
+      });
   },
 
   fetchDetails(groupId) {
-    $.getJSON(
-      `/api/groups/${groupId}`, 
-      info => {
-        $.getJSON(
-          "https://thumbnails.roblox.com/v1/groups/icons"
-            + "?groupIds=" + groupId
-            + "&size=50x50&format=png&isCircular=true",
-          thumbData => {
-            const thumb = (thumbData.data[0]||{}).imageUrl;
-            $("#results").append(
-              YT.groupSearch.makeHtml(info.name, thumb, groupId)
-            );
-          }
+    YT.robloxApi.getGroupData(groupId)
+      .then(groupData => {
+        $("#results").append(
+          YT.groupSearch.makeHtml(groupData.name, groupData.icon, groupId)
         );
-      }
-    );
+      })
+      .catch(error => {
+        console.error("Error fetching group details:", error);
+      });
   },
 
   makeHtml(name, imageUrl, id) {
