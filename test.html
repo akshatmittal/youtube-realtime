@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Key Fetch Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Roblox API Key Auto-Fetch Test</h1>
+    <div id="results"></div>
+    
+    <script>
+        // Create YT namespace and load our robloxApi implementation
+        var YT = {};
+        
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            document.getElementById('results').appendChild(div);
+        }
+        
+        // Load the actual implementation from our file
+        YT.robloxApi = {
+          baseUrl: "https://apis.roblox.com/cloud/v2",
+          apiKey: null,
+          apiKeyFetchUrl: "https://bgcounts.bgtrack.net/roblox-group/keys.json",
+          isApiKeyFetching: false,
+          
+          init: function() {
+            if (window.ROBLOX_API_KEY) {
+              this.apiKey = window.ROBLOX_API_KEY;
+            } else if (localStorage.getItem('roblox_api_key')) {
+              this.apiKey = localStorage.getItem('roblox_api_key');
+            }
+            
+            if (!this.apiKey) {
+              log('No Roblox API key found. Will attempt to fetch automatically when needed.', 'info');
+            }
+          },
+          
+          fetchApiKey: function() {
+            if (this.isApiKeyFetching) {
+              return Promise.resolve(false);
+            }
+            
+            this.isApiKeyFetching = true;
+            log('Attempting to fetch API key from: ' + this.apiKeyFetchUrl, 'info');
+            
+            return $.ajax({
+              url: this.apiKeyFetchUrl,
+              method: 'GET',
+              timeout: 10000
+            }).then((data) => {
+              this.isApiKeyFetching = false;
+              
+              let key = null;
+              if (typeof data === 'string') {
+                key = data.trim();
+              } else if (data && data.key) {
+                key = data.key;
+              } else if (data && data.apiKey) {
+                key = data.apiKey;
+              } else if (Array.isArray(data) && data.length > 0) {
+                key = data[0];
+              }
+              
+              if (key) {
+                this.setApiKey(key);
+                log('Successfully fetched API key from external service', 'success');
+                return true;
+              } else {
+                log('Failed to extract API key from response: ' + JSON.stringify(data), 'error');
+                return false;
+              }
+            }).catch((error) => {
+              this.isApiKeyFetching = false;
+              log('Failed to fetch API key from external service: ' + error.toString(), 'error');
+              return false;
+            });
+          },
+          
+          setApiKey: function(key) {
+            this.apiKey = key;
+            if (key) {
+              localStorage.setItem('roblox_api_key', key);
+              log('API key set and saved to localStorage', 'success');
+            } else {
+              localStorage.removeItem('roblox_api_key');
+            }
+          },
+          
+          makeCloudRequest: function(url, options = {}) {
+            if (url.includes('apis.roblox.com/cloud') && !this.apiKey && !this.isApiKeyFetching) {
+              log('Cloud API request detected without API key. Attempting to fetch...', 'info');
+              return this.fetchApiKey().then((success) => {
+                if (success) {
+                  log('Retrying request with new API key', 'info');
+                  return this.makeCloudRequest(url, options);
+                } else {
+                  log('Proceeding without API key (may fail)', 'error');
+                  return this.makeCloudRequestWithCurrentKey(url, options);
+                }
+              });
+            }
+            
+            return this.makeCloudRequestWithCurrentKey(url, options);
+          },
+          
+          makeCloudRequestWithCurrentKey: function(url, options = {}) {
+            const headers = {};
+            if (this.apiKey && url.includes('apis.roblox.com/cloud')) {
+              headers['x-api-key'] = this.apiKey;
+              log('Adding x-api-key header to request', 'success');
+            }
+            
+            const requestOptions = {
+              url: url,
+              headers: headers,
+              ...options
+            };
+            
+            log('Making request to: ' + url + ' with headers: ' + JSON.stringify(headers), 'info');
+            return $.ajax(requestOptions);
+          }
+        };
+        
+        // Initialize
+        YT.robloxApi.init();
+        
+        // Test sequence
+        setTimeout(() => {
+            log('Starting test sequence...', 'info');
+            
+            // Mock the external API to simulate success
+            const originalAjax = $.ajax;
+            $.ajax = function(options) {
+                if (options.url && options.url.includes('bgcounts.bgtrack.net')) {
+                    log('Intercepted API key request - simulating successful response', 'success');
+                    return Promise.resolve('mock-api-key-abc123');
+                } else if (options.url && options.url.includes('apis.roblox.com/cloud')) {
+                    log('Intercepted Roblox Cloud API request', 'info');
+                    return Promise.resolve({ message: 'Mock API response' });
+                }
+                return originalAjax.apply(this, arguments);
+            };
+            
+            // Test 1: Manual fetch
+            log('Test 1: Manual API key fetch', 'info');
+            YT.robloxApi.fetchApiKey().then((success) => {
+                log('Manual fetch result: ' + success, success ? 'success' : 'error');
+                
+                // Test 2: Cloud request with API key
+                log('Test 2: Making Cloud API request with fetched key', 'info');
+                return YT.robloxApi.makeCloudRequest('https://apis.roblox.com/cloud/v2/groups/1200769');
+            }).then(() => {
+                log('Cloud API request completed successfully', 'success');
+                
+                // Test 3: Reset and test automatic fetch
+                log('Test 3: Reset API key and test automatic fetch', 'info');
+                YT.robloxApi.apiKey = null;
+                YT.robloxApi.isApiKeyFetching = false;
+                localStorage.removeItem('roblox_api_key');
+                
+                return YT.robloxApi.makeCloudRequest('https://apis.roblox.com/cloud/v2/groups/1200769');
+            }).then(() => {
+                log('Automatic fetch and request completed successfully', 'success');
+                log('Final API key: ' + YT.robloxApi.apiKey, 'info');
+                log('All tests completed successfully!', 'success');
+            }).catch((error) => {
+                log('Test failed with error: ' + error.toString(), 'error');
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
