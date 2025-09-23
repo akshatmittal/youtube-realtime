@@ -1,18 +1,26 @@
 YT.query = {
   begin: function () {
-    $.getJSON(
-      "https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(YT.live.vs1),
-      function (f) {
-        $.getJSON(
-          "https://mixerno.space/api/youtube-channel-counter/user/" + encodeURIComponent(YT.live.vs2),
-          function (g) {
-            YT.updateManager.updateCover(f.user[2].count, g.user[2].count);
-            YT.updateManager.updateName(f.user[0].count, g.user[0].count);
-            YT.updateManager.updateProfile(f.user[1].count, g.user[1].count);
-          },
-        );
-      },
-    );
+    // Use Roblox API to get group data for both groups
+    Promise.all([
+      YT.robloxApi.getGroupData(YT.live.vs1),
+      YT.robloxApi.getGroupData(YT.live.vs2)
+    ]).then(([group1Data, group2Data]) => {
+      // Update cover images, names, and profile images
+      YT.updateManager.updateCover(
+        group1Data.user[2].count, 
+        group2Data.user[2].count
+      );
+      YT.updateManager.updateName(
+        group1Data.user[0].count, 
+        group2Data.user[0].count
+      );
+      YT.updateManager.updateProfile(
+        group1Data.user[1].count, 
+        group2Data.user[1].count
+      );
+    }).catch(error => {
+      console.error("Error fetching group comparison data:", error);
+    });
   },
   bind: function () {},
 };

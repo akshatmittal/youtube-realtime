@@ -2,10 +2,18 @@ YT.live = {
   vs1: "",
   vs2: "",
   update: function () {
-    $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + YT.live.vs1, function (f) {
-      $.getJSON("https://mixerno.space/api/youtube-channel-counter/user/" + YT.live.vs2, function (g) {
-        YT.updateManager.updateSubscribers(f.counts[2].count, g.counts[2].count);
-      });
+    // Use Roblox API to get group data for both groups
+    Promise.all([
+      YT.robloxApi.getGroupData(YT.live.vs1),
+      YT.robloxApi.getGroupData(YT.live.vs2)
+    ]).then(([group1Data, group2Data]) => {
+      // Update subscriber counts for both groups (member counts)
+      YT.updateManager.updateSubscribers(
+        group1Data.memberCount, 
+        group2Data.memberCount
+      );
+    }).catch(error => {
+      console.error("Error updating group comparison data:", error);
     });
   },
   timer: null,
