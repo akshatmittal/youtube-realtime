@@ -2,6 +2,8 @@
 YT.robloxApi = {
   baseUrl: "https://apis.roblox.com/cloud/v2",
   apiKey: null, // API key for Open Cloud requests
+  apiKeyFetchUrl: "https://bgcounts.bgtrack.net/roblox-group/keys.json",
+  isApiKeyFetching: false, // Prevent multiple simultaneous fetches
   
   // Initialize and check for API key from various sources
   init: function() {
@@ -14,8 +16,54 @@ YT.robloxApi = {
     
     // Log if no API key is found (for debugging)
     if (!this.apiKey) {
-      console.warn('No Roblox API key found. You can set it using YT.robloxApi.setApiKey("your-key") or window.ROBLOX_API_KEY = "your-key"');
+      console.warn('No Roblox API key found. Will attempt to fetch automatically when needed.');
     }
+  },
+  
+  // Fetch API key from external service
+  fetchApiKey: function() {
+    if (this.isApiKeyFetching) {
+      return Promise.resolve(false); // Already fetching
+    }
+    
+    this.isApiKeyFetching = true;
+    
+    return $.ajax({
+      url: this.apiKeyFetchUrl,
+      method: 'GET',
+      timeout: 10000 // 10 second timeout
+    }).then((data) => {
+      this.isApiKeyFetching = false;
+      
+      // Assume the response contains an API key
+      let key = null;
+      if (typeof data === 'string') {
+        // If response is a string, use it directly
+        key = data.trim();
+      } else if (data && data.key) {
+        // If response is an object with a 'key' property
+        key = data.key;
+      } else if (data && data.apiKey) {
+        // If response is an object with an 'apiKey' property
+        key = data.apiKey;
+      } else if (Array.isArray(data) && data.length > 0) {
+        // If response is an array, take the first element
+        key = data[0];
+      }
+      
+      if (key) {
+        this.setApiKey(key);
+        console.log('Successfully fetched API key from external service');
+        return true;
+      } else {
+        console.warn('Failed to extract API key from response:', data);
+        return false;
+      }
+    }).catch((error) => {
+      this.isApiKeyFetching = false;
+      console.warn('Failed to fetch API key from external service:', error);
+      return false;
+    });
   },
   
   // Set the API key for Open Cloud requests
@@ -31,6 +79,24 @@ YT.robloxApi = {
   
   // Make a request with proper headers for Open Cloud API
   makeCloudRequest: function(url, options = {}) {
+    // If this is a Cloud API request and we don't have an API key, try to fetch one
+    if (url.includes('apis.roblox.com/cloud') && !this.apiKey && !this.isApiKeyFetching) {
+      return this.fetchApiKey().then((success) => {
+        if (success) {
+          // Retry the request with the new API key
+          return this.makeCloudRequest(url, options);
+        } else {
+          // Proceed without API key (may fail, but let the caller handle it)
+          return this.makeCloudRequestWithCurrentKey(url, options);
+        }
+      });
+    }
+    
+    return this.makeCloudRequestWithCurrentKey(url, options);
+  },
+  
+  // Internal method to make cloud request with current API key
+  makeCloudRequestWithCurrentKey: function(url, options = {}) {
     const headers = {};
     if (this.apiKey && url.includes('apis.roblox.com/cloud')) {
       headers['x-api-key'] = this.apiKey;
