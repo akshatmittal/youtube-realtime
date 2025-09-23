@@ -19,7 +19,7 @@ YT.updateManager = {
   updateCover: function (e) {
     $("#yt_cover").attr("src", e);
   },
-  updateSubscribers: function (e) {
+  updateMembers: function (e) {
     $("#yt_subs").text(e);
   },
   updateViews: function (e) {

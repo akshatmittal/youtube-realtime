@@ -8,7 +8,7 @@ YT.live = {
       YT.robloxApi.getGroupData(YT.live.vs2)
     ]).then(([group1Data, group2Data]) => {
       // Update subscriber counts for both groups (member counts)
-      YT.updateManager.updateSubscribers(
+      YT.updateManager.updateMembers(
         group1Data.memberCount, 
         group2Data.memberCount
       );

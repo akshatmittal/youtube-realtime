@@ -23,7 +23,7 @@ YT.sharing = {
     $("#yt_searchvalue_m").focus();
   },
   getText: function () {
-    return encodeURIComponent("Check out " + $("#yt_name").text() + "'s real time subscriber count on @YouTube!");
+    return encodeURIComponent("Check out " + $("#yt_name").text() + "'s real time member count on @Roblox!");
   },
   getEncodedURL: function () {
     return encodeURIComponent(YT.urls.getCurrent());

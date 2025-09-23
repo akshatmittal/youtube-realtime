@@ -22,7 +22,7 @@ YT.updateManager = {
     $("#yt_cover_vs1").attr("src", e);
     $("#yt_cover_vs2").attr("src", f);
   },
-  updateSubscribers: function (e, f) {
+  updateMembers: function (e, f) {
     $("#yt_subs_vs1").text(e);
     $("#yt_subs_vs2").text(f);
     $("#yt_diff").text(Math.abs(parseInt(e) - parseInt(f)));
