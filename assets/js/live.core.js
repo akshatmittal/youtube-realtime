@@ -4,7 +4,7 @@ YT.live = {
     YT.robloxApi.getGroupData(this.channelID)
       .then(function (groupData) {
         if (groupData) {
-          YT.updateManager.updateSubscribers(groupData.memberCount);
+          YT.updateManager.updateMembers(groupData.memberCount);
           YT.updateManager.updateViews(0); // Groups don't have views
           YT.updateManager.updateVideos(0); // Groups don't have videos
         } else {

@@ -18,7 +18,7 @@ YT.query = {
           YT.updateManager.updateCover(groupData.user[2].count);
           YT.updateManager.updateName(groupData.user[0].count);
           YT.updateManager.updateProfile(groupData.user[1].count);
-          YT.updateManager.updateSubscribers(groupData.memberCount);
+          YT.updateManager.updateMembers(groupData.memberCount);
           YT.urls.pushState(term);
           YT.live.start();
         })

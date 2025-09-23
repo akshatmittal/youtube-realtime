@@ -30,11 +30,11 @@ YT.sharing = {
     return encodeURIComponent(
       "I support " +
         $("#yt_brand_" + e).text() +
-        " in this subscriber count battle of " +
+        " in this member count battle of " +
         $("#yt_brand_vs1").text() +
         " vs " +
         $("#yt_brand_vs2").text() +
-        " on @YouTube!",
+        " on @Roblox!",
     );
   },
   getEncodedURL: function () {
