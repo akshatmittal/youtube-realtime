@@ -6,7 +6,7 @@ YT.sharing = {
         YT.sharing.getEncodedURL() +
         "&ref_src=twsrc%5Etfw&text=" +
         YT.sharing.getText("vs1") +
-        "&tw_p=tweetbutton&via=iakshatmittal&url=" +
+        "&tw_p=tweetbutton&via=ElecOrBlox&url=" +
         YT.sharing.getEncodedURL(),
     );
   },
@@ -19,7 +19,7 @@ YT.sharing = {
         YT.sharing.getEncodedURL() +
         "&ref_src=twsrc%5Etfw&text=" +
         YT.sharing.getText("vs2") +
-        "&tw_p=tweetbutton&via=iakshatmittal&url=" +
+        "&tw_p=tweetbutton&via=ElecOrBlox&url=" +
         YT.sharing.getEncodedURL(),
     );
   },
