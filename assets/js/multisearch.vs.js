@@ -1,16 +1,31 @@
 YT.multisearch = {
+YT.multisearch = {
   getResults: function (e) {
-    $.getJSON(
-      "https://api.subscribercounter.nl/api/youtube-subscriber-count/" + encodeURIComponent(e) + "/search",
-      function (e) {
+    // Use Roblox API to search for groups
+    YT.robloxApi.searchGroups(e)
+      .then(function (data) {
         $er = $("#results");
         $er.html("");
-        e.data.forEach(function (f) {
-          if (f.id == YT.live.vs1 || f.id == YT.live.vs2) return;
-          $er.append(YT.multisearch.giveHtml(f.name, f.picture, f.id));
-        });
-      },
-    );
+        if (data.data && data.data.length > 0) {
+          data.data.forEach(function (group) {
+            if (group.id == YT.live.vs1 || group.id == YT.live.vs2) return;
+            // Get group details to have icon
+            YT.robloxApi.getGroupData(group.id)
+              .then(function (groupData) {
+                $er.append(YT.multisearch.giveHtml(groupData.name, groupData.icon, group.id));
+              })
+              .catch(function (error) {
+                console.error("Error fetching group details:", error);
+                // Use basic data if detailed fetch fails
+                $er.append(YT.multisearch.giveHtml(group.displayName || group.name, "assets/images/icon.png", group.id));
+              });
+          });
+        }
+      })
+      .catch(function (error) {
+        console.error("Error searching groups:", error);
+        $("#results").html("");
+      });
   },
   giveHtml: function (name, image, id) {
     $e = $("<div>", {
