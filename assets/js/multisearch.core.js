@@ -1,5 +1,4 @@
 YT.groupSearch = {
-YT.groupSearch = {
   getResults(query) {
     YT.robloxApi.searchGroups(query)
       .then(data => {

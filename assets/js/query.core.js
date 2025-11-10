@@ -10,7 +10,7 @@ YT.query = {
       YT.robloxApi.getGroupData(term)
         .then(function (groupData) {
           if (!groupData || !groupData.user) {
-            alert("No group found with ID "" + term + """);
+            alert("No group found with ID " + term);
             location.href = baseURL;
             return;
           }
@@ -24,7 +24,7 @@ YT.query = {
         })
         .catch(function (error) {
           console.error("Error fetching group data:", error);
-          alert("No group found with ID "" + term + """);
+          alert("No group found with ID " + term);
           location.href = baseURL;
         });
     }
@@ -32,7 +32,7 @@ YT.query = {
       YT.robloxApi.searchGroups(term)
         .then(function (res) {
           if (!res || !res.data || !res.data.length) {
-            alert("No groups found matching "" + term + """);
+            alert("No groups found matching "+ term);
             location.href = baseURL;
             return;
           }
@@ -41,7 +41,7 @@ YT.query = {
         })
         .catch(function (error) {
           console.error("Error searching groups:", error);
-          alert("No groups found matching "" + term + """);
+          alert("No groups found matching " + term);
           location.href = baseURL;
         });
     }
