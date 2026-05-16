@@ -1,3 +1,9 @@
+> [!NOTE]
+> ### ⚠️ Continuation
+> This project is no longer being actively maintained.
+> 
+> Check out **[Social Counts by Falchus.com](https://gh.falchus.com/social-counts)**!
+
 # YouTube Realtime
 
 This is a simple experiment which shows the current live subscriber count on YouTube for a user. The count displayed on YouTube is often incorrect because it doesn't update in real time. The count used on this experiment is taken directly from the API and hence is guaranteed to be accurate.
